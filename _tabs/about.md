@@ -37,7 +37,7 @@ I am yiihao, a Ph.D. at the department of Physics, Westlake University, Hangzhou
 ## Skills
 
 * Python3 (ASE, Pymatgen, etc.)
-* ?
+* AI-assisted (×)
 
 ## Softwares
 * <img width="20" height="20" src="https://github.com/user-attachments/assets/96008e19-31d0-4968-a644-dfdfec30fd53" /> **QRSync** - *Air-gapped file transmission*
