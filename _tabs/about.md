@@ -31,7 +31,7 @@ I am yiihao, a Ph.D. at the department of Physics, Westlake University, Hangzhou
 * **[Book Chapter]** “Multiscale simulations of ferroelectric oxides”, Jiawei Huang, Zhuang Qian, **Yihao Hu**, Qisheng Yu and Shi Liu, Ferroelectrics: Advances in fundamental studies and emerging applications, Online ISBN: 978-0-7503-3975-9 • Print ISBN: 978-0-7503-3973-5
 
 <div align="center">
-<img src="/assets/img/Dipole_Spiral_o.png" alt="Nobel Prize Candidate" width="50%">
+<img src="/assets/img/Dipole_Spiral_o.png" alt="Nobel Prize Candidate" width="70%">
 </div>
 
 ## Skills
