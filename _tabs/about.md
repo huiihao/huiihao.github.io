@@ -24,13 +24,13 @@ I am yiihao, a Ph.D. at the department of Physics, Westlake University, Hangzhou
 * Hao Luo, Qi Liang, Anan Guo, Yimeng Yu, Haoyang Peng, Xiaoyi Gao, **Yihao Hu**, Xianli Su, Ctirad Uher, Yu Zheng, Dongwang Yang, Xiaolin Wang, Qingjie Zhang, Xinfeng Tang, Shi Liu, Gustaaf Van Tendeloo, Shujun Zhang* & Jinsong Wu*, "Current induced electromechanical strain in thin antipolar Ag2Se semiconductor", Nat. Commun. 16, 1818 (2025) DOI:doi.org/10.1038/s41467-025-57057-5
 * **Yihao Hu**, Jiyuan Yang, Shi Liu*, "Giant Piezoelectric Effects of Topological Structures in Stretched Ferroelectric Membranes", Phys. Rev. Lett. 133, 046802 (Editors’ Suggestion) DOI:10.1103/PhysRevLett.133.046802
 * Tingting Luo, Fanjie Xia, Quansheng Guo, Shi Liu*, **Yihao Hu**, Yaqiong Zhong, Junhao Qiu, Lin Liao, Wei Ji, Xianli Su, Jinsong Wu*, and Xinfeng Tang*, "Enhancing Thermoelectric Performance in Cubic CuCdInSe3 Compounds via Pressure-Induced Twin Boundary Engineering", ACS Appl. Energy Mater. 6, 24, 12379–12388 DOI:10.1021/acsaem.3c02233
-* Tingting Luo†, **Yihao Hu**†, Shi Liu, Fanjie Xia, Junhao Qiu, Haoyang Peng, Keke Liu, Quansheng Guo, XingZhong Li, Dongwang Yang, Xianli Su*, Jinsong Wu*, Xinfeng Tang*, "Entropy-driven structural transition from tetragonal to cubic phase: High thermoelectric performance of CuCdInSe3 compound", Mater. Today Phys. 37, 101211 DOI:10.1016/j.mtphys.2023.101211
+* Tingting Luo<sup>†</sup>, **Yihao Hu**<sup>†</sup>, Shi Liu, Fanjie Xia, Junhao Qiu, Haoyang Peng, Keke Liu, Quansheng Guo, XingZhong Li, Dongwang Yang, Xianli Su*, Jinsong Wu*, Xinfeng Tang*, "Entropy-driven structural transition from tetragonal to cubic phase: High thermoelectric performance of CuCdInSe3 compound", Mater. Today Phys. 37, 101211 DOI:10.1016/j.mtphys.2023.101211
 * Changming Ke, **Yihao Hu** and Shi Liu*, "Depolarization Induced III-V Triatomic Layers with Tristable Polarization States", Nanoscale Horiz. 8, 616-623 DOI:10.1039/D3NH00026E
-* Jiawei Huang†, **Yihao Hu**†, and Shi Liu*, "Origin of ferroelectricity in magnesium doped zinc oxide", Phys. Rev. B 106, 144106 DOI:10.1103/PhysRevB.106.144106
-* Zijun Zhang†, Xing Chen†, Xiaoming Shi†, **Yihao Hu**, Jiawei Huang, Shi Liu, Zhaohui Ren, Houbing Huang, Gaorong Han, Gustaaf Van Tendeloo, Ze Zhang, He Tian*, "Morphotropic phase boundary in pure perovskite lead titanate at room temperature", Mater. Today Nano 20, 100275 DOI:10.1016/j.mtnano.2022.100275
+* Jiawei Huang<sup>†</sup>, **Yihao Hu**<sup>†</sup>, and Shi Liu*, "Origin of ferroelectricity in magnesium doped zinc oxide", Phys. Rev. B 106, 144106 DOI:10.1103/PhysRevB.106.144106
+* Zijun Zhang<sup>†</sup>, Xing Chen<sup>†</sup>, Xiaoming Shi<sup>†</sup>, **Yihao Hu**, Jiawei Huang, Shi Liu, Zhaohui Ren, Houbing Huang, Gaorong Han, Gustaaf Van Tendeloo, Ze Zhang, He Tian*, "Morphotropic phase boundary in pure perovskite lead titanate at room temperature", Mater. Today Nano 20, 100275 DOI:10.1016/j.mtnano.2022.100275
 * **[Book Chapter]** “Multiscale simulations of ferroelectric oxides”, Jiawei Huang, Zhuang Qian, **Yihao Hu**, Qisheng Yu and Shi Liu, Ferroelectrics: Advances in fundamental studies and emerging applications, Online ISBN: 978-0-7503-3975-9 • Print ISBN: 978-0-7503-3973-5
 
-<img src="https://liutheory.westlake.edu.cn/paper_poster/2024-PRL_spiral.html" alt="图片描述" width="500">
+<img src="assets/img/Poster_ Dipole Spiral.html" alt="Nobel Prize Candidate" width="500">
 
 ## Skills
 
