@@ -8,8 +8,6 @@ order: 4
 
 I am yiihao, a Ph.D. at the department of Physics, Westlake University, Hangzhou, Zhejiang, China.
 
-[My google scholar](https://scholar.google.com/citations?hl=zh-CN&authuser=1&user=JHcBJxIAAAAJ)
-
 ## Research Interests
 
 * Multi-scale simulations of ferroelectrics
@@ -17,6 +15,8 @@ I am yiihao, a Ph.D. at the department of Physics, Westlake University, Hangzhou
 * Workflow development
 
 ## Publication
+
+[My google scholar](https://scholar.google.com/citations?hl=zh-CN&authuser=1&user=JHcBJxIAAAAJ)
 
 * **Yihao Hu***, and Shi Liu*, "Double Helix of Atomic Displacements in Ferroelectric PbTiO3", Chin. Phys. Lett. 42, 120707 (2025) DOI:doi.org/10.1088/0256-307X/42/12/120707
 * Yonghao Yao, Hui Liu*, **Yihao Hu**, Kaustuv Datta, Jiagang Wu, Yuanpeng Zhang, Matthew G. Tucker, Shi Liu, Joerg C. Neuefeind, Shujun Zhang, and Jun Chen* , "Fluctuating local polarization: a generic fingerprint for enhanced piezoelectricity in Pb-based and Pb-free perovskite ferroelectrics", Nat. Commun. 16, 7442 (2025) DOI:doi.org/10.1038/s41467-025-62701-1
@@ -30,7 +30,7 @@ I am yiihao, a Ph.D. at the department of Physics, Westlake University, Hangzhou
 * Zijun Zhang<sup>†</sup>, Xing Chen<sup>†</sup>, Xiaoming Shi<sup>†</sup>, **Yihao Hu**, Jiawei Huang, Shi Liu, Zhaohui Ren, Houbing Huang, Gaorong Han, Gustaaf Van Tendeloo, Ze Zhang, He Tian*, "Morphotropic phase boundary in pure perovskite lead titanate at room temperature", Mater. Today Nano 20, 100275 DOI:10.1016/j.mtnano.2022.100275
 * **[Book Chapter]** “Multiscale simulations of ferroelectric oxides”, Jiawei Huang, Zhuang Qian, **Yihao Hu**, Qisheng Yu and Shi Liu, Ferroelectrics: Advances in fundamental studies and emerging applications, Online ISBN: 978-0-7503-3975-9 • Print ISBN: 978-0-7503-3973-5
 
-<img src="assets/img/Poster_ Dipole Spiral.html" alt="Nobel Prize Candidate" width="500">
+<img src="/assets/img/Dipole_Spiral.svg" alt="Nobel Prize Candidate" width="500">
 
 ## Skills
 
