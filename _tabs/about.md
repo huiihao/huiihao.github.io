@@ -30,9 +30,9 @@ I am yiihao, a Ph.D. at the department of Physics, Westlake University, Hangzhou
 * Zijun Zhang<sup>†</sup>, Xing Chen<sup>†</sup>, Xiaoming Shi<sup>†</sup>, **Yihao Hu**, Jiawei Huang, Shi Liu, Zhaohui Ren, Houbing Huang, Gaorong Han, Gustaaf Van Tendeloo, Ze Zhang, He Tian\*, "Morphotropic phase boundary in pure perovskite lead titanate at room temperature", Mater. Today Nano 20, 100275 DOI:10.1016/j.mtnano.2022.100275
 * **[Book Chapter]** “Multiscale simulations of ferroelectric oxides”, Jiawei Huang, Zhuang Qian, **Yihao Hu**, Qisheng Yu and Shi Liu, Ferroelectrics: Advances in fundamental studies and emerging applications, Online ISBN: 978-0-7503-3975-9 • Print ISBN: 978-0-7503-3973-5
 
-<div align="center">
+<p align="center">
 <img src="/assets/img/Dipole_Spiral_o.png" alt="Nobel Prize Candidate" width="70%">
-</div>
+</p>
 
 ## Skills
 
