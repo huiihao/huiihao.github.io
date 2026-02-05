@@ -24,6 +24,10 @@ platforms:
     # link: "https://weibo.com/u/5970297013"
     link: "https://service.weibo.com/share/share.php?title=TITLE&url=URL"
 
+  - type: QQ
+    icon: "fab fa-qq"
+    link: "https://connect.qq.com/widget/shareqq/index.html?title=TITLE&url=URL"
+
   # Uncomment below if you need to.
   #
   # - type: Linkedin
