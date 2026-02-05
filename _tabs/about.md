@@ -6,7 +6,7 @@ order: 4
 
 ## Welcome
 
-I am yiihao, a Ph.D. at the department of Physics, Westlake University, Hangzhou, Zhejiang, China.
+I am yiihao, a Ph.D. at the department of Physics, Westlake University & Zhejiang University, Hangzhou, Zhejiang, China.
 
 ## Research Interests
 
