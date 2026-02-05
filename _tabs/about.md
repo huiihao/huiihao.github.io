@@ -29,6 +29,7 @@ I am yiihao, a Ph.D. at the department of Physics, Westlake University & Zhejian
 * Jiawei Huang<sup>†</sup>, **Yihao Hu**<sup>†</sup>, and Shi Liu\*, "Origin of ferroelectricity in magnesium doped zinc oxide", Phys. Rev. B 106, 144106 DOI:10.1103/PhysRevB.106.144106
 * Zijun Zhang<sup>†</sup>, Xing Chen<sup>†</sup>, Xiaoming Shi<sup>†</sup>, **Yihao Hu**, Jiawei Huang, Shi Liu, Zhaohui Ren, Houbing Huang, Gaorong Han, Gustaaf Van Tendeloo, Ze Zhang, He Tian\*, "Morphotropic phase boundary in pure perovskite lead titanate at room temperature", Mater. Today Nano 20, 100275 DOI:10.1016/j.mtnano.2022.100275
 * **[Book Chapter]** “Multiscale simulations of ferroelectric oxides”, Jiawei Huang, Zhuang Qian, **Yihao Hu**, Qisheng Yu and Shi Liu, Ferroelectrics: Advances in fundamental studies and emerging applications, Online ISBN: 978-0-7503-3975-9 • Print ISBN: 978-0-7503-3973-5
+* **[Book]** “电子材料计算”, 刘仕（Yihao Hu：全局整合编写）, 施建章, 彭仁赐, etc., 清华大学出版社, ISBN: 978-7-3026-7887-8
 
 <!-- <p align="middle">
     <img src="/assets/img/Dipole_Spiral_o.png" alt="Nobel Prize Candidate" width="70%">
