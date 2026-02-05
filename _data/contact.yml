@@ -15,12 +15,12 @@
 #   noblank: true
 
 - type: linkedin
-   icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
-   url:  'https://www.linkedin.com/in/yihao-hu-04b8871b2/'                  # Fill with your Linkedin homepage
+  icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
+  url:  'https://www.linkedin.com/in/yihao-hu-04b8871b2/'                  # Fill with your Linkedin homepage
 
 - type: Weibo
-   icon: "fab fa-weibo"
-   link: "https://weibo.com/u/5970297013"
+  icon: "fab fa-weibo"
+  link: "https://weibo.com/u/5970297013"
   
 # Uncomment and complete the url below to enable more contact options
 #
