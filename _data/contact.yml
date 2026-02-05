@@ -14,6 +14,10 @@
 #   icon: "fas fa-rss"
 #   noblank: true
 
+- type: Zhihu
+  icon: 'fab fa-zhihu'   # icons powered by <https://fontawesome.com/>
+  url:  'https://www.zhihu.com/people/wei-rui-38-63'
+
 - type: linkedin
   icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
   url:  'https://www.linkedin.com/in/yihao-hu-04b8871b2/'                  # Fill with your Linkedin homepage
