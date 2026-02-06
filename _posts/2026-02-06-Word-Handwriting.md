@@ -12,6 +12,7 @@ toc: true
 [![Microsoft Word](https://img.shields.io/badge/MS_Word-2B579A?style=flat-square&logo=microsoft-word&logoColor=white)](https://www.microsoft.com/microsoft-365/word)
 [![VBA](https://img.shields.io/badge/VBA-867e77?style=flat-square&logo=visual-studio&logoColor=white)](https://docs.microsoft.com/office/vba/api/overview/)
 
+
 > ✨ 一个让 Word 文档"看起来像手写"的 VBA 宏，通过随机化字体、字号和排版参数，模拟真实手写效果。目前的版本是网络摘录所得（AI之前），现在可以使用AI来优化这个宏，使其更加智能和高效。
 
 ---
@@ -54,7 +55,7 @@ toc: true
 <details>
 <summary><b>宏代码</b></summary>
 
-```
+```vba
 Sub 字体修改()
 ' 字体修改 宏
 
