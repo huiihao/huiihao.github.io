@@ -69,7 +69,7 @@ I am yiihao, a Ph.D. at the department of Physics, Westlake University & Zhejian
 
 > Transmit files via QR code sequences in isolated environments
 >
-> 🏷️ **Tags:** Browser-based · Zero-install · No Server · Offline
+> 🏷️ **Tags:** Browser-based · Zero-install · No Server · Air-gapped
 
 [📦 GitHub](https://github.com/huiihao/QRSync)
 
