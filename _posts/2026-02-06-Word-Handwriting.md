@@ -52,10 +52,10 @@ toc: true
 4. 复制下方的宏代码
 5. 保存并关闭 VBA 编辑器
 
+
 <details>
 <summary><b>宏代码</b></summary>
-
-```vba
+<pre><code class="language-vba">
 Sub 字体修改()
 ' 字体修改 宏
 
@@ -155,8 +155,8 @@ Selection.Find.Execute Replace:=wdReplaceAll
 Application.ScreenUpdating = True
 
 End Sub
-```
-
+</code>
+</pre>
 </details>
 
 
