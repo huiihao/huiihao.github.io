@@ -31,11 +31,17 @@ I am yiihao, a Ph.D. at the department of Physics, Westlake University & Zhejian
 * **[Book Chapter]** “Multiscale simulations of ferroelectric oxides”, Jiawei Huang, Zhuang Qian, **Yihao Hu**, Qisheng Yu and Shi Liu, Ferroelectrics: Advances in fundamental studies and emerging applications, Online ISBN: 978-0-7503-3975-9 • Print ISBN: 978-0-7503-3973-5
 * **[Book]** “电子材料计算”, 刘仕（**Yihao Hu**：全局整合编写）, 施建章, 彭仁赐, etc., 清华大学出版社, ISBN: 978-7-3026-7887-8
 
-<!-- <p align="middle">
-    <img src="/assets/img/Dipole_Spiral_o.png" alt="Nobel Prize Candidate" width="70%">
-</p> -->
 
-![Nobel Prize Candidate](/assets/img/Dipole_Spiral_o.png){: width="50%" height="50%" }
+<!-- ![Nobel Prize Candidate](/assets/img/Dipole_Spiral_o.png){: width="50%" height="50%" } -->
+
+<p align="center">
+  <img 
+    src="/assets/img/Dipole_Spiral_o.png" 
+    alt="Nobel Prize Candidate" 
+    width="50%" 
+    style="max-width: 100%; height: auto;"
+  />
+</p>
 
 ## Skills
 
@@ -43,13 +49,17 @@ I am yiihao, a Ph.D. at the department of Physics, Westlake University & Zhejian
 * AI-assisted (×)
 
 ## Softwares
-* <img width="20" height="20" alt='QRsync' src="https://github.com/user-attachments/assets/96008e19-31d0-4968-a644-dfdfec30fd53" /> **QRSync** - *Air-gapped file transmission*
-  
-  > Transmit files via QR code sequences in isolated environments
-  >
-  > 🏷️ **Tags:** Browser-based · Zero-install · No Server · Offline
-  
-  [📦 GitHub](https://github.com/huiihao/QRSync)
+
+<p>
+  <img width="24" height="24" align="center" src="https://github.com/user-attachments/assets/96008e19-31d0-4968-a644-dfdfec30fd53" style="vertical-align: middle; margin-right: 6px;" alt="QRsync">
+  <strong>QRSync</strong> — <em>Air-gapped file transmission</em>
+</p>
+
+> Transmit files via QR code sequences in isolated environments
+>
+> 🏷️ **Tags:** Browser-based · Zero-install · No Server · Air-gapped
+
+[📦 GitHub](https://github.com/huiihao/QRSync)
 
 ## Interest
 
