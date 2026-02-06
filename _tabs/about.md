@@ -18,7 +18,7 @@ I am yiihao, a Ph.D. at the department of Physics, Westlake University & Zhejian
 
 [My google scholar](https://scholar.google.com/citations?hl=zh-CN&authuser=1&user=JHcBJxIAAAAJ)
 
-* **Yihao Hu**\*, and Shi Liu\*, "Double Helix of Atomic Displacements in Ferroelectric PbTiO<sub>3</sub>", **Chin. Phys. Lett.** 42, 120707 (2025) DOI:doi.org/10.1088/0256-307X/42/12/120707
+* <mark style="background-color: #008B8B; color: white">**Yihao Hu**</mark>\*, and Shi Liu\*, "Double Helix of Atomic Displacements in Ferroelectric PbTiO<sub>3</sub>", **Chin. Phys. Lett.** 42, 120707 (2025) DOI:doi.org/10.1088/0256-307X/42/12/120707
 * Yonghao Yao, Hui Liu\*, **Yihao Hu**, Kaustuv Datta, Jiagang Wu, Yuanpeng Zhang, Matthew G. Tucker, Shi Liu, Joerg C. Neuefeind, Shujun Zhang, and Jun Chen* , "Fluctuating local polarization: a generic fingerprint for enhanced piezoelectricity in Pb-based and Pb-free perovskite ferroelectrics", Nat. Commun. 16, 7442 (2025) DOI:doi.org/10.1038/s41467-025-62701-1
 * Ching-Che Lin, **Yihao Hu**, Jaegyu Kim, Djamila Lou, Ashwath Bhat, Pravin Kavle, Tae Yeon Kim, Chris Dames, Shi Liu\*, and Lane W. Martin\*, "Domain-wall enhanced pyroelectricity", **Phys. Rev. X** 15, 011063 (2025) DOI:doi.org/10.1103/PhysRevX.15.011063
 * Hao Luo, Qi Liang, Anan Guo, Yimeng Yu, Haoyang Peng, Xiaoyi Gao, **Yihao Hu**, Xianli Su, Ctirad Uher, Yu Zheng, Dongwang Yang, Xiaolin Wang, Qingjie Zhang, Xinfeng Tang, Shi Liu, Gustaaf Van Tendeloo, Shujun Zhang* & Jinsong Wu\*, "Current induced electromechanical strain in thin antipolar Ag<sub>2</sub>Se semiconductor", Nat. Commun. 16, 1818 (2025) DOI:doi.org/10.1038/s41467-025-57057-5
