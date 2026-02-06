@@ -12,11 +12,17 @@ I am yiihao, a Ph.D. at the department of Physics, Westlake University & Zhejian
 
 * Multi-scale simulations of ferroelectrics
 * Machine learning force field development
-* Workflow development
+* Quantitative Investment
 
 ## Publication
 
-[My google scholar](https://scholar.google.com/citations?hl=zh-CN&authuser=1&user=JHcBJxIAAAAJ)
+<!-- [My google scholar](https://scholar.google.com/citations?hl=zh-CN&authuser=1&user=JHcBJxIAAAAJ) -->
+
+<span style="background: linear-gradient(120deg, #00498F, #34A853); padding: 4px 12px; border-radius: 4px;">
+  <a href="https://scholar.google.com/citations?hl=zh-CN&authuser=1&user=JHcBJxIAAAAJ" style="color: white; text-decoration: none; font-weight: bold;">
+    📚 My Google Scholar
+  </a>
+</span>
 
 <!-- <mark style="background-color: #00498F; color: white"><b><u>Yihao Hu</u></b></mark> -->
 
