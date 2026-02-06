@@ -47,21 +47,18 @@ blockquote[class^='prompt-']{
 
 /* 侧边栏相关文字样式设置 */
 #sidebar .site-title {
-    // color: #ffffff; 
-    color: #000000; 
+    color: #ffffff; 
     text-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 }
 #sidebar .site-subtitle {
-    // color: #ffffff; 
-    color: #000000; 
+    color: #ffffff; 
     text-shadow: 2px 2px 3px rgba(0,0,0, 0.7);
 }
 #sidebar ul li.nav-item a.nav-link span{
     font-size: 100%;
 }
 #sidebar ul li.nav-item a.nav-link {
-    // color: #ffffff; 
-    color: #000000; 
+    color: #ffffff; 
 }
 
 // 让目录不产生折叠效果
