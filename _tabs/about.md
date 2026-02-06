@@ -50,16 +50,49 @@ I am yiihao, a Ph.D. at the department of Physics, Westlake University & Zhejian
 
 ## Softwares
 
-<p>
-  <img width="24" height="24" align="center" src="https://github.com/user-attachments/assets/96008e19-31d0-4968-a644-dfdfec30fd53" style="vertical-align: middle; margin-right: 6px;" alt="QRsync">
-  <strong>QRSync</strong> — <em>Air-gapped file transmission</em>
-</p>
+<table>
+  <tr>
+    <td width="64" valign="middle">
+      <img 
+        width="100%" 
+        height="100%" 
+        style="display: block;" 
+        alt='QRsync' 
+        src="https://github.com/user-attachments/assets/96008e19-31d0-4968-a644-dfdfec30fd53" 
+      />
+    </td>
+    <td valign="middle">
+      <strong>QRSync</strong> - <em>Air-gapped file transmission</em>
+    </td>
+  </tr>
+</table>
 
 > Transmit files via QR code sequences in isolated environments
 >
-> 🏷️ **Tags:** Browser-based · Zero-install · No Server · Air-gapped
+> 🏷️ **Tags:** Browser-based · Zero-install · No Server · Offline
 
 [📦 GitHub](https://github.com/huiihao/QRSync)
+
+<!-- <p align="left">
+  <img 
+    width="24" 
+    height="24" 
+    style="max-width: 100%; height: auto; vertical-align: middle; margin-right: 8px;" 
+    alt='QRsync' 
+    src="https://github.com/user-attachments/assets/96008e19-31d0-4968-a644-dfdfec30fd53" 
+  />
+  <strong>QRSync</strong> - <em>Air-gapped file transmission</em>
+</p>
+
+<blockquote>
+  <p>Transmit files via QR code sequences in isolated environments</p>
+  <p>🏷️ <strong>Tags:</strong> Browser-based · Zero-install · No Server · Offline</p>
+</blockquote>
+
+<p>
+  <a href="https://github.com/huiihao/QRSync">📦 GitHub</a>
+</p> -->
+
 
 ## Interest
 
