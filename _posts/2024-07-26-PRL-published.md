@@ -4,7 +4,7 @@ date: 2024-07-26 00:00:00 +0800
 categories: [Research]
 tags: [physics, PRL, ferroelectric, dipole-spiral, zero-energy-mode, milestone]
 description: 记录我在Physical Review Letters上发表的第一篇论文，被选为Editor's Suggestion，物理系学生生涯的圆满时刻。
-toc: false
+toc: true
 # img_path: ../assets/img/202603/
 ---
 
@@ -12,7 +12,7 @@ toc: false
 
 [![PRL](https://img.shields.io/badge/Journal-PRL-005A9C?style=flat-square)](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.133.046802)
 [![Editor's Suggestion](https://img.shields.io/badge/Editor's_Suggestion-⭐-gold?style=flat-square)](https://journals.aps.org/prl/)
-[![Physics](https://img.shields.io/badge/Physics-Condensed_Matter-5C1466?style=flat-square)]()
+[![Physics](https://img.shields.io/badge/Physics-Condensed_Matter-5C1466?style=flat-square)](https://www.aps.org/physics/condensed-matter)
 [![西湖大学](https://img.shields.io/badge/Westlake_University-0A2F6A?style=flat-square)](https://www.westlake.edu.cn/)
 <!-- [![PRL](https://img.shields.io/badge/PRL-Editor's_Suggestion-2D628F?style=flat-square)](https://journals.aps.org/prl/) -->
 
