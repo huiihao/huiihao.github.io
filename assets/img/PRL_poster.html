@@ -1,0 +1,297 @@
+<div class="poster-wrapper">
+<style>
+    /* 隔离作用域，避免污染 Markdown 全局样式 */
+    .poster-wrapper {
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 40px 20px;
+        display: flex;
+        justify-content: center;
+        background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1E4D8C);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        color: #ffffff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    /* Core Glassmorphism Class */
+    .poster-wrapper .glass-panel {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        border-radius: 20px;
+    }
+
+    /* 海报整体容器 */
+    .poster-wrapper .poster-board {
+        width: 100%;
+        max-width: 1200px;
+        padding: 40px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    /* Header Section */
+    .poster-wrapper .header {
+        padding: 30px 40px;
+        text-align: center;
+        position: relative;
+    }
+
+    .poster-wrapper .journal-badge {
+        position: absolute;
+        top: 30px;
+        right: 40px;
+        background: rgba(200, 16, 46, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        backdrop-filter: blur(5px);
+    }
+
+    .poster-wrapper .journal-info {
+        position: absolute;
+        top: 35px;
+        left: 40px;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .poster-wrapper .title {
+        font-size: 42px;
+        line-height: 1.2;
+        margin: 40px 0 20px 0;
+        font-weight: 800;
+        background: -webkit-linear-gradient(#fff, #a1c4fd);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .poster-wrapper .authors {
+        font-size: 22px;
+        font-weight: 500;
+        margin-bottom: 10px;
+        color: #e2e8f0;
+    }
+
+    .poster-wrapper .affiliations {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.6);
+        font-style: italic;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.5;
+    }
+
+    /* 3-Column Layout */
+    .poster-wrapper .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        align-items: stretch; /* 强制三列等高 */
+    }
+
+    /* 定义列的 Flex 属性，解决重叠与底部对齐问题 */
+    .poster-wrapper .col {
+        display: flex;
+        flex-direction: column;
+        gap: 30px; /* 严格控制卡片间距，避免重叠 */
+    }
+
+    .poster-wrapper .section-card {
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        box-sizing: border-box;
+    }
+
+    /* 核心修复：让每一列的最后一个卡片填满底部剩余空间，实现底部绝对对齐 */
+    .poster-wrapper .col .section-card:last-child {
+        flex-grow: 1; 
+    }
+
+    /* 响应式：窄屏幕变为单列 */
+    @media (max-width: 900px) {
+        .poster-wrapper .grid-container {
+            grid-template-columns: 1fr;
+        }
+        .poster-wrapper .journal-info, 
+        .poster-wrapper .journal-badge {
+            position: static;
+            display: inline-block;
+            margin: 5px;
+        }
+        .poster-wrapper .title {
+            font-size: 32px;
+            margin-top: 20px;
+        }
+    }
+
+    .poster-wrapper .section-title {
+        font-size: 22px;
+        margin: 0 0 10px 0;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        color: #a1c4fd;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .poster-wrapper p, .poster-wrapper ul, .poster-wrapper li {
+        font-size: 15px;
+        line-height: 1.7;
+        margin-top: 0;
+        color: rgba(255, 255, 255, 0.85);
+    }
+
+    .poster-wrapper ul {
+        padding-left: 20px;
+        margin-bottom: 0;
+    }
+
+    .poster-wrapper li {
+        margin-bottom: 10px;
+    }
+
+    .poster-wrapper .highlight-box {
+        background: rgba(161, 196, 253, 0.1);
+        border-left: 4px solid #a1c4fd;
+        padding: 15px 20px;
+        border-radius: 0 8px 8px 0;
+        margin: 10px 0;
+    }
+
+    .poster-wrapper .highlight-box p {
+        margin: 0;
+        color: #ffffff;
+        font-weight: 500;
+    }
+
+    .poster-wrapper .metric-value {
+        font-size: 36px;
+        font-weight: 800;
+        color: #ffd700;
+        display: block;
+        margin-top: 10px;
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    }
+
+    /* Footer */
+    .poster-wrapper .footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.5);
+        letter-spacing: 1px;
+    }
+</style>
+
+<div class="poster-board glass-panel">
+    
+    <header class="header glass-panel">
+        <div class="journal-info">PHYSICAL REVIEW LETTERS 133, 046802</div>
+        <div class="journal-badge">Editors' Suggestion</div>
+        <h1 class="title">Giant Piezoelectric Effects of Topological Structures in Stretched Ferroelectric Membranes</h1>
+        <div class="authors">Yihao Hu, Jiyuan Yang, and Shi Liu</div>
+        <div class="affiliations">
+            Key Laboratory for Quantum Materials of Zhejiang Province, Department of Physics, School of Science, Westlake University<br>
+            Institute of Natural Sciences, Westlake Institute for Advanced Study, Hangzhou, China
+        </div>
+    </header>
+
+    <div class="grid-container">
+        
+        <div class="col">
+            <section class="section-card glass-panel">
+                <h2 class="section-title">1. Introduction & Methodology</h2>
+                <p>Freestanding ferroelectric oxide membranes emerge as a promising platform for exploring the interplay between topological polar ordering and dipolar interactions that are continuously tunable by strain.</p>
+                <div class="highlight-box">
+                    <p><strong>Methodological Breakthrough:</strong> We combined density functional theory (DFT) and deep-learning-assisted molecular dynamics (DPMD) simulations.</p>
+                </div>
+                <p>This allows us to construct phase diagrams at finite temperatures, advancing beyond the single-domain assumption often used to reduce computational costs in traditional first-principles approaches.</p>
+            </section>
+
+            <section class="section-card glass-panel">
+                <h2 class="section-title">2. Finite-Temperature Domain Evolution</h2>
+                <p>DFT calculations indicate a tensile-strain-driven morphotropic phase boundary (MPB) with competing monoclinic phases. However, our DPMD simulations demonstrate that these features behave differently in thermally active environments.</p>
+                <ul>
+                    <li>The flat potential energy landscape results in diverse domain structures at room temperatures.</li>
+                    <li>These structures feature continuous distributions of dipole orientations and mobile domain walls.</li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="col">
+            <section class="section-card glass-panel">
+                <h2 class="section-title">3. Dynamic Mechanism of Enhanced d<sub>33</sub></h2>
+                <p>Detailed analysis of dynamic structures reveals the true origin of the enhanced piezoelectric response observed in stretched PbTiO<sub>3</sub> membranes.</p>
+                
+                <div class="highlight-box">
+                    <p>The enhancement results from <strong>collective and coordinated small-angle rotations of dipoles at domain walls</strong>.</p>
+                </div>
+                
+                <p>This dynamic coordination is distinct from the conventional polarization rotation mechanism and adaptive phase theory inferred from static structures. Stretching the membrane activates spontaneous and stochastic oscillations of 90° domain walls, pushing d<sub>33</sub> to ~250 pC/N (3 times that of a single domain).</p>
+            </section>
+
+            <section class="section-card glass-panel">
+                <h2 class="section-title">4. Discovery: The Dipole Spiral</h2>
+                <p>We identify a novel ferroelectric topological structure, termed the "dipole spiral".</p>
+                <ul>
+                    <li>Characterized by canted dipoles that progressively rotate around the out-of-plane direction.</li>
+                    <li>The dynamic structure is highly vibrant, where dipoles rotate collectively, coherently, and stochastically.</li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="col">
+            <section class="section-card glass-panel">
+                <h2 class="section-title">5. Giant Piezoelectricity & Zero-Energy Mode</h2>
+                <p>The collective response of the dipole spiral to external stimuli is achieved via small-angle rotations.</p>
+                
+                <div class="highlight-box" style="text-align: center; padding: 30px 20px;">
+                    <p style="font-size: 18px;">Giant Intrinsic Piezoelectric Response</p>
+                    <span class="metric-value">> 320 pC/N</span>
+                </div>
+
+                <p>Crucially, this helical structure possesses a <strong>rotational zero-energy mode</strong>. Strongly correlated dipoles can rotate freely without energy cost.</p>
+            </section>
+
+            <section class="section-card glass-panel">
+                <h2 class="section-title">6. Conclusion & Outlook</h2>
+                <p>Our findings establish that <strong>dynamic structure dictates functional properties</strong>.</p>
+                <ul>
+                    <li>We propose a feasible experimental approach to realize the dipole spiral using all-ferroelectric superlattices composed of alternating layers of PbTiO<sub>3</sub> and Pb<sub>0.5</sub>Sr<sub>0.5</sub>TiO<sub>3</sub>.</li>
+                    <li>This structure unlocks new possibilities for exploring chiral phonon dynamics and dipolar Dzyaloshinskii-Moriya-like interactions.</li>
+                </ul>
+            </section>
+        </div>
+
+    </div>
+
+    <footer class="footer glass-panel">
+        DOI: 10.1103/PhysRevLett.133.046802 | Poster generated via AI interpretation of manuscript data.
+    </footer>
+
+</div>
+</div>
