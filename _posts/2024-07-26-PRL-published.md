@@ -4,7 +4,7 @@ date: 2024-07-26 00:00:00 +0800
 categories: [Research]
 tags: [physics, PRL, ferroelectric, dipole-spiral, zero-energy-mode, milestone]
 description: 记录我在Physical Review Letters上发表的第一篇论文，被选为Editor's Suggestion，物理系学生生涯的圆满时刻。
-toc: true
+toc: false
 # img_path: ../assets/img/202603/
 ---
 
