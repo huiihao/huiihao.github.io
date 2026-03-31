@@ -1,5 +1,5 @@
 ---
-title: 💫 第一篇物理顶刊：PRL 发表记录
+title: 💫 PRL发表记录：铁电螺旋🧬
 date: 2024-07-26 00:00:00 +0800
 categories: [Research]
 tags: [physics, PRL, ferroelectric, dipole-spiral, zero-energy-mode, milestone]
@@ -8,7 +8,7 @@ toc: true
 # img_path: ../assets/img/202603/
 ---
 
-# 💫 第一篇物理顶刊：PRL 发表记录 | First PRL Paper Accepted
+# 💫 PRL发表记录：铁电螺旋🧬 | First PRL Paper Accepted
 
 [![PRL](https://img.shields.io/badge/Journal-PRL-005A9C?style=flat-square)](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.133.046802)
 [![Editor's Suggestion](https://img.shields.io/badge/Editor's_Suggestion-⭐-gold?style=flat-square)](https://journals.aps.org/prl/)
