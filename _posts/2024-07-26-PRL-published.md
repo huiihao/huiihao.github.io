@@ -35,7 +35,8 @@ toc: true
 
 感谢导师的指导与合作者的讨论，也感谢西湖大学提供的计算资源。
 
-<iframe src="../assets/img/PRL_poster.html" width="100%" height="900px" style="border:none; border-radius:12px; overflow:hidden;" scrolling="auto"></iframe>
+<!-- <iframe src="../assets/img/PRL_poster.html" width="100%" height="900px" style="border:none; border-radius:12px; overflow:hidden;" scrolling="auto"></iframe> -->
+{% include PRL_poster.html %}
 
 ---
 
