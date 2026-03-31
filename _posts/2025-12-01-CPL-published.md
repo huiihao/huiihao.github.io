@@ -4,7 +4,7 @@ date: 2025-12-01 00:00:00 +0800
 categories: [Research]
 tags: [physics, CPL, ferroelectric, milestone]
 description: 记录我们在PbTiO₃中发现的双螺旋原子位移结构：一种由电Dzyaloshinskii-Moriya相互作用稳定的手性非共线铁电序，具有旋转零能模式、巨大压电响应和多谷电子结构。
-toc: true
+toc: false
 img_path: ../assets/img/202603/
 ---
 
