@@ -2,7 +2,7 @@
 title: 💫 PRX发表记录：畴壁增强热释电🔥
 date: 2025-03-18 00:00:00 +0800
 categories: [Research]
-tags: [physics, ferroelectrics, PRX, milestone]
+tags: [physics, ferroelectric, PRX, milestone]
 description: 记录我们在Physical Review X上发表的工作——通过取向和厚度调控PbZr₀₂Ti₀₈O₃薄膜中的90°畴壁密度，发现畴壁区域的本征热释电系数远高于畴内部，为热释电增强提供了新路径。
 toc: false
 img_path: ../assets/img/202603/
