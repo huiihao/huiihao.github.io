@@ -58,9 +58,9 @@ order: 4
   width: 6px; height: 6px; border-radius: 50%;
   background: var(--text-muted, #bbb);
 }
-.abt-pubs li.first-author::before {
+.abt-pubs li.highlight::before {
   background: var(--link-color, #2a7ae2);
-  box-shadow: 0 0 6px rgba(42,122,226,0.3);
+  box-shadow: 0 0 5px rgba(42,122,226,0.25);
 }
 .abt-jrn {
   font-weight: 700; font-size: 0.78rem; letter-spacing: 0.3px;
@@ -172,71 +172,71 @@ I am <strong>Yihao Hu</strong>, a Ph.D. at the department of Physics, Westlake U
 ## 📄 Publications
 
 <ul class="abt-pubs">
-  <li class="first-author">
+  <li class="highlight">
     <b><u>Yihao Hu</u></b>*, and Shi Liu*,
     "Double Helix of Atomic Displacements in Ferroelectric PbTiO<sub>3</sub>",
     <span class="abt-jrn" style="color:#e70012;">Chin. Phys. Lett.</span> 42, 120707 (2025)
-    <span class="abt-doi"><a href="https://doi.org/10.1088/0256-307X/42/12/120707">DOI</a> →</span>
+    <span class="abt-doi"><a href="https://doi.org/10.1088/0256-307X/42/12/120707">DOI <i class="fas fa-book-open" style="font-size:0.7rem;opacity:0.7;"></i></a></span>
   </li>
   <li>
     Yonghao Yao, Hui Liu*, <b><u>Yihao Hu</u></b>, Kaustuv Datta, Jiagang Wu, Yuanpeng Zhang, Matthew G. Tucker, Shi Liu, Joerg C. Neuefeind, Shujun Zhang, and Jun Chen*,
     "Fluctuating local polarization: a generic fingerprint for enhanced piezoelectricity in Pb-based and Pb-free perovskite ferroelectrics",
     <span class="abt-jrn" style="color:#008B8B;">Nat. Commun.</span> 16, 7442 (2025)
-    <span class="abt-doi"><a href="https://doi.org/10.1038/s41467-025-62701-1">DOI</a> →</span>
+    <span class="abt-doi"><a href="https://doi.org/10.1038/s41467-025-62701-1">DOI <i class="fas fa-book-open" style="font-size:0.7rem;opacity:0.7;"></i></a></span>
   </li>
-  <li>
+  <li class="highlight">
     Ching-Che Lin, <b><u>Yihao Hu</u></b>, Jaegyu Kim, Djamila Lou, Ashwath Bhat, Pravin Kavle, Tae Yeon Kim, Chris Dames, Shi Liu*, and Lane W. Martin*,
     "Domain-wall enhanced pyroelectricity",
     <span class="abt-jrn" style="color:#F18B1C;">Phys. Rev. X</span> 15, 011063 (2025)
-    <span class="abt-doi"><a href="https://doi.org/10.1103/PhysRevX.15.011063">DOI</a> →</span>
+    <span class="abt-doi"><a href="https://doi.org/10.1103/PhysRevX.15.011063">DOI <i class="fas fa-book-open" style="font-size:0.7rem;opacity:0.7;"></i></a></span>
   </li>
   <li>
     Hao Luo, Qi Liang, Anan Guo, Yimeng Yu, Haoyang Peng, Xiaoyi Gao, <b><u>Yihao Hu</u></b>, Xianli Su, Ctirad Uher, Yu Zheng, Dongwang Yang, Xiaolin Wang, Qingjie Zhang, Xinfeng Tang, Shi Liu, Gustaaf Van Tendeloo, Shujun Zhang* & Jinsong Wu*,
     "Current induced electromechanical strain in thin antipolar Ag<sub>2</sub>Se semiconductor",
     <span class="abt-jrn" style="color:#008B8B;">Nat. Commun.</span> 16, 1818 (2025)
-    <span class="abt-doi"><a href="https://doi.org/10.1038/s41467-025-57057-5">DOI</a> →</span>
+    <span class="abt-doi"><a href="https://doi.org/10.1038/s41467-025-57057-5">DOI <i class="fas fa-book-open" style="font-size:0.7rem;opacity:0.7;"></i></a></span>
   </li>
-  <li class="first-author">
+  <li class="highlight">
     <b><u>Yihao Hu</u></b>, Jiyuan Yang, Shi Liu*,
     "Giant Piezoelectric Effects of Topological Structures in Stretched Ferroelectric Membranes",
     <span class="abt-jrn" style="color:#F18B1C;">Phys. Rev. Lett.</span> 133, 046802
     (<span style="color:#e70012;font-weight:700;font-style:italic;">Editors' Suggestion</span>)
-    <span class="abt-doi"><a href="https://doi.org/10.1103/PhysRevLett.133.046802">DOI</a> →</span>
+    <span class="abt-doi"><a href="https://doi.org/10.1103/PhysRevLett.133.046802">DOI <i class="fas fa-book-open" style="font-size:0.7rem;opacity:0.7;"></i></a></span>
   </li>
   <li>
     Tingting Luo, Fanjie Xia, Quansheng Guo, Shi Liu*, <b><u>Yihao Hu</u></b>, Yaqiong Zhong, Junhao Qiu, Lin Liao, Wei Ji, Xianli Su, Jinsong Wu*, and Xinfeng Tang*,
     "Enhancing Thermoelectric Performance in Cubic CuCdInSe<sub>3</sub> Compounds via Pressure-Induced Twin Boundary Engineering",
     <span class="abt-jrn" style="color:#555;">ACS Appl. Energy Mater.</span> 6, 24, 12379–12388
-    <span class="abt-doi"><a href="https://doi.org/10.1021/acsaem.3c02233">DOI</a> →</span>
+    <span class="abt-doi"><a href="https://doi.org/10.1021/acsaem.3c02233">DOI <i class="fas fa-book-open" style="font-size:0.7rem;opacity:0.7;"></i></a></span>
   </li>
   <li>
     Tingting Luo<sup>†</sup>, <b><u>Yihao Hu</u></b><sup>†</sup>, Shi Liu, Fanjie Xia, Junhao Qiu, Haoyang Peng, Keke Liu, Quansheng Guo, XingZhong Li, Dongwang Yang, Xianli Su*, Jinsong Wu*, Xinfeng Tang*,
     "Entropy-driven structural transition from tetragonal to cubic phase: High thermoelectric performance of CuCdInSe<sub>3</sub> compound",
     <span class="abt-jrn" style="color:#555;">Mater. Today Phys.</span> 37, 101211
-    <span class="abt-doi"><a href="https://doi.org/10.1016/j.mtphys.2023.101211">DOI</a> →</span>
+    <span class="abt-doi"><a href="https://doi.org/10.1016/j.mtphys.2023.101211">DOI <i class="fas fa-book-open" style="font-size:0.7rem;opacity:0.7;"></i></a></span>
   </li>
   <li>
     Changming Ke, <b><u>Yihao Hu</u></b> and Shi Liu*,
     "Depolarization Induced III-V Triatomic Layers with Tristable Polarization States",
     <span class="abt-jrn" style="color:#555;">Nanoscale Horiz.</span> 8, 616-623
-    <span class="abt-doi"><a href="https://doi.org/10.1039/D3NH00026E">DOI</a> →</span>
+    <span class="abt-doi"><a href="https://doi.org/10.1039/D3NH00026E">DOI <i class="fas fa-book-open" style="font-size:0.7rem;opacity:0.7;"></i></a></span>
   </li>
   <li>
     Jiawei Huang<sup>†</sup>, <b><u>Yihao Hu</u></b><sup>†</sup>, and Shi Liu*,
     "Origin of ferroelectricity in magnesium doped zinc oxide",
     <span class="abt-jrn" style="color:#F18B1C;">Phys. Rev. B</span> 106, 144106
-    <span class="abt-doi"><a href="https://doi.org/10.1103/PhysRevB.106.144106">DOI</a> →</span>
+    <span class="abt-doi"><a href="https://doi.org/10.1103/PhysRevB.106.144106">DOI <i class="fas fa-book-open" style="font-size:0.7rem;opacity:0.7;"></i></a></span>
   </li>
   <li>
     Zijun Zhang<sup>†</sup>, Xing Chen<sup>†</sup>, Xiaoming Shi<sup>†</sup>, <b><u>Yihao Hu</u></b>, Jiawei Huang, Shi Liu, Zhaohui Ren, Houbing Huang, Gaorong Han, Gustaaf Van Tendeloo, Ze Zhang, He Tian*,
     "Morphotropic phase boundary in pure perovskite lead titanate at room temperature",
     <span class="abt-jrn" style="color:#555;">Mater. Today Nano</span> 20, 100275
-    <span class="abt-doi"><a href="https://doi.org/10.1016/j.mtnano.2022.100275">DOI</a> →</span>
+    <span class="abt-doi"><a href="https://doi.org/10.1016/j.mtnano.2022.100275">DOI <i class="fas fa-book-open" style="font-size:0.7rem;opacity:0.7;"></i></a></span>
   </li>
-  <li class="first-author">
+  <li class="highlight">
     <span style="color:#F18B1C;font-weight:700;font-style:italic;">[Book]</span> "电子材料计算", 刘仕 (<b><u>Yihao Hu</u></b>: 全局整合编写), 施建章, 彭仁赐, etc., 清华大学出版社, ISBN: 978-7-3026-7887-8
   </li>
-  <li class="first-author">
+  <li class="highlight">
     <span style="color:#F18B1C;font-weight:700;font-style:italic;">[Book Chapter]</span> "Multiscale simulations of ferroelectric oxides", Jiawei Huang, Zhuang Qian, <b><u>Yihao Hu</u></b>, Qisheng Yu and Shi Liu, Ferroelectrics: Advances in fundamental studies and emerging applications, ISBN: 978-0-7503-3975-9
   </li>
 </ul>
