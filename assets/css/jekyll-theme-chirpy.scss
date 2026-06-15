@@ -14,56 +14,106 @@
 @use "colorbox.scss";     // colorbox 样式
 @use "details.scss";      // details 元素样式
 
-/* 首页预览 post 标题字体加粗 */
-// #post-list .card-title {
-//   font-weight: bold;
-// }
-
-/* 主页 post 列表加阴影 */
-// #post-list .card {
-//     border-radius: 0.7rem;
-//     box-shadow: var(--language-border-color) 1px 1px 2px 1px;
-// }
+/* 首页 post 卡片样式 */
+#post-list .card {
+    border-radius: 0.7rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+#post-list .card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
 
 // prompt 边框阴影
 blockquote[class^='prompt-']{
     box-shadow: var(--language-border-color) 1px 1px 2px 1px; /* 借用了代码框的边框颜色变量 */
 }
 
-// 代码框左上角颜色
-// div[class^=language-] .code-header::before{
-//   background-color: #fc625d;
-//   box-shadow: 1.25rem 0 0 #fdbc40, 2.5rem 0 0 #35cd4b;
-// }
-
-
-/* 侧边栏背景图片添加 */
-#sidebar {
-    background-image: url(https://cdn.jsdelivr.net/gh/huiihao/huiihao.github.io@main/assets/img/wallpaper/Guangxian.png); /* <- change background image */
-    background-size: cover; /* <- customize the image size */
-    background-repeat: no-repeat; /* <- no-repeat */
-    background-position: top; /* <- image position */
+// 代码框 macOS 风格圆点
+div[class^=language-] .code-header::before {
+  background-color: #fc625d;
+  box-shadow: 1.25rem 0 0 #fdbc40, 2.5rem 0 0 #35cd4b;
 }
 
-/* 侧边栏相关文字样式设置 */
+/* 侧边栏背景图片 */
+#sidebar {
+    background-image: url(../img/wallpaper/Guangxian.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#sidebar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* 侧边栏文字样式 */
 #sidebar .site-title {
-    color: #ffffff; 
-    text-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+    color: #ffffff;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
 }
 #sidebar .site-subtitle {
-    color: #ffffff; 
-    text-shadow: 2px 2px 3px rgba(0,0,0, 0.7);
-}
-#sidebar ul li.nav-item a.nav-link span{
-    font-size: 100%;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 #sidebar ul li.nav-item a.nav-link {
-    color: #ffffff; 
+    color: rgba(255, 255, 255, 0.9);
+    transition: color 0.2s ease;
+}
+#sidebar ul li.nav-item a.nav-link:hover,
+#sidebar ul li.nav-item.active .nav-link {
+    color: #ffffff;
+}
+#sidebar ul li.nav-item.active .nav-link {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+#sidebar ul li.nav-item a.nav-link span {
+    font-size: 100%;
 }
 
 // 让目录不产生折叠效果
 .is-collapsed {
   max-height: none !important;
+}
+
+/* 头像样式 */
+#sidebar .site-avatar img {
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+#sidebar .site-avatar img:hover {
+    transform: scale(1.05);
+}
+
+// 无障碍聚焦样式
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--link-color, #3498db);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+// Webkit 滚动条
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(128, 128, 128, 0.4);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(128, 128, 128, 0.6);
 }
 
 html {
@@ -89,6 +139,3 @@ html {
     }
   }
 }
-
-
-

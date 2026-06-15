@@ -1,6 +1,6 @@
 ---
 title: Word手写字体宏 
-date: 2026-02-06 11:18:28 +/-TTTT
+date: 2026-02-06 11:18:28 +0800
 categories: [Word]
 tags: [Word, Handwriting, tricks]     # TAG names should always be lowercase
 description: 为Word文档添加逼真的手写字体，提升文档的可读性和美观性，以假乱真“手写”。

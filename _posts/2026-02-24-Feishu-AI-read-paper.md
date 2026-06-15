@@ -1,6 +1,6 @@
 ---
 title: AI批量文献阅读：毕导飞书版本
-date: 2026-02-24 17:17:17 +/-TTTT
+date: 2026-02-24 17:17:17 +0800
 categories: [AI]
 tags: [paper, Feishu, Zotero, tricks]
 description: 基于毕导共享的飞书AI文献阅读模板，提供从Zotero批量导出文献、自动下载PDF并上传至飞书表格的完整工作流解决方案。

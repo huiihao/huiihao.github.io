@@ -8,6 +8,13 @@ order: 4
 
 I am yiihao, a Ph.D. at the department of Physics, Westlake University & Zhejiang University, Hangzhou, Zhejiang, China.
 
+<span style="background: linear-gradient(120deg, #2c3e50, #3498db); padding: 4px 12px; border-radius: 4px; margin-right: 8px;">
+  <a href="/assets/files/cv_20260615.pdf" target="_blank" 
+     style="color: white; text-decoration: none !important; font-weight: bold;">
+    📄 CV / 简历
+  </a>
+</span>
+
 ## Research Interests
 
 * Multi-scale simulations of ferroelectrics
