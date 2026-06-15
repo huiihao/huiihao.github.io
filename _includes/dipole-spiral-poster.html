@@ -1,0 +1,303 @@
+<style>
+  .ds-poster {
+    --ds-navy: #0a1628;
+    --ds-blue: #0f2440;
+    --ds-teal: #1a6b7a;
+    --ds-gold: #d4a853;
+    --ds-amber: #e8c56d;
+    --ds-white: #e8ecf1;
+    --ds-muted: #8899aa;
+    --ds-accent: #3cc6d0;
+
+    background: linear-gradient(165deg, var(--ds-navy) 0%, #0b1d3a 40%, #0c2545 70%, var(--ds-blue) 100%);
+    border-radius: 12px;
+    padding: 36px 32px 28px;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+    font-family: "Source Sans Pro", "Lato", -apple-system, sans-serif;
+    color: var(--ds-white);
+    border: 1px solid rgba(60, 198, 208, 0.15);
+    box-shadow: 0 8px 48px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04);
+  }
+
+  .ds-poster::before {
+    content: '';
+    position: absolute;
+    top: -60%; left: -20%;
+    width: 140%; height: 200%;
+    background:
+      radial-gradient(ellipse 600px 300px at 30% 15%, rgba(60,198,208,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 400px 400px at 80% 70%, rgba(212,168,83,0.05) 0%, transparent 70%),
+      radial-gradient(ellipse 500px 200px at 50% 50%, rgba(26,107,122,0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .ds-poster > * { position: relative; z-index: 1; }
+
+  /* ── header ── */
+  .ds-header {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .ds-badge {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ds-accent);
+    border: 1px solid rgba(60,198,208,0.3);
+    border-radius: 3px;
+    padding: 3px 14px;
+    margin-bottom: 16px;
+  }
+  .ds-title {
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin: 0 0 6px;
+    color: var(--ds-amber);
+    background: linear-gradient(135deg, var(--ds-amber) 0%, #f0d78c 50%, var(--ds-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .ds-subtitle {
+    font-size: 0.95rem;
+    color: var(--ds-muted);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── helix visual ── */
+  .ds-helix {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    padding: 20px 0 28px;
+    position: relative;
+  }
+  .ds-helix-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
+  .ds-helix-col.left  { padding-right: 16px; }
+  .ds-helix-col.right { padding-left: 16px; }
+  .ds-helix-col.center {
+    padding: 0 10px;
+  }
+
+  .ds-atom {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+  .ds-atom.pb {
+    background: radial-gradient(circle at 40% 35%, rgba(212,168,83,0.9), rgba(180,130,50,0.7));
+    box-shadow: 0 0 12px rgba(212,168,83,0.3);
+    color: #0a1628;
+  }
+  .ds-atom.ti {
+    background: radial-gradient(circle at 40% 35%, rgba(60,198,208,0.9), rgba(30,140,160,0.7));
+    box-shadow: 0 0 12px rgba(60,198,208,0.3);
+    color: #0a1628;
+  }
+  .ds-atom.o {
+    width: 16px; height: 16px;
+    background: radial-gradient(circle at 40% 35%, rgba(255,100,80,0.85), rgba(200,60,40,0.6));
+    box-shadow: 0 0 8px rgba(255,100,80,0.2);
+    font-size: 9px; color: #fff;
+  }
+
+  .ds-bond {
+    width: 2px; height: 14px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 1px;
+  }
+  .ds-bond.dashed {
+    background: repeating-linear-gradient(to bottom, rgba(255,255,255,0.3) 0px, rgba(255,255,255,0.3) 4px, transparent 4px, transparent 8px);
+  }
+
+  .ds-helix-axis {
+    position: absolute;
+    left: 50%; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(60,198,208,0.2), rgba(60,198,208,0.2), transparent);
+    transform: translateX(-50%);
+    z-index: 0;
+  }
+
+  .ds-helix-label {
+    font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--ds-muted);
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  /* ── info cards ── */
+  .ds-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+  @media (max-width: 600px) {
+    .ds-cards { grid-template-columns: 1fr; }
+    .ds-title { font-size: 1.5rem; }
+    .ds-poster { padding: 24px 18px 20px; }
+  }
+
+  .ds-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+    padding: 18px 16px;
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+  .ds-card:hover {
+    border-color: rgba(60,198,208,0.25);
+    background: rgba(255,255,255,0.05);
+  }
+  .ds-card-icon { font-size: 1.4rem; margin-bottom: 6px; }
+  .ds-card-title {
+    font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px;
+    color: var(--ds-accent); margin-bottom: 6px;
+  }
+  .ds-card-metric {
+    font-size: 1.8rem; font-weight: 900;
+    color: var(--ds-amber);
+    background: linear-gradient(135deg, var(--ds-amber), #f5dea0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+    margin-bottom: 2px;
+  }
+  .ds-card-unit { font-size: 0.7rem; color: var(--ds-muted); font-weight: 400; }
+  .ds-card-desc { font-size: 0.78rem; color: var(--ds-muted); line-height: 1.45; margin-top: 4px; }
+
+  /* ── refs ── */
+  .ds-refs {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    font-size: 0.75rem;
+  }
+  .ds-ref {
+    display: flex; align-items: center; gap: 8px;
+    color: var(--ds-muted);
+    transition: color 0.2s;
+  }
+  .ds-ref:hover { color: var(--ds-accent); }
+  .ds-ref-dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  }
+  .ds-ref-dot.prl { background: var(--ds-amber); box-shadow: 0 0 6px rgba(212,168,83,0.5); }
+  .ds-ref-dot.cpl { background: var(--ds-accent); box-shadow: 0 0 6px rgba(60,198,208,0.5); }
+
+  .ds-footer-note {
+    text-align: center; font-size: 0.68rem; color: rgba(255,255,255,0.2);
+    margin-top: 16px; letter-spacing: 1px;
+  }
+</style>
+
+<div class="ds-poster">
+  <div class="ds-header">
+    <div class="ds-badge">Ferroelectric Topology</div>
+    <h2 class="ds-title">Dipole Spiral · Double Helix</h2>
+    <p class="ds-subtitle">铁电 PbTiO₃ 中的手性偶极双螺旋拓扑结构</p>
+  </div>
+
+  <!-- conceptual helix visualization -->
+  <div class="ds-helix">
+    <div class="ds-helix-axis"></div>
+
+    <!-- Pb-O helix (left) -->
+    <div class="ds-helix-col left">
+      <div class="ds-atom pb">Pb</div>
+      <div class="ds-bond dashed"></div>
+      <div class="ds-atom o">O</div>
+      <div class="ds-bond"></div>
+      <div class="ds-atom pb">Pb</div>
+      <div class="ds-bond dashed"></div>
+      <div class="ds-atom o">O</div>
+      <div class="ds-bond"></div>
+      <div class="ds-atom pb">Pb</div>
+      <div class="ds-helix-label">Pb–O helix</div>
+    </div>
+
+    <!-- center: DNA metaphor -->
+    <div class="ds-helix-col center" style="justify-content:center; gap:6px;">
+      <div style="font-size:1.8rem;">🧬</div>
+      <div style="font-size:0.6rem; color:var(--ds-muted); letter-spacing:1px; writing-mode:vertical-lr;">DNA-like</div>
+    </div>
+
+    <!-- Ti-O helix (right) -->
+    <div class="ds-helix-col right">
+      <div class="ds-atom o">O</div>
+      <div class="ds-bond"></div>
+      <div class="ds-atom ti">Ti</div>
+      <div class="ds-bond dashed"></div>
+      <div class="ds-atom o">O</div>
+      <div class="ds-bond"></div>
+      <div class="ds-atom ti">Ti</div>
+      <div class="ds-bond dashed"></div>
+      <div class="ds-atom o">O</div>
+      <div class="ds-helix-label">Ti–O helix</div>
+    </div>
+  </div>
+
+  <!-- key findings -->
+  <div class="ds-cards">
+    <div class="ds-card">
+      <div class="ds-card-icon">⚡</div>
+      <div class="ds-card-title">Giant Piezoelectric Response</div>
+      <div class="ds-card-metric">&gt;320 <span class="ds-card-unit">pC/N</span></div>
+      <div class="ds-card-desc">偶极螺旋的本征压电响应，远超传统铁电体。小角度偶极旋转驱动，非传统极化翻转机制。</div>
+    </div>
+    <div class="ds-card">
+      <div class="ds-card-icon">🔄</div>
+      <div class="ds-card-title">Rotational Zero-Energy Mode</div>
+      <div class="ds-card-metric">ΔE ≈ 0</div>
+      <div class="ds-card-desc">类 Goldstone 模式：全局旋转能垒 ≈ 0。螺旋周期 ≥ 3 且与晶格四重势非公度时，能量与全局取向无关。</div>
+    </div>
+    <div class="ds-card">
+      <div class="ds-card-icon">🧲</div>
+      <div class="ds-card-title">Electric Dzyaloshinskii–Moriya</div>
+      <div class="ds-card-metric">eDMI</div>
+      <div class="ds-card-desc">氧八面体集体手性扭转产生的电性类 DM 相互作用。Pb–O 与 Ti–O 双螺旋间存在约 29° 稳定非平行相位角。</div>
+    </div>
+    <div class="ds-card">
+      <div class="ds-card-icon">🔬</div>
+      <div class="ds-card-title">Self-Moiré Crystal</div>
+      <div class="ds-card-metric">⟨Δφ⟩ ≈ 29°</div>
+      <div class="ds-card-desc">一维本征超晶格——非异质界面产生，而在单一均匀材料中自发涌现的长周期莫尔调制。</div>
+    </div>
+  </div>
+
+  <!-- publications -->
+  <div class="ds-refs">
+    <a href="https://doi.org/10.1103/PhysRevLett.133.046802" target="_blank" rel="noopener" class="ds-ref">
+      <span class="ds-ref-dot prl"></span>
+      <span><strong>Phys. Rev. Lett.</strong> 133, 046802 (2024) <em style="color:#d4a853;">Editors' Suggestion</em></span>
+    </a>
+    <a href="https://doi.org/10.1088/0256-307X/42/12/120707" target="_blank" rel="noopener" class="ds-ref">
+      <span class="ds-ref-dot cpl"></span>
+      <span><strong>Chin. Phys. Lett.</strong> 42, 120707 (2025)</span>
+    </a>
+  </div>
+
+  <div class="ds-footer-note">First-principles · Deep Potential MD · Ferroelectric Topology</div>
+</div>

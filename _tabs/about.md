@@ -65,16 +65,7 @@ I am yiihao, a Ph.D. at the department of Physics, Westlake University & Zhejian
 * <font color="#F18B1C"><b><i>[Book]</i></b></font> “电子材料计算”, 刘仕（<b><u>Yihao Hu</u></b>：全局整合编写）, 施建章, 彭仁赐, etc., 清华大学出版社, ISBN: 978-7-3026-7887-8
 
 
-<!-- ![Nobel Prize Candidate](/assets/img/Dipole_Spiral_o.png){: width="50%" height="50%" } -->
-
-<p align="center">
-  <img 
-    src="/assets/img/Dipole_Spiral_o.png" 
-    alt="Nobel Prize Candidate" 
-    width="50%" 
-    style="max-width: 100%; height: auto;"
-  />
-</p>
+{% include dipole-spiral-poster.html %}
 
 ## Skills
 
