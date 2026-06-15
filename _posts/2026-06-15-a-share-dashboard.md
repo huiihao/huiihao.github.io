@@ -21,13 +21,6 @@ toc: true
   <b>A-Share Realtime Dashboard</b> 是一个 Bloomberg Terminal 风格的 A 股实时看盘面板，覆盖 5207 只股票，聚合 4 路数据源，8 秒全量刷新。既是可视化面板，更是量化投资的底层数据基础设施。
 </p>
 
-<p align="center">
-  <a href="#-快速开始">快速开始</a> •
-  <a href="#-面板功能">面板功能</a> •
-  <a href="#-数据管道">数据管道</a> •
-  <a href="#-技术架构">技术架构</a> •
-  <a href="#-设计亮点">设计亮点</a>
-</p>
 
 ## 🚀 快速开始
 
