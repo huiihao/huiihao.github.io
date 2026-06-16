@@ -17,6 +17,10 @@ layout: compress
   {% include head.html %}
 
   <body>
+    {% if site.three_noise_background %}
+    <div id="three-bg"></div>
+    {% endif %}
+
     {% include sidebar.html lang=lang %}
 
     <div id="main-wrapper" class="d-flex justify-content-center">
@@ -86,5 +90,9 @@ layout: compress
     {% endfor %}
 
     {% include_cached search-loader.html lang=lang %}
+
+    {% if site.three_noise_background %}
+    {% include three-noise-background.html %}
+    {% endif %}
   </body>
 </html>
