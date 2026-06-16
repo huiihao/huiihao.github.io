@@ -1,4 +1,4 @@
-<!-- Three.js Simplex Noise Background -->
+<!-- Three.js Dual-Theme Noise Background -->
 <script type="importmap">
 { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
 </script>
@@ -6,7 +6,7 @@
 <script type="module">
 import * as THREE from 'three';
 
-// ── 2D Simplex noise (GLSL) ──
+// ── GLSL Simplex noise ──
 const noiseGLSL = /* glsl */ `
   vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
   vec2 mod289(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
@@ -45,44 +45,53 @@ const vertexShader = /* glsl */ `
 
 const fragmentShader = /* glsl */ `
   uniform float uTime;
-  uniform vec2 uResolution;
+  uniform float uTheme;   // 0=light, 1=dark (lerp)
   varying vec2 vUv;
 
   ${noiseGLSL}
 
   void main() {
-    float t = uTime * 0.03;
+    float t = uTime * 0.04;
 
-    // three octaves of noise for organic flow
-    float n1 = snoise(vec2(vUv.x * 3.5 + t * 0.2, vUv.y * 3.5 - t * 0.15)) * 0.6;
-    float n2 = snoise(vec2(vUv.x * 7.0 - t * 0.3, vUv.y * 7.0 + t * 0.25)) * 0.3;
-    float n3 = snoise(vec2(vUv.x * 14.0 + t * 0.05, vUv.y * 14.0 + t * 0.1)) * 0.1;
+    // multi-octave noise — larger features, more visible
+    float n1 = snoise(vec2(vUv.x * 2.5 + t * 0.12, vUv.y * 2.5 - t * 0.10));
+    float n2 = snoise(vec2(vUv.x * 5.5 - t * 0.18, vUv.y * 5.5 + t * 0.14));
+    float n3 = snoise(vec2(vUv.x * 11.0 + t * 0.06, vUv.y * 11.0 - t * 0.08));
+    float n = n1 * 0.55 + n2 * 0.30 + n3 * 0.15;  // range ≈ [-1, 1]
 
-    float n = n1 + n2 + n3; // range ≈ [-1, 1]
+    // ── dark palette: deep navy → teal → muted cyan ──
+    float dr = 0.04 + n * 0.06;
+    float dg = 0.06 + n * 0.07;
+    float db = 0.14 + n * 0.10;
+    float da = 0.55 + n * 0.18;
 
-    // map noise to a warm-cool palette matching the site theme
-    float r = 0.06 + n * 0.02;
-    float g = 0.08 + n * 0.02;
-    float b = 0.16 + n * 0.03;
+    // ── light palette: warm cream → amber → muted rose ──
+    float lr = 0.96 + n * 0.04;
+    float lg = 0.94 + n * 0.05;
+    float lb = 0.90 + n * 0.08;
+    float la = 0.35 + n * 0.12;
 
-    // subtle vignette
-    float vignette = 1.0 - length(vUv - 0.5) * 1.2;
-    vignette = smoothstep(0.0, 1.0, vignette);
+    // lerp between palettes
+    float r = mix(lr, dr, uTheme);
+    float g = mix(lg, dg, uTheme);
+    float b = mix(lb, db, uTheme);
+    float a = mix(la, da, uTheme);
 
-    float alpha = 0.65 * vignette;
+    // soft vignette
+    float vignette = 1.0 - length(vUv - 0.5) * 1.0;
+    a *= smoothstep(0.05, 1.0, vignette);
 
-    gl_FragColor = vec4(r, g, b, alpha);
+    gl_FragColor = vec4(r, g, b, a);
   }
 `;
 
-// ── Scene setup ──
+// ── Scene ──
 const container = document.getElementById('three-bg');
 if (!container) throw new Error('#three-bg not found');
 
 const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: false });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setClearColor(0x000000, 0);
 container.appendChild(renderer.domElement);
 
 const scene = new THREE.Scene();
@@ -90,28 +99,55 @@ const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
 camera.position.z = 1;
 
 const uniforms = {
-  uTime: { value: 0 },
-  uResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) }
+  uTime:  { value: 0 },
+  uTheme: { value: 0.0 }   // start with light, update immediately
 };
 
 const material = new THREE.ShaderMaterial({
-  vertexShader,
-  fragmentShader,
-  uniforms,
-  transparent: true,
-  depthTest: false,
-  depthWrite: false
+  vertexShader, fragmentShader, uniforms,
+  transparent: true, depthTest: false, depthWrite: false
+});
+scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material));
+
+// ── Theme detection ──
+function getTheme() {
+  const html = document.documentElement;
+  const mode = html.getAttribute('data-mode');
+  if (mode === 'dark')  return 1.0;
+  if (mode === 'light') return 0.0;
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 1.0 : 0.0;
+}
+
+// smooth theme transition
+let targetTheme = getTheme();
+let currentTheme = targetTheme;
+
+function updateTheme() {
+  targetTheme = getTheme();
+}
+
+// observe mode changes
+new MutationObserver(updateTheme).observe(document.documentElement, {
+  attributes: true, attributeFilter: ['data-mode']
+});
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme);
+
+// intercept mode-toggle button click
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('#mode-toggle');
+  if (btn) setTimeout(updateTheme, 100);
 });
 
-const geometry = new THREE.PlaneGeometry(2, 2);
-const mesh = new THREE.Mesh(geometry, material);
-scene.add(mesh);
-
-// ── Animation loop ──
+// ── Animation ──
 let animId;
 function animate() {
   animId = requestAnimationFrame(animate);
+
+  // lerp current → target theme
+  currentTheme += (targetTheme - currentTheme) * 0.05;
+  uniforms.uTheme.value = currentTheme;
   uniforms.uTime.value = performance.now() * 0.001;
+
   renderer.render(scene, camera);
 }
 animate();
@@ -119,35 +155,25 @@ animate();
 // ── Resize ──
 window.addEventListener('resize', () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
-  uniforms.uResolution.value.set(window.innerWidth, window.innerHeight);
 });
 
-// ── Respect reduced motion ──
+// ── Reduced motion ──
 const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-if (mq.matches) {
-  cancelAnimationFrame(animId);
-  container.style.display = 'none';
-}
+if (mq.matches) { cancelAnimationFrame(animId); container.style.display = 'none'; }
 mq.addEventListener('change', (e) => {
-  if (e.matches) {
-    cancelAnimationFrame(animId);
-    container.style.display = 'none';
-  } else {
-    container.style.display = '';
-    animate();
-  }
+  if (e.matches) { cancelAnimationFrame(animId); container.style.display = 'none'; }
+  else { container.style.display = ''; animate(); }
 });
 </script>
 
 <style>
 #three-bg {
-  position: fixed;
-  inset: 0;
-  z-index: -10;
-  pointer-events: none;
-  background: #0a1628; /* fallback — matches the dipole spiral poster bg */
+  position: fixed; inset: 0;
+  z-index: -10; pointer-events: none;
+  transition: opacity 0.6s ease;
 }
-#three-bg canvas {
-  display: block;
-}
+[data-mode="dark"] #three-bg { background: #060e1a; }
+[data-mode="light"] #three-bg,
+html:not([data-mode]) #three-bg { background: #faf8f5; }
+#three-bg canvas { display: block; }
 </style>
