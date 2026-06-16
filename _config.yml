@@ -1,6 +1,5 @@
 # additional tags added by yhh
-background_animation: false
-three_noise_background: true
+background_animation: true
 
 # The Site Configuration
 
