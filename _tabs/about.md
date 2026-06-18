@@ -139,6 +139,26 @@ order: 4
 }
 .prj-link:hover { text-decoration: underline; }
 
+/* ── news ── */
+.abt-news-section { margin: 12px 0 0; }
+.abt-news-group { margin-bottom: 14px; }
+.abt-news-group-title {
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.5px;
+  color: var(--text-muted, #888); margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.abt-news-item {
+  position: relative; padding: 5px 0 5px 16px;
+  font-size: 0.84rem; line-height: 1.5;
+  border-left: 2px solid var(--card-border, #e0e0e0);
+}
+.abt-news-item + .abt-news-item { margin-top: 1px; }
+.abt-news-item a { font-weight: 600; }
+.abt-news-item .news-meta {
+  font-size: 0.7rem; color: var(--text-muted, #999); margin-left: 4px;
+}
+.abt-news-item .news-medal { margin-right: 2px; }
+
 /* ── responsive ── */
 @media (max-width: 500px) {
   .abt-badges { flex-direction: column; }
@@ -255,6 +275,75 @@ I am <strong>Yihao Hu</strong>, a Ph.D. at the department of Physics, Westlake U
   <span class="abt-skill">🧠 Deep Potential · ML force fields</span>
   <span class="abt-skill">📊 LAMMPS · MD simulations</span>
   <span class="abt-skill">🤖 AI-assisted workflows</span>
+</div>
+
+## 📰 News
+
+<div class="abt-news-section">
+
+  <div class="abt-news-group">
+    <div class="abt-news-group-title">🏆 Dragon Boat · 龙舟</div>
+    <div class="abt-news-item">
+      <a href="http://www.tyys.zju.edu.cn/english/redir.php?catalog_id=191753&object_id=164696" target="_blank" rel="noopener">第八届全国大学生龙舟锦标赛</a>
+      <span class="news-meta">2019.09 · 甘肃永靖</span><br>
+      <span class="news-medal">🥈</span>混合组 100m 直道赛 第二名
+      <span class="news-medal">🥉</span>混合组 500m 直道赛 第三名
+      <span class="news-medal">🏅</span>混合组 200m 直道赛 第四名
+    </div>
+    <div class="abt-news-item">
+      <a href="https://hndnews.com/p/261572.html" target="_blank" rel="noopener">2019 中华龙舟大赛 · 海南万宁站</a>
+      <span class="news-meta">2019.03 · CCTV5 直播</span><br>
+      <span class="news-medal">🥉</span>青少年男子组 100m 直道竞速 第三名
+      <span class="news-medal">🏅</span>200m 第五名 · 500m 第六名
+    </div>
+    <div class="abt-news-item">
+      <a href="http://www.tyys.zju.edu.cn/english/redir.php?catalog_id=50&object_id=81636" target="_blank" rel="noopener">东海世界名校龙舟赛</a>
+      <span class="news-meta">2018.06 · 江苏连云港</span><br>
+      <span class="news-medal">🥉</span>500m 第三名 · 200m 第四名
+    </div>
+  </div>
+
+  <div class="abt-news-group">
+    <div class="abt-news-group-title">🧗 Climbing · 攀岩</div>
+    <div class="abt-news-item">
+      <a href="http://www.tyys.zju.edu.cn/redir.php?catalog_id=172445&object_id=181276" target="_blank" rel="noopener">第十五届全国大学生攀岩锦标赛</a>
+      <span class="news-meta">2017.11 · 合肥</span><br>
+      甲A 男子速度赛 · 浙大攀岩队全国首秀
+    </div>
+  </div>
+
+  <div class="abt-news-group">
+    <div class="abt-news-group-title">🎓 Honors · 荣誉</div>
+    <div class="abt-news-item">
+      <a href="https://physics.zju.edu.cn/2024/0923/c70912a2965889/page.psp" target="_blank" rel="noopener">浙江大学国家奖学金</a>
+      <span class="news-meta">2024</span>
+    </div>
+    <div class="abt-news-item">
+      <a href="https://physics.zju.edu.cn/2025/0219/c70912a3017154/page.psp" target="_blank" rel="noopener">浙江大学优秀毕业研究生</a>
+      <span class="news-meta">2025</span>
+    </div>
+    <div class="abt-news-item">
+      <a href="https://tdli.sjtu.edu.cn/post/15194" target="_blank" rel="noopener">"论道"五校联合博士生学术论坛 · Best Poster</a>
+      <span class="news-meta">2024.12 · 上海交大李政道研究所</span>
+    </div>
+  </div>
+
+  <div class="abt-news-group">
+    <div class="abt-news-group-title">📡 Media · 报道</div>
+    <div class="abt-news-item">
+      <a href="https://westlake.edu.cn/news_events/westlakenews/academics/202407/t20240726_41769.shtml" target="_blank" rel="noopener">AI助力，西湖大学刘仕团队发现螺旋铁电</a>
+      <span class="news-meta">2024.07 · 西湖大学</span>
+    </div>
+    <div class="abt-news-item">
+      <a href="https://en.westlake.edu.cn/news_events/westlakenews/research/202407/t20240729_41789.html" target="_blank" rel="noopener">Research Highlight: Dipole Spiral Discovery</a>
+      <span class="news-meta">2024.07 · Westlake Univ. (EN)</span>
+    </div>
+    <div class="abt-news-item">
+      <a href="https://dq.westlake.edu.cn/info/1152/2148.htm" target="_blank" rel="noopener">西湖大学理学院赴南方科技大学党建学术交流</a>
+      <span class="news-meta">2024.06 · 理航先锋</span>
+    </div>
+  </div>
+
 </div>
 
 ## 🚀 Projects
