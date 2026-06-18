@@ -284,7 +284,7 @@ I am <strong>Yihao Hu</strong>, a Ph.D. at the department of Physics, Westlake U
   <div class="abt-news-group">
     <div class="abt-news-group-title">🏆 Dragon Boat · 龙舟</div>
     <div class="abt-news-item">
-      <a href="http://www.tyys.zju.edu.cn/english/redir.php?catalog_id=191753&object_id=164696" target="_blank" rel="noopener">第八届全国大学生龙舟锦标赛</a>
+      <a href="https://www.tyys.zju.edu.cn/english/redir.php?catalog_id=191753&object_id=164696" target="_blank" rel="noopener">第八届全国大学生龙舟锦标赛</a>
       <span class="news-meta">2019.09 · 甘肃永靖</span><br>
       <span class="news-medal">🥈</span>混合组 100m 直道赛 第二名
       <span class="news-medal">🥉</span>混合组 500m 直道赛 第三名
@@ -297,7 +297,7 @@ I am <strong>Yihao Hu</strong>, a Ph.D. at the department of Physics, Westlake U
       <span class="news-medal">🏅</span>200m 第五名 · 500m 第六名
     </div>
     <div class="abt-news-item">
-      <a href="http://www.tyys.zju.edu.cn/english/redir.php?catalog_id=50&object_id=81636" target="_blank" rel="noopener">东海世界名校龙舟赛</a>
+      <a href="https://www.tyys.zju.edu.cn/english/redir.php?catalog_id=50&object_id=81636" target="_blank" rel="noopener">东海世界名校龙舟赛</a>
       <span class="news-meta">2018.06 · 江苏连云港</span><br>
       <span class="news-medal">🥉</span>500m 第三名 · 200m 第四名
     </div>
@@ -306,7 +306,7 @@ I am <strong>Yihao Hu</strong>, a Ph.D. at the department of Physics, Westlake U
   <div class="abt-news-group">
     <div class="abt-news-group-title">🧗 Climbing · 攀岩</div>
     <div class="abt-news-item">
-      <a href="http://www.tyys.zju.edu.cn/redir.php?catalog_id=172445&object_id=181276" target="_blank" rel="noopener">第十五届全国大学生攀岩锦标赛</a>
+      <a href="https://www.tyys.zju.edu.cn/redir.php?catalog_id=172445&object_id=181276" target="_blank" rel="noopener">第十五届全国大学生攀岩锦标赛</a>
       <span class="news-meta">2017.11 · 合肥</span><br>
       甲A 男子速度赛 · 浙大攀岩队全国首秀
     </div>
