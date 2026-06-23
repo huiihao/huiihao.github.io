@@ -100,9 +100,9 @@ order: 4
 
 /* ── projects (refined from earlier) ── */
 .prj-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 12px 0;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 12px 0;
 }
-@media (max-width: 900px) { .prj-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 1100px) { .prj-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .prj-grid { grid-template-columns: 1fr; } }
 .prj-card {
   display: flex; gap: 14px; align-items: flex-start;
@@ -123,6 +123,7 @@ order: 4
 .prj-icon.qr  { background: #eef7ff; }
 .prj-icon.agt { background: #f0fdf4; }
 .prj-icon.dsh { background: #fff8ee; }
+.prj-icon.mus { background: #f5f0ff; }
 .prj-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 2px; }
 .prj-desc {
   font-size: 0.8rem; color: var(--text-muted, #666);
@@ -389,6 +390,20 @@ I am <strong>Yihao Hu</strong>, a Ph.D. at the department of Physics, Westlake U
       <span class="prj-tag">Dashboard</span>
     </div>
     <a class="prj-link" href="https://github.com/huiihao/a-share-realtime-dashboard" target="_blank" rel="noopener">📦 GitHub →</a>
+  </div>
+</div>
+
+<div class="prj-card">
+  <div class="prj-icon mus">🎵</div>
+  <div>
+    <div class="prj-name"><a href="https://github.com/huiihao/EchoWave-Music" target="_blank" rel="noopener">EchoWave Music</a></div>
+    <div class="prj-desc">在线音乐搜索与播放平台，5 音源聚合，流媒体 + 歌词同步，支持 GitHub Pages 部署。</div>
+    <div class="prj-tags">
+      <span class="prj-tag">Multi-source</span>
+      <span class="prj-tag">Streaming</span>
+      <span class="prj-tag">Flask</span>
+    </div>
+    <a class="prj-link" href="https://github.com/huiihao/EchoWave-Music" target="_blank" rel="noopener">📦 GitHub →</a>
   </div>
 </div>
 
