@@ -100,9 +100,8 @@ order: 4
 
 /* ── projects (refined from earlier) ── */
 .prj-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 12px 0;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 12px 0;
 }
-@media (max-width: 1100px) { .prj-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .prj-grid { grid-template-columns: 1fr; } }
 .prj-card {
   display: flex; gap: 14px; align-items: flex-start;
