@@ -396,7 +396,7 @@ I am <strong>Yihao Hu</strong>, a Ph.D. at the department of Physics, Westlake U
   <div class="prj-icon mus">🎵</div>
   <div>
     <div class="prj-name"><a href="https://github.com/huiihao/EchoWave-Music" target="_blank" rel="noopener">EchoWave Music</a></div>
-    <div class="prj-desc">在线音乐搜索与播放平台，5 音源聚合，Light/Dark 主题，流媒体 + Karaoke 歌词同步。</div>
+    <div class="prj-desc">在线音乐聚合搜索与下载平台，5 音源聚合，Light/Dark 主题，流媒体 + Karaoke 歌词同步。</div>
     <div class="prj-tags">
       <span class="prj-tag">Multi-source</span>
       <span class="prj-tag">Streaming</span>

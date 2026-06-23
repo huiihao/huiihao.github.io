@@ -3,7 +3,7 @@ title: EchoWave Music
 date: 2026-06-23 11:11:00 +0800
 categories: [EchoWave Music]
 tags: [echowave, music, html, python, flask]
-description: Online music search & playback platform with 5-source aggregation. Light/Dark theme, streaming with karaoke lyrics sync, playlist system. Lite version deployable on GitHub Pages.
+description: Online music search & download platform with 5-source aggregation. Light/Dark theme, streaming with karaoke lyrics sync, playlist system. Lite version deployable on GitHub Pages.
 toc: true
 ---
 
@@ -18,7 +18,7 @@ toc: true
 [![GitHub Stars](https://img.shields.io/github/stars/huiihao/EchoWave-Music?style=social)](https://github.com/huiihao/EchoWave-Music)
 
 <p align="center">
-  <b>EchoWave Music</b> 是一个在线音乐搜索与播放平台，聚合 5 大音源，支持流媒体播放、Karaoke 歌词同步、歌单管理。完整版本地部署，精简版开箱即用，均支持 Light/Dark 主题。
+  <b>EchoWave Music</b> 是一个在线音乐聚合搜索与下载平台，聚合 5 大音源，支持流媒体播放、Karaoke 歌词同步、歌单管理。完整版本地部署，精简版开箱即用，均支持 Light/Dark 主题。
 </p>
 
 ## 🌐 在线体验
