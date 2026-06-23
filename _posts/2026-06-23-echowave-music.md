@@ -1,6 +1,6 @@
 ---
 title: EchoWave Music
-date: 2026-06-23 12:00:00 +0800
+date: 2026-06-23 08:00:00 +0800
 categories: [EchoWave Music]
 tags: [echowave, music, html, python, flask]
 description: Online music search & playback platform with 5-source aggregation. Dark editorial-luxe UI, streaming with lyrics sync, playlist system. Lite version deployable on GitHub Pages.
