@@ -3,7 +3,7 @@ title: EchoWave Music
 date: 2026-06-23 11:11:00 +0800
 categories: [EchoWave Music]
 tags: [echowave, music, html, python, flask]
-description: Online music search & playback platform with 5-source aggregation. Dark editorial-luxe UI, streaming with lyrics sync, playlist system. Lite version deployable on GitHub Pages.
+description: Online music search & playback platform with 5-source aggregation. Light/Dark theme, streaming with karaoke lyrics sync, playlist system. Lite version deployable on GitHub Pages.
 toc: true
 ---
 
@@ -11,22 +11,21 @@ toc: true
   <span style="font-size: 4rem;">🎵</span>
 </p>
 
-[![Version](https://img.shields.io/badge/version-1.0-7b6cf6?style=flat-square)](https://github.com/huiihao/EchoWave-Music)
+[![Version](https://img.shields.io/badge/version-1.1-7b6cf6?style=flat-square)](https://github.com/huiihao/EchoWave-Music)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://img.shields.io/badge/License-MIT-green)
 [![Sources](https://img.shields.io/badge/sources-5-blueviolet?style=flat-square)](https://github.com/huiihao/EchoWave-Music)
+[![Theme](https://img.shields.io/badge/theme-dark%20%7C%20light-8b5cf6?style=flat-square)](https://github.com/huiihao/EchoWave-Music)
 [![GitHub Stars](https://img.shields.io/github/stars/huiihao/EchoWave-Music?style=social)](https://github.com/huiihao/EchoWave-Music)
 
 <p align="center">
-  <b>EchoWave Music</b> 是一个在线音乐搜索与播放平台，聚合 5 大音源，提供流媒体播放、歌词同步、歌单管理等功能。完整版支持本地部署，精简版可直接部署于 GitHub Pages。
+  <b>EchoWave Music</b> 是一个在线音乐搜索与播放平台，聚合 5 大音源，支持流媒体播放、Karaoke 歌词同步、歌单管理。完整版本地部署，精简版开箱即用，均支持 Light/Dark 主题。
 </p>
 
 ## 🌐 在线体验
 
 **👉 [精简版 (GitHub Pages)](https://huiihao.github.io/EchoWave-Music/)**
 
-仅需浏览器，零依赖，立即搜索试听。
-
-**完整版**：
+仅需浏览器，零依赖。完整版音源更多：
 
 ```bash
 git clone https://github.com/huiihao/EchoWave-Music.git
@@ -51,13 +50,16 @@ python server.py
 
 | 特性 | 说明 |
 |------|------|
-| 🔍 **聚合搜索** | 5 音源并行搜索，交替展示结果 |
-| 🎵 **流媒体播放** | CDN 直链，歌词高亮同步 |
-| 📋 **歌单系统** | 收藏 / 自定义歌单 / JSON 导入导出 |
-| 🎨 **暗色专业风** | Editorial-luxe 设计，侧栏 + 主视图布局 |
-| 📱 **响应式** | 桌面 / 平板 / 手机全适配 |
-| ⌨️ **快捷键** | Space 播放暂停 · ←→ 快进退 · N/P 切歌 · F 收藏 |
-| 🔄 **双版本** | 完整版 5 音源 + 精简版 GitHub Pages 零后端部署 |
+| 🔍 **聚合搜索** | 5 音源并行搜索 (Netease / QQ / Kuwo / Kugou / Migu)，交替展示 |
+| 🎵 **流媒体播放** | CDN 直链，歌词 Karaoke 高亮同步 |
+| 📋 **歌单系统** | 收藏 / 自定义歌单 / JSON 导入导出 / 删除管理 |
+| 🌓 **Light / Dark** | 侧栏一键切换，偏好 localStorage 持久保存 |
+| 🏷️ **音质 & VIP** | LOSSLESS / 320K / SVIP 标签实时显示 |
+| 🖼️ **封面图展示** | 搜索结果 + 播放器大封面 + 侧栏迷你封面 |
+| 🎨 **现代设计** | Space Grotesk + DM Sans 字体，玻璃态面板 |
+| 📱 **全响应式** | 桌面 → 平板 → 手机，移动端底部标签栏 |
+| ⌨️ **快捷键** | Space 播放暂停 · ←→ 快进退 5s · ↑↓ 音量 · N/P 切歌 · F 收藏 · L 歌词特效 |
+| 🔌 **代理自动检测** | 同源 / localhost:5000 自动发现 musicdl 后端 |
 
 ---
 
@@ -73,16 +75,18 @@ python server.py
 
 ### 精简版
 
-浏览器直接访问 [GitHub Pages](https://huiihao.github.io/EchoWave-Music/)，即刻使用网易云 + QQ 音源。
+浏览器直接访问 [GitHub Pages](https://huiihao.github.io/EchoWave-Music/)。
 
 ### ⌨️ 快捷键
 
 | 按键 | 功能 |
 |:---|------|
 | `Space` | 播放 / 暂停 |
-| `←` `→` | 快退 / 快进 |
+| `←` `→` | 快退 / 快进 (5s) |
+| `↑` `↓` | 音量升降 |
 | `N` `P` | 上一首 / 下一首 |
 | `F` | 收藏当前歌曲 |
+| `L` | 歌词特效切换 |
 
 ---
 
@@ -103,11 +107,11 @@ python server.py
 ```
 EchoWave-Music/
 ├── index.html      # 完整版前端（5 音源）
-├── server.py       # Flask 代理后端
-├── lite.html       # 精简版（纯前端）
-├── docs/           # GitHub Pages 部署目录
-├── .env.example    # 环境变量模板
-└── README.md       # 文档
+├── server.py       # 一体化服务器 (静态 + 代理 API + 自动打开浏览器)
+├── lite.html       # 精简版源文件
+├── docs/
+│   └── index.html  # GitHub Pages 部署 (精简版 + Light/Dark)
+└── README.md
 ```
 
 ---
