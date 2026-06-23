@@ -122,7 +122,7 @@ order: 4
 .prj-icon.qr  { background: #eef7ff; }
 .prj-icon.agt { background: #f0fdf4; }
 .prj-icon.dsh { background: #fff8ee; }
-.prj-icon.mus { background: #f5f0ff; }
+.prj-icon.mus { background: #f5f0ff; color: #7b6cf6; }
 .prj-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 2px; }
 .prj-desc {
   font-size: 0.8rem; color: var(--text-muted, #666);
@@ -393,7 +393,7 @@ I am <strong>Yihao Hu</strong>, a Ph.D. at the department of Physics, Westlake U
 </div>
 
 <div class="prj-card">
-  <div class="prj-icon mus">🎵</div>
+  <div class="prj-icon mus"><i class="fas fa-music"></i></div>
   <div>
     <div class="prj-name"><a href="https://github.com/huiihao/EchoWave-Music" target="_blank" rel="noopener">EchoWave Music</a></div>
     <div class="prj-desc">在线音乐聚合搜索与下载平台，5 音源聚合，Light/Dark 主题，流媒体 + Karaoke 歌词同步。</div>
