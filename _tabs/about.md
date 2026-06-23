@@ -379,7 +379,7 @@ I am <strong>Yihao Hu</strong>, a Ph.D. at the department of Physics, Westlake U
 </div>
 
 <div class="prj-card">
-  <div class="prj-icon dsh"><i class="fas fa-chart-simple"></i></div>
+  <div class="prj-icon dsh"><i class="fas fa-chart-column"></i></div>
   <div>
     <div class="prj-name"><a href="https://github.com/huiihao/a-share-realtime-dashboard" target="_blank" rel="noopener">A-Share Dashboard</a></div>
     <div class="prj-desc">A股实时看盘面板，多数据源量化基础设施。Bloomberg Terminal 风格。</div>
