@@ -382,7 +382,7 @@ I am <strong>Yihao Hu</strong>, a Ph.D. at the department of Physics, Westlake U
   <div class="prj-icon dsh">📊</div>
   <div>
     <div class="prj-name"><a href="https://github.com/huiihao/a-share-realtime-dashboard" target="_blank" rel="noopener">A-Share Dashboard</a></div>
-    <div class="prj-desc">A股实时看盘面板，多数据源量化基础设施。Bloomberg Terminal 风格，支持 Light/Dark 主题切换。</div>
+    <div class="prj-desc">A股实时看盘面板，多数据源量化基础设施。Bloomberg Terminal 风格。</div>
     <div class="prj-tags">
       <span class="prj-tag">Real-time</span>
       <span class="prj-tag">Quant</span>
