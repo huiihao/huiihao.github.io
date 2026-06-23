@@ -351,7 +351,7 @@ I am <strong>Yihao Hu</strong>, a Ph.D. at the department of Physics, Westlake U
 <div class="prj-grid" markdown="0">
 
 <div class="prj-card">
-  <div class="prj-icon qr">📱</div>
+  <div class="prj-icon qr"><img src="/assets/img/QRSync_icon.png" alt="QRSync" style="width:100%;height:100%;object-fit:contain;border-radius:8px;"></div>
   <div>
     <div class="prj-name"><a href="https://github.com/huiihao/QRSync" target="_blank" rel="noopener">QRSync</a></div>
     <div class="prj-desc">基于二维码序列的离线文件传输工具，无需安装、无需网络、无需服务器。</div>
