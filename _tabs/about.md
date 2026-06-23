@@ -120,8 +120,8 @@ order: 4
   font-size: 22px; flex-shrink: 0;
 }
 .prj-icon.qr  { background: #eef7ff; }
-.prj-icon.agt { background: #f0fdf4; }
-.prj-icon.dsh { background: #fff8ee; }
+.prj-icon.agt { background: #f0fdf4; color: #16a34a; }
+.prj-icon.dsh { background: #fff8ee; color: #d97706; }
 .prj-icon.mus { background: #f5f0ff; color: #7b6cf6; }
 .prj-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 2px; }
 .prj-desc {
@@ -365,7 +365,7 @@ I am <strong>Yihao Hu</strong>, a Ph.D. at the department of Physics, Westlake U
 </div>
 
 <div class="prj-card">
-  <div class="prj-icon agt">🏘️</div>
+  <div class="prj-icon agt"><i class="fas fa-city"></i></div>
   <div>
     <div class="prj-name"><a href="https://github.com/huiihao/agent-street" target="_blank" rel="noopener">Agent Street</a></div>
     <div class="prj-desc">像素风生成式智能体模拟小镇，内置股票市场。探索 AI agent 经济交互与涌现行为。</div>
@@ -379,7 +379,7 @@ I am <strong>Yihao Hu</strong>, a Ph.D. at the department of Physics, Westlake U
 </div>
 
 <div class="prj-card">
-  <div class="prj-icon dsh">📊</div>
+  <div class="prj-icon dsh"><i class="fas fa-chart-line"></i></div>
   <div>
     <div class="prj-name"><a href="https://github.com/huiihao/a-share-realtime-dashboard" target="_blank" rel="noopener">A-Share Dashboard</a></div>
     <div class="prj-desc">A股实时看盘面板，多数据源量化基础设施。Bloomberg Terminal 风格。</div>
