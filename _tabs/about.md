@@ -120,9 +120,9 @@ order: 4
   font-size: 22px; flex-shrink: 0;
 }
 .prj-icon.qr  { background: #eef7ff; }
-.prj-icon.agt { background: #f0fdf4; color: #16a34a; }
-.prj-icon.dsh { background: #fff8ee; color: #d97706; }
-.prj-icon.mus { background: #f5f0ff; color: #7b6cf6; }
+.prj-icon.agt { background: #f0fdf4; }
+.prj-icon.dsh { background: #fff8ee; }
+.prj-icon.mus { background: #f5f0ff; }
 .prj-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 2px; }
 .prj-desc {
   font-size: 0.8rem; color: var(--text-muted, #666);
@@ -365,7 +365,7 @@ I am <strong>Yihao Hu</strong>, a Ph.D. at the department of Physics, Westlake U
 </div>
 
 <div class="prj-card">
-  <div class="prj-icon agt"><i class="fas fa-city"></i></div>
+  <div class="prj-icon agt">🏘️</div>
   <div>
     <div class="prj-name"><a href="https://github.com/huiihao/agent-street" target="_blank" rel="noopener">Agent Street</a></div>
     <div class="prj-desc">像素风生成式智能体模拟小镇，内置股票市场。探索 AI agent 经济交互与涌现行为。</div>
@@ -379,7 +379,7 @@ I am <strong>Yihao Hu</strong>, a Ph.D. at the department of Physics, Westlake U
 </div>
 
 <div class="prj-card">
-  <div class="prj-icon dsh"><i class="fas fa-chart-column"></i></div>
+  <div class="prj-icon dsh">📊</div>
   <div>
     <div class="prj-name"><a href="https://github.com/huiihao/a-share-realtime-dashboard" target="_blank" rel="noopener">A-Share Dashboard</a></div>
     <div class="prj-desc">A股实时看盘面板，多数据源量化基础设施。Bloomberg Terminal 风格。</div>
@@ -393,10 +393,10 @@ I am <strong>Yihao Hu</strong>, a Ph.D. at the department of Physics, Westlake U
 </div>
 
 <div class="prj-card">
-  <div class="prj-icon mus"><i class="fas fa-music"></i></div>
+  <div class="prj-icon mus">🎵</div>
   <div>
     <div class="prj-name"><a href="https://github.com/huiihao/EchoWave-Music" target="_blank" rel="noopener">EchoWave Music</a></div>
-    <div class="prj-desc">在线音乐聚合搜索与下载平台，5 音源聚合，Light/Dark 主题，流媒体 + Karaoke 歌词同步。</div>
+    <div class="prj-desc">在线音乐搜索与播放平台，5 音源聚合，Light/Dark 双主题，流媒体 + Karaoke 歌词同步。</div>
     <div class="prj-tags">
       <span class="prj-tag">Multi-source</span>
       <span class="prj-tag">Streaming</span>
