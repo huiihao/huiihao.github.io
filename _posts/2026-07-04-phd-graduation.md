@@ -21,7 +21,7 @@ toc: false
 
 ## 🏛️ 浙江大学 × 马面裙
 
-红黑马面裙配博士红袍，无敌 🔥
+> <span style="color:#c0392b;font-weight:700;">红黑马面裙配博士红袍。</span>
 
 <p align="center">
   <img src="/assets/img/ZJU_mamianqun.jpg" alt="浙大毕业典礼·红黑马面裙配博士红袍" width="70%" style="max-width:100%;border-radius:8px;">
@@ -37,7 +37,7 @@ toc: false
 
 ---
 
-## 📝 六年直博
+## 📝 5.5 年直博
 
 从第一性原理计算到 AI + 分子动力学，从懵懂新生到一作 PRL。
 
