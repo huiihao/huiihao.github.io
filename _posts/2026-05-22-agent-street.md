@@ -36,6 +36,8 @@ python run.py
 
 ## 💡 核心概念
 
+<div class="box-info" markdown="1">
+
 ```
 真实 K 线  ──强制映射──→  🏪 小镇股市
                               │
@@ -54,6 +56,8 @@ python run.py
 ```
 
 > 历史 K 线逐 tick 推进。智能体观察价格变化、形成反思、相互交谈、下达订单。所有净不平衡由 House 做市商吸收，保证小镇股价 ≡ 真实股价。智能体情绪与真实市场走势之间的张力，形成一个**不断被打破的脆弱均衡**。
+
+</div>
 
 ---
 
@@ -130,6 +134,16 @@ Agent Street 可在无 LLM 模式下运行，智能体使用预设性格模板�
 export OPENAI_API_KEY=sk-xxx
 # 或在 .env 文件中配置
 ```
+
+<div class="box-tip" markdown="1">
+
+**💡 LLM 配置建议**
+
+- 推荐使用 `gpt-4o-mini` 或 `deepseek-chat` 等低成本模型，16 个 Agent 并发调用时成本可控
+- 可在 `.env` 文件中配置 `LLM_MODEL`、`LLM_BASE_URL` 等参数以切换不同服务商
+- 无 LLM 模式下智能体同样可以正常交易，仅对话和反思功能受限
+
+</div>
 
 ### 观察市场
 

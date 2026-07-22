@@ -17,7 +17,11 @@ toc: false
 <!-- [![PRL](https://img.shields.io/badge/PRL-Editor's_Suggestion-2D628F?style=flat-square)](https://journals.aps.org/prl/) -->
 
 
-> **旋转零能模式** —— 偶极螺旋中的偶极子可以自由旋转而不消耗能量，这是我在 PRL 工作中最激动人心的发现。对物理系学生而言，PRL 是顶刊的圆满；而 **Editor's Suggestion** 的额外认可，更让这份圆满多了一抹金色。
+<div class="box-info" markdown="1">
+
+**旋转零能模式** —— 偶极螺旋中的偶极子可以自由旋转而不消耗能量，这是我在 PRL 工作中最激动人心的发现。对物理系学生而言，PRL 是顶刊的圆满；而 **Editor's Suggestion** 的额外认可，更让这份圆满多了一抹金色。
+
+</div>
 
 ---
 

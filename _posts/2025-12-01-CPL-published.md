@@ -15,7 +15,11 @@ img_path: ../assets/img/202603/
 [![Physics](https://img.shields.io/badge/Physics-Condensed_Matter-5C1466?style=flat-square)](https://www.aps.org/physics/condensed-matter)
 [![西湖大学](https://img.shields.io/badge/Westlake_University-0A2F6A?style=flat-square)](https://www.westlake.edu.cn/)
 
-> **双螺旋 + 旋转零能模式** —— 在拉伸的PbTiO₃铁电膜中，Pb和Ti原子的局域极化矢量各自形成交织的螺旋，像DNA一样缠绕。这种“自莫尔”晶体不仅支持一个近乎无能耗的集体旋转模式，还产生了巨大的压电响应和由螺旋周期调控的多谷能带结构。这是继 PRL 偶极螺旋工作之后，我们从第一性原理角度对该拓扑序的完整刻画。
+<div class=”box-info” markdown=”1”>
+
+**双螺旋 + 旋转零能模式** —— 在拉伸的PbTiO₃铁电膜中，Pb和Ti原子的局域极化矢量各自形成交织的螺旋，像DNA一样缠绕。这种”自莫尔”晶体不仅支持一个近乎无能耗的集体旋转模式，还产生了巨大的压电响应和由螺旋周期调控的多谷能带结构。这是继 PRL 偶极螺旋工作之后，我们从第一性原理角度对该拓扑序的完整刻画。
+
+</div>
 
 ---
 

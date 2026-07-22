@@ -116,14 +116,26 @@ EchoWave-Music/
 └── README.md       # 文档
 ```
 
+<div class="box-tip" markdown="1">
+
+**⚠️ 注意事项**
+
+本项目仅用于学习和技术交流。请尊重各音乐平台的版权，勿将本工具用于商业用途或大规模下载。音乐版权归各平台及权利人所有。
+
+</div>
+
 ---
 
 ## 🙏 致谢
+
+<div class="box-info" markdown="1">
 
 基于 [@CharlesPikachu](https://github.com/CharlesPikachu) 的开源项目构建：
 
 - 🎵 [**MusicSquare**](https://github.com/CharlesPikachu/musicsquare) — 浏览器端音乐搜索与播放
 - 🎶 [**musicdl**](https://github.com/CharlesPikachu/musicdl) — Python 多源音乐下载库
+
+</div>
 
 ---
 

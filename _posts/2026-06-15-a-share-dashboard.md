@@ -37,6 +37,8 @@ python app.py
 
 ## 💡 为什么做这个
 
+<div class="box-tip" markdown="1">
+
 量化投资的第一步永远是 **可靠的数据**。
 
 | 层级 | 说明 |
@@ -46,6 +48,8 @@ python app.py
 | 📈 **量化策略** | 因子分析、回测、组合优化 — 终极目标 |
 
 > **Dashboard is the mirror; the data pipeline is the engine.**
+
+</div>
 
 ---
 
@@ -84,6 +88,8 @@ python app.py
 
 ## ✨ 设计亮点
 
+<div class="box-info" markdown="1">
+
 | 特性 | 说明 |
 |------|------|
 | 🚀💥 **涨跌停分离** | 涨停板/跌停板独立面板，涨跌榜自动排除 ≥9.9% 极限涨跌 |
@@ -93,6 +99,8 @@ python app.py
 | 📱 **响应式** | 1024px / 640px 双断点，平板手机均可使用 |
 | 💾 **本地回退** | 东方财富 API 不可用时，自动读取同花顺本地数据 |
 | 🌓 **双主题** | Light/Dark 一键切换，localStorage 持久化 |
+
+</div>
 
 ---
 

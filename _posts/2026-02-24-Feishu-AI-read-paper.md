@@ -43,7 +43,11 @@ img_path: ../assets/img/202602/
 
 ![Zotero导出BibTex步骤2](../assets/img/202602/Feishu-AI-read-paper-3.jpg)
 
-> 💡 **Tips：** Zotero用户建议在导出前，对所有文献进行下述操作：**批量选中文献后右键→Manage DOIs→Get long DOIs**。通过该操作获得准确且不为空的DOI，btw，Manage DOIs是Zotero的一个插件，具体安装过程请移步我的另一篇文章：[整合 | Zotero文献管理工具配置手册(治愈强迫症)](https://zhuanlan.zhihu.com/p/371968761)
+<div class="box-tip" markdown="1">
+
+**💡 Zotero用户必看：** 建议在导出前，对所有文献进行下述操作：**批量选中文献后右键→Manage DOIs→Get long DOIs**。通过该操作获得准确且不为空的DOI，btw，Manage DOIs是Zotero的一个插件，具体安装过程请移步我的另一篇文章：[整合 | Zotero文献管理工具配置手册(治愈强迫症)](https://zhuanlan.zhihu.com/p/371968761)
+
+</div>
 
 ![Manage DOIs操作](../assets/img/202602/Feishu-AI-read-paper-4.jpg)
 
