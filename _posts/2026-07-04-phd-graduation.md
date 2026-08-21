@@ -27,6 +27,12 @@ toc: false
   <img src="/assets/img/ZJU_mamianqun.jpg" alt="浙大毕业典礼·红黑马面裙配博士红袍" width="70%" style="max-width:100%;border-radius:8px;">
 </p>
 
+2026 年 6 月 28 日，浙江大学毕业典礼，留下合照。
+
+<p align="center">
+  <img src="/assets/img/2026-graduation-ZJU.jpg" alt="2026届浙江大学研究生毕业合影" width="100%" style="max-width:100%;border-radius:8px;">
+</p>
+
 ---
 
 ## 🏛️ 西湖大学毕业典礼
