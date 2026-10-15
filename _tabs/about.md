@@ -139,6 +139,78 @@ order: 4
 }
 .prj-link:hover { text-decoration: underline; }
 
+/* ── open source contributions ── */
+.osc-intro {
+  font-size: 0.86rem; line-height: 1.6;
+  color: var(--text-muted, #666); margin: 2px 0 10px;
+}
+.osc-summary { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 4px; }
+.osc-summary .osc-pill { margin-left: 0; }
+.osc-group-title {
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.5px;
+  text-transform: uppercase; color: var(--text-muted, #888);
+  margin: 16px 0 8px;
+}
+.osc-item {
+  padding: 11px 14px 10px;
+  margin-bottom: 9px;
+  border-radius: 9px;
+  background: var(--card-bg, #fff);
+  border: 1px solid rgba(128,128,128,0.2);
+  border-left: 3px solid var(--osc-accent, #bbb);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.osc-item:hover {
+  transform: translateX(2px);
+  box-shadow: 0 3px 16px rgba(0,0,0,0.08);
+}
+.osc-item.merged   { --osc-accent: var(--prompt-tip-icon-color, #03b303); }
+.osc-item.review   { --osc-accent: var(--prompt-info-icon-color, #0070cb); }
+.osc-item.declined { --osc-accent: var(--prompt-danger-icon-color, #cd0202); }
+.osc-item.closed   { --osc-accent: rgba(128,128,128,0.5); }
+
+.osc-head {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 7px;
+  margin-bottom: 4px;
+}
+.osc-repo { font-size: 0.85rem; font-weight: 700; }
+.osc-stars { font-size: 0.68rem; color: var(--text-muted, #999); }
+.osc-kind {
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.3px;
+  padding: 1px 7px; border-radius: 4px;
+  background: rgba(128,128,128,0.16); color: var(--text-muted, #666);
+}
+.osc-num { font-size: 0.7rem; font-weight: 600; color: var(--text-muted, #999); }
+.osc-pill {
+  margin-left: auto;
+  font-size: 0.66rem; font-weight: 700;
+  padding: 3px 10px; border-radius: 20px; white-space: nowrap;
+}
+.osc-pill.merged   { color: var(--prompt-tip-icon-color, #03b303);   background: var(--prompt-tip-bg, rgba(3,179,3,0.12)); }
+.osc-pill.review   { color: var(--prompt-info-icon-color, #0070cb);  background: var(--prompt-info-bg, rgba(0,112,203,0.12)); }
+.osc-pill.declined { color: var(--prompt-danger-icon-color, #cd0202); background: var(--prompt-danger-bg, rgba(205,2,2,0.1)); }
+.osc-pill.closed   { color: var(--text-muted, #777); background: rgba(128,128,128,0.16); }
+
+.osc-title {
+  display: block; font-size: 0.82rem; font-weight: 500;
+  line-height: 1.45; margin-bottom: 3px;
+}
+.osc-note {
+  font-size: 0.75rem; line-height: 1.5;
+  color: var(--text-muted, #777); margin-bottom: 5px;
+}
+.osc-meta {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  font-size: 0.67rem; color: var(--text-muted, #999);
+}
+.osc-add { color: var(--prompt-tip-icon-color, #03b303); font-weight: 600; }
+.osc-del { color: var(--prompt-danger-icon-color, #cd0202); font-weight: 600; }
+
+@media (max-width: 640px) {
+  .osc-item { padding: 10px 12px 9px; }
+  .osc-pill { margin-left: 0; }
+}
+
 /* ── news ── */
 .abt-news-section { margin: 12px 0 0; }
 .abt-news-group { margin-bottom: 14px; }
@@ -405,6 +477,182 @@ I am <strong>Yihao Hu</strong>, a Ph.D. at the department of Physics, Westlake U
     <a class="prj-link" href="https://github.com/huiihao/EchoWave-Music" target="_blank" rel="noopener">📦 GitHub →</a>
   </div>
 </div>
+
+</div>
+
+## 🌐 Open Source
+
+<p class="osc-intro">
+自建项目之外，我也向上游开源项目提交 PR / Issue —— 共 <b>10</b> 项，其中 <b>3</b> 项已被合并，<b>3</b> 项仍在评审中。
+</p>
+
+<div class="osc-summary" markdown="0">
+  <span class="osc-pill merged">3 Merged</span>
+  <span class="osc-pill review">3 Open</span>
+  <span class="osc-pill closed">4 Closed</span>
+</div>
+
+<div class="osc-list" markdown="0">
+
+  <div class="osc-group-title">✅ Merged · 已合并</div>
+
+  <div class="osc-item merged">
+    <div class="osc-head">
+      <a class="osc-repo" href="https://github.com/wxyhgk/retain-pdf" target="_blank" rel="noopener">wxyhgk/retain-pdf</a>
+      <span class="osc-stars">★ 2.6k</span>
+      <span class="osc-kind">PR</span>
+      <span class="osc-num">#94</span>
+      <span class="osc-pill merged">Merged</span>
+    </div>
+    <a class="osc-title" href="https://github.com/wxyhgk/retain-pdf/pull/94" target="_blank" rel="noopener">docs: 补无 Docker 从源码运行指南，dev.sh 增加 --same-origin</a>
+    <div class="osc-note">补齐免 Docker 的源码运行文档，并为 dev.sh 增加同源模式，省去前后端分离调试时的跨域配置。</div>
+    <div class="osc-meta">
+      <span><span class="osc-add">+720</span> <span class="osc-del">−11</span> · 7 files</span>
+      <span>2026.10.15 merged</span>
+    </div>
+  </div>
+
+  <div class="osc-item merged">
+    <div class="osc-head">
+      <a class="osc-repo" href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener">thedotmack/claude-mem</a>
+      <span class="osc-stars">★ 100.8k</span>
+      <span class="osc-kind">PR</span>
+      <span class="osc-num">#3356</span>
+      <span class="osc-pill merged">Merged</span>
+    </div>
+    <a class="osc-title" href="https://github.com/thedotmack/claude-mem/pull/3356" target="_blank" rel="noopener">fix: Windows isPortInUse returns false for zombie-held ports causing infinite worker startup failures</a>
+    <div class="osc-note">修复 Windows 上端口被僵尸进程占用时探测误判为"未占用"，导致 worker 反复启动失败的问题。</div>
+    <div class="osc-meta">
+      <span><span class="osc-add">+92</span> <span class="osc-del">−6</span> · 2 files</span>
+      <span>2026.07.23 merged</span>
+    </div>
+  </div>
+
+  <div class="osc-item merged">
+    <div class="osc-head">
+      <a class="osc-repo" href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noopener">headroomlabs-ai/headroom</a>
+      <span class="osc-stars">★ 75.4k</span>
+      <span class="osc-kind">PR</span>
+      <span class="osc-num">#912</span>
+      <span class="osc-pill merged">Merged</span>
+    </div>
+    <a class="osc-title" href="https://github.com/headroomlabs-ai/headroom/pull/912" target="_blank" rel="noopener">fix: add DeepSeek V4/V3.2/R1 tokenizer mappings and context limits</a>
+    <div class="osc-note">补齐 DeepSeek V4 / V3.2 / R1 的 tokenizer 映射与上下文长度上限，使压缩前的 token 估算更准确。</div>
+    <div class="osc-meta">
+      <span><span class="osc-add">+56</span> <span class="osc-del">−2</span> · 5 files</span>
+      <span>2026.07.15 merged</span>
+    </div>
+  </div>
+
+  <div class="osc-group-title">⏳ Open · 评审中</div>
+
+  <div class="osc-item review">
+    <div class="osc-head">
+      <a class="osc-repo" href="https://github.com/JiyuanY/Skyrmion-nucleus" target="_blank" rel="noopener">JiyuanY/Skyrmion-nucleus</a>
+      <span class="osc-kind">Issue</span>
+      <span class="osc-num">#1</span>
+      <span class="osc-pill review">Open</span>
+    </div>
+    <a class="osc-title" href="https://github.com/JiyuanY/Skyrmion-nucleus/issues/1" target="_blank" rel="noopener">Comments on arXiv:2609.11551 — Skyrmion nucleus resolves the Landauer paradox</a>
+    <div class="osc-note">就预印本中 skyrmion nucleus 与 Landauer 佯谬的论证展开的物理讨论。</div>
+    <div class="osc-meta">
+      <span>2026.09.11 opened</span>
+    </div>
+  </div>
+
+  <div class="osc-item review">
+    <div class="osc-head">
+      <a class="osc-repo" href="https://github.com/chocolatedesue/retain-pdf" target="_blank" rel="noopener">chocolatedesue/retain-pdf</a>
+      <span class="osc-stars">★ 105</span>
+      <span class="osc-kind">PR</span>
+      <span class="osc-num">#5</span>
+      <span class="osc-pill review">Open</span>
+    </div>
+    <a class="osc-title" href="https://github.com/chocolatedesue/retain-pdf/pull/5" target="_blank" rel="noopener">docs: add from-source deploy guide, WSL2 troubleshooting, and run.sh</a>
+    <div class="osc-note">源码部署指南 + WSL2 排错 + 一键 run.sh 启动脚本（与 wxyhgk/retain-pdf 为同名独立项目）。</div>
+    <div class="osc-meta">
+      <span><span class="osc-add">+409</span> · 5 files</span>
+      <span>2026.08.31 opened</span>
+    </div>
+  </div>
+
+  <div class="osc-item review">
+    <div class="osc-head">
+      <a class="osc-repo" href="https://github.com/Gar-b-age/CookLikeHOC" target="_blank" rel="noopener">Gar-b-age/CookLikeHOC</a>
+      <span class="osc-stars">★ 24.8k</span>
+      <span class="osc-kind">PR</span>
+      <span class="osc-num">#210</span>
+      <span class="osc-pill review">Open</span>
+    </div>
+    <a class="osc-title" href="https://github.com/Gar-b-age/CookLikeHOC/pull/210" target="_blank" rel="noopener">feat: 新增份量等比缩放条，可等比例调整所有食材重量</a>
+    <div class="osc-note">为菜谱页加入份量等比缩放条，按用餐人数一键换算全部食材用量。</div>
+    <div class="osc-meta">
+      <span><span class="osc-add">+261</span> · 6 files</span>
+      <span>2026.08.17 opened</span>
+    </div>
+  </div>
+
+  <div class="osc-group-title">💬 Closed · 已关闭</div>
+
+  <div class="osc-item closed">
+    <div class="osc-head">
+      <a class="osc-repo" href="https://github.com/herdrdev/herdr" target="_blank" rel="noopener">herdrdev/herdr</a>
+      <span class="osc-kind">Issue</span>
+      <span class="osc-num">#2399</span>
+      <span class="osc-pill closed">Closed</span>
+    </div>
+    <a class="osc-title" href="https://github.com/herdrdev/herdr/issues/2399" target="_blank" rel="noopener">Clipboard copy silently fails when outer terminal ignores OSC 52</a>
+    <div class="osc-note">定位外层终端忽略 OSC 52 时剪贴板复制静默失败的原因，经 16 轮讨论后修复关闭。</div>
+    <div class="osc-meta">
+      <span>2026.08.06 → 2026.08.31</span>
+    </div>
+  </div>
+
+  <div class="osc-item declined">
+    <div class="osc-head">
+      <a class="osc-repo" href="https://github.com/harry0703/MoneyPrinterTurbo" target="_blank" rel="noopener">harry0703/MoneyPrinterTurbo</a>
+      <span class="osc-stars">★ 131k</span>
+      <span class="osc-kind">PR</span>
+      <span class="osc-num">#958</span>
+      <span class="osc-pill declined">Not Merged</span>
+    </div>
+    <a class="osc-title" href="https://github.com/harry0703/MoneyPrinterTurbo/pull/958" target="_blank" rel="noopener">feat: add voice cloning support via GPT-SoVITS / Fish-Speech</a>
+    <div class="osc-note">接入自托管语音克隆；维护者致谢但未合并 —— 现有实现所需的兼容、部署与测试成本过高，后续或改为统一的 provider 设计。</div>
+    <div class="osc-meta">
+      <span><span class="osc-add">+1138</span> <span class="osc-del">−2</span> · 6 files</span>
+      <span>2026.07.13 closed</span>
+    </div>
+  </div>
+
+  <div class="osc-item closed">
+    <div class="osc-head">
+      <a class="osc-repo" href="https://github.com/windingwind/zotero-pdf-translate" target="_blank" rel="noopener">windingwind/zotero-pdf-translate</a>
+      <span class="osc-stars">★ 12.1k</span>
+      <span class="osc-kind">Issue</span>
+      <span class="osc-num">#70</span>
+      <span class="osc-pill closed">Closed</span>
+    </div>
+    <a class="osc-title" href="https://github.com/windingwind/zotero-pdf-translate/issues/70" target="_blank" rel="noopener">[Feature] Can font size in sidebar be set? It looks a little small.</a>
+    <div class="osc-note">反馈侧栏字号偏小且不可调，被标记为 enhancement 后关闭。</div>
+    <div class="osc-meta">
+      <span>2022.04.05 closed</span>
+    </div>
+  </div>
+
+  <div class="osc-item closed">
+    <div class="osc-head">
+      <a class="osc-repo" href="https://github.com/stascorp/rdpwrap" target="_blank" rel="noopener">stascorp/rdpwrap</a>
+      <span class="osc-stars">★ 16.9k</span>
+      <span class="osc-kind">Issue</span>
+      <span class="osc-num">#1686</span>
+      <span class="osc-pill closed">Duplicate</span>
+    </div>
+    <a class="osc-title" href="https://github.com/stascorp/rdpwrap/issues/1686" target="_blank" rel="noopener">help: 10.0.22000.318 for windows 11</a>
+    <div class="osc-note">咨询 Windows 11 新版本号适配；与既存 #1599 重复，确认后关闭。</div>
+    <div class="osc-meta">
+      <span>2022.01.17 closed</span>
+    </div>
+  </div>
 
 </div>
 
