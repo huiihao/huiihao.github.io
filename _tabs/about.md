@@ -483,12 +483,12 @@ I am <strong>Yihao Hu</strong>, a Ph.D. at the department of Physics, Westlake U
 ## 🌐 Open Source
 
 <p class="osc-intro">
-自建项目之外，我也向上游开源项目提交 PR / Issue —— 共 <b>10</b> 项，其中 <b>3</b> 项已被合并，<b>3</b> 项仍在评审中。
+自建项目之外，我也向上游开源项目提交 PR / Issue —— 共 <b>9</b> 项，其中 <b>3</b> 项已被合并，<b>2</b> 项仍在评审中。
 </p>
 
 <div class="osc-summary" markdown="0">
   <span class="osc-pill merged">3 Merged</span>
-  <span class="osc-pill review">3 Open</span>
+  <span class="osc-pill review">2 Open</span>
   <span class="osc-pill closed">4 Closed</span>
 </div>
 
@@ -557,22 +557,6 @@ I am <strong>Yihao Hu</strong>, a Ph.D. at the department of Physics, Westlake U
     <div class="osc-note">就预印本中 skyrmion nucleus 与 Landauer 佯谬的论证展开的物理讨论。</div>
     <div class="osc-meta">
       <span>2026.09.11 opened</span>
-    </div>
-  </div>
-
-  <div class="osc-item review">
-    <div class="osc-head">
-      <a class="osc-repo" href="https://github.com/chocolatedesue/retain-pdf" target="_blank" rel="noopener">chocolatedesue/retain-pdf</a>
-      <span class="osc-stars">★ 105</span>
-      <span class="osc-kind">PR</span>
-      <span class="osc-num">#5</span>
-      <span class="osc-pill review">Open</span>
-    </div>
-    <a class="osc-title" href="https://github.com/chocolatedesue/retain-pdf/pull/5" target="_blank" rel="noopener">docs: add from-source deploy guide, WSL2 troubleshooting, and run.sh</a>
-    <div class="osc-note">源码部署指南 + WSL2 排错 + 一键 run.sh 启动脚本（与 wxyhgk/retain-pdf 为同名独立项目）。</div>
-    <div class="osc-meta">
-      <span><span class="osc-add">+409</span> · 5 files</span>
-      <span>2026.08.31 opened</span>
     </div>
   </div>
 
