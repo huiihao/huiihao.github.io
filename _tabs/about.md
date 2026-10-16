@@ -356,6 +356,16 @@ I am <strong>Yihao Hu</strong>, a Ph.D. at the department of Physics, Westlake U
   <div class="abt-news-group">
     <div class="abt-news-group-title">🏆 Dragon Boat · 龙舟</div>
     <div class="abt-news-item">
+      <a href="https://www.ttb0571.com/content/2025-07/01/075814.html" target="_blank" rel="noopener">第二届国际名校生态赛舟会 · 与傅园慧同船</a>
+      <span class="news-meta">2025.06 · 湖州吴兴西山漾</span><br>
+      2025 中国名校水上运动公开赛 · 哈佛、剑桥、清北等 40 余支队伍
+    </div>
+    <div class="abt-news-item">
+      <a href="https://www.westlake.edu.cn/news_events/westlakenews/people/202012/t20201202_7461.shtml" target="_blank" rel="noopener">西湖大学水上运动俱乐部"首战告捷"</a>
+      <span class="news-meta">2020.10 · 长三角之心漾舟精英公开赛</span><br>
+      <span class="news-medal">🥈</span>高校龙舟 二等奖 · 俱乐部成立半月首次出战
+    </div>
+    <div class="abt-news-item">
       <a href="https://www.tyys.zju.edu.cn/english/redir.php?catalog_id=191753&object_id=164696" target="_blank" rel="noopener">第八届全国大学生龙舟锦标赛</a>
       <span class="news-meta">2019.09 · 甘肃永靖</span><br>
       <span class="news-medal">🥈</span>混合组 100m 直道赛 第二名
@@ -395,13 +405,27 @@ I am <strong>Yihao Hu</strong>, a Ph.D. at the department of Physics, Westlake U
       <span class="news-meta">2025</span>
     </div>
     <div class="abt-news-item">
-      <a href="https://tdli.sjtu.edu.cn/post/15194" target="_blank" rel="noopener">"论道"五校联合博士生学术论坛 · Best Poster</a>
+      <a href="https://tdli.sjtu.edu.cn/post/15194" target="_blank" rel="noopener">"论道"五校联合博士生学术论坛 · 优秀海报奖</a>
       <span class="news-meta">2024.12 · 上海交大李政道研究所</span>
     </div>
   </div>
 
   <div class="abt-news-group">
     <div class="abt-news-group-title">📡 Media · 报道</div>
+    <div class="abt-news-item">
+      <a href="https://www.westlake.edu.cn/news_events/westlakenews/people/202607/t20260723_68467.html" target="_blank" rel="noopener">从西湖博士毕业，他的下一站是基金公司</a>
+      <span class="news-meta">2026.07 · 西湖大学人物专访</span><br>
+      五年读博与螺旋铁电的发现 · 科研之外"专注地浪费时间"
+    </div>
+    <div class="abt-news-item">
+      <a href="https://paper.sciencenet.cn/htmlpaper/2024/7/2024729103511388111123.shtm" target="_blank" rel="noopener">西湖大学团队发现新型螺旋铁电结构</a>
+      <span class="news-meta">2024.07 · 中国科学报 / 科学网</span><br>
+      温才妃、刘逸飞报道 · 应变诱导螺旋铁电，压电系数超 320 pC/N
+    </div>
+    <div class="abt-news-item">
+      <a href="https://h5.scimall.org.cn/news/detail?id=6327873" target="_blank" rel="noopener">西湖大学团队发现新型螺旋铁电结构</a>
+      <span class="news-meta">2024.07 · 科技工作者之家（中国科协）</span>
+    </div>
     <div class="abt-news-item">
       <a href="https://westlake.edu.cn/news_events/westlakenews/academics/202407/t20240726_41769.shtml" target="_blank" rel="noopener">AI助力，西湖大学刘仕团队发现螺旋铁电</a>
       <span class="news-meta">2024.07 · 西湖大学</span>
