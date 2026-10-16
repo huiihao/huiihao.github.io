@@ -185,7 +185,7 @@ const fragmentShader = /* glsl */ `
     //   emis 吸积盘 + 光子环辉光（自发光，两种模式都保留）
     //   shadow 视界（1 = 被吞）
     vec3  sky    = captured > 0.5 ? vec3(0.0) : stars(normalize(dir)) + vec3(0.004, 0.005, 0.010);
-    vec3  emis   = disk * 0.72 + vec3(1.0, 0.72, 0.42) * glow * 0.35;
+    vec3  emis   = disk * 0.52 + vec3(1.0, 0.72, 0.42) * glow * 0.26;
 
     // 视界用冲击参数做软边：captured 是硬 0/1，直接拿去做阴影边界会有
     // 锯齿，而我们又是低分辨率渲染再放大，硬边会被放得很明显。
@@ -199,7 +199,7 @@ const fragmentShader = /* glsl */ `
     if (uLight > 0.5) {
       // 亮色：白底不做整体压暗——只把视界压成阴影，把吸积盘画成暖光。
       outc  = uBg * (1.0 - shadow * uIntensity * 0.62);
-      outc += emisT * uIntensity * 0.80;
+      outc += emisT * uIntensity * 1.05;
     } else {
       outc = mix(uBg, skyT * (1.0 - shadow) + emisT, uIntensity);
     }
@@ -262,13 +262,13 @@ function init() {
   const uniforms = {
     uRes:       { value: new THREE.Vector2(1, 1) },
     uTime:      { value: 0 },
-    uIntensity: { value: isDark() ? 0.70 : 0.85 },
+    uIntensity: { value: isDark() ? 0.62 : 0.72 },
     uLight:     { value: isDark() ? 0.0 : 1.0 },
     uBg:        { value: themeBackground() },
-    // 注意：vUv 的原点在左下角，y 越大越靠上
-    uCenter:    { value: new THREE.Vector2(small ? 0.5 : 0.74, small ? 0.62 : 0.72) },
+    // 注意：vUv 的原点在左下角，y 越大越靠上。x/y 由 syncCenter() 计算
+    uCenter:    { value: new THREE.Vector2(0.5, 0.5) },
     // spread 越小视场越宽、黑洞看着越小。窄屏需要更大视场才装得下盘面。
-    uSpread:    { value: new THREE.Vector2(small ? 0.62 : 1.05, small ? 0.62 : 1.05) },
+    uSpread:    { value: new THREE.Vector2(small ? 0.95 : 1.9, small ? 0.95 : 1.9) },
   };
 
   const quad = new THREE.Mesh(
@@ -282,6 +282,21 @@ function init() {
   const baseScale = scale;
   let w = 0, h = 0;
 
+  // 黑洞居中于「除侧边栏以外的界面」：左右取侧边栏右缘到视口右缘的中点。
+  // 不写死断点——直接量侧边栏实际占位，窄屏时它被移出视口左侧，占位自然为 0。
+  function syncCenter() {
+    let occupied = 0;
+    const sb = document.getElementById('sidebar');
+    if (sb) {
+      const r = sb.getBoundingClientRect();
+      occupied = Math.max(0, Math.min(r.right, window.innerWidth));
+    }
+    uniforms.uCenter.value.set(
+      (occupied + window.innerWidth) / 2 / window.innerWidth,
+      0.5,   // 竖直居中（vUv 的 y 关于中线对称，0.5 即屏幕中心）
+    );
+  }
+
   function resize() {
     w = window.innerWidth;
     h = window.innerHeight;
@@ -289,12 +304,13 @@ function init() {
     const rh = Math.max(2, Math.round(h * scale));
     renderer.setSize(rw, rh, false);        // false: 不改 CSS 尺寸，由样式表拉伸
     uniforms.uRes.value.set(rw, rh);
+    syncCenter();
   }
   resize();
   window.addEventListener('resize', resize, { passive: true });
 
   function syncTheme() {
-    uniforms.uIntensity.value = isDark() ? 0.70 : 0.85;
+    uniforms.uIntensity.value = isDark() ? 0.62 : 0.72;
     uniforms.uLight.value = isDark() ? 0.0 : 1.0;
     uniforms.uBg.value.copy(themeBackground());
   }

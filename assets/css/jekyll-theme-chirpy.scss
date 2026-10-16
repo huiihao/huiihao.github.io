@@ -92,6 +92,48 @@ div[class^=language-] .code-header::before {
     transform: scale(1.05);
 }
 
+/* ── 黑洞背景下的界面适配 ──
+   页眉原来是「半透明但无模糊」：吸积盘的亮弧会原样透出来，把整条栏
+   切成深浅不均的两段。页脚原来是整块实色 --main-bg，在会动的背景上
+   切出一条生硬色带。统一改成毛玻璃——背景被糊成柔和色块，文字对比度
+   不再随背景明暗漂移。 */
+#topbar-wrapper,
+footer,
+#back-to-top {
+    background-color: var(--chrome-bg);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    backdrop-filter: blur(16px) saturate(150%);
+}
+
+#topbar-wrapper {
+    border-bottom: 1px solid var(--chrome-border);
+}
+
+footer {
+    border-top: 1px solid var(--chrome-border);
+}
+
+#back-to-top {
+    border: 1px solid var(--chrome-border);
+}
+
+/* 标签原本是透明底（Bootstrap btn-outline / 只描边），背景变成会发亮的
+   黑洞之后会失去对比度——右边栏的 Trending Tags 尤其明显。
+   给实底等于恢复它们在实色页面上的原貌。 */
+.post-tag,
+.tag {
+    background-color: var(--main-bg);
+}
+
+/* 不支持 backdrop-filter 时退回实色，否则等于没做处理 */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    #topbar-wrapper,
+    footer,
+    #back-to-top {
+        background-color: var(--main-bg);
+    }
+}
+
 // 无障碍聚焦样式
 a:focus-visible,
 button:focus-visible {

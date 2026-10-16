@@ -2,6 +2,10 @@
   // 定义的颜色
   --details-border-color: #8458B3;
   --details-bg: #e5eaf5;
+  // 黑洞背景下的页眉/页脚毛玻璃
+  --chrome-bg: rgb(255 255 255 / 58%);
+  --chrome-border: rgb(0 0 0 / 7%);
+  --chrome-shadow: 0 1px 12px rgb(0 0 0 / 5%);
   // 修改了明亮模式下原主题的颜色
   --prompt-tip-bg: #D2E3C8;
   --prompt-tip-icon-color: #4F6F52;
