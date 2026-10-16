@@ -19,10 +19,11 @@ timezone: Asia/Shanghai
 
 title: Yihao Hu # the main title
 
-tagline: Sleeper | Ph.D. @ Westlake University & Zhejiang University # it will display as the subtitle
+tagline: Sleeper | Physics Ph.D. · Quantitative Investment # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  Ph.D @ Zhejiang University & Westlake University.
+  Yihao Hu (胡逸豪) — Physics Ph.D. from Westlake University & Zhejiang University,
+  now working in quantitative investment.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -219,6 +220,9 @@ exclude:
   - purgecss.js
   - "*.config.js"
   - "package*.json"
+  # 仓库根目录的本地草稿/截图，不属于站点内容
+  - "screenshot*.png"
+  - "donghao-*"
 
 jekyll-archives:
   enabled: [categories, tags]

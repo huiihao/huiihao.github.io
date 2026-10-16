@@ -2,7 +2,7 @@
 title: 💰 人生第一笔正式工资
 date: 2026-06-10 21:00:00 +0800
 categories: [Life]
-tags: [milestone, work, salary]
+tags: [milestone]
 description: 2026年6月10日，人生第一次拿到转正后的正式工资——从学生到打工人的里程碑时刻。
 toc: false
 ---

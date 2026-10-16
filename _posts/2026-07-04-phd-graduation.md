@@ -2,7 +2,7 @@
 title: 🎓 博士毕业
 date: 2026-07-04 18:00:00 +0800
 categories: [Life]
-tags: [milestone, graduation, phd]
+tags: [milestone]
 description: 2025年12月批次毕业。2026年6月28日浙江大学典礼，7月4日西湖大学典礼。
 toc: false
 ---
@@ -24,13 +24,13 @@ toc: false
 > <span style="color:#c0392b;font-weight:700;">红黑马面裙配博士红袍。</span>
 
 <p align="center">
-  <img src="/assets/img/ZJU_mamianqun.jpg" alt="浙大毕业典礼·红黑马面裙配博士红袍" width="70%" style="max-width:100%;border-radius:8px;">
+  <img src="/assets/img/ZJU_mamianqun.jpg" alt="浙大毕业典礼·红黑马面裙配博士红袍" width="70%" style="max-width:100%;border-radius:8px;" loading="lazy" decoding="async">
 </p>
 
 2026 年 6 月 28 日，浙江大学毕业典礼，留下合照。
 
 <p align="center">
-  <img src="/assets/img/2026-graduation-ZJU.jpg" alt="2026届浙江大学研究生毕业合影" width="100%" style="max-width:100%;border-radius:8px;">
+  <img src="/assets/img/2026-graduation-ZJU.jpg" alt="2026届浙江大学研究生毕业合影" width="100%" style="max-width:100%;border-radius:8px;" loading="lazy" decoding="async">
 </p>
 
 ---
@@ -38,7 +38,7 @@ toc: false
 ## 🏛️ 西湖大学毕业典礼
 
 <p align="center">
-  <img src="/assets/img/2026-graduation.jpg" alt="2026届西湖大学毕业研究生合影" width="100%" style="max-width:100%;border-radius:8px;">
+  <img src="/assets/img/2026-graduation.jpg" alt="2026届西湖大学毕业研究生合影" width="100%" style="max-width:100%;border-radius:8px;" loading="lazy" decoding="async">
 </p>
 
 ---

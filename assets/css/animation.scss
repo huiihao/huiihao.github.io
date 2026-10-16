@@ -30,17 +30,17 @@
     height: 100%;
     overflow: hidden;
     pointer-events: none;
-  
+    z-index: 0;          /* 置于正文之下；正文层由 #main-wrapper 抬到 z-index:1 */
+    contain: strict;      /* 限制重绘范围，避免整页合成 */
+
     @keyframes animate {
       0% {
-        transform: translateY(0) rotate(0deg);
+        transform: translateY(0);
         opacity: 1;
-        border-radius: 0;
       }
       100% {
-        transform: translateY(-1200px) rotate(720deg);
+        transform: translateY(-1200px);
         opacity: 0;
-        border-radius: 50%;
       }
     }
   
@@ -59,17 +59,18 @@
         background: var(--circle-background);
         width: var(--circle-side-length);
         height: var(--circle-side-length);
+        border-radius: 50%;   /* 原本 0 → 50% 渐变，看起来像方块；直接做成圆点 */
         animation: animate 25s linear infinite;
         animation-duration: var(--circle-time);
         animation-delay: var(--circle-delay);
         pointer-events: none;
 
-        @for $i from 0 through 50 {
+        @for $i from 0 through 22 {
           &:nth-child(#{$i}) {
             --circle-left: #{random_range(0%, 100%)};
-            --circle-background: rgba(#{random_range(0, 255)}, #{random_range(0, 255)}, #{random_range(0, 255)}, 0.06);
-            --circle-side-length: #{random_range(20px, 200px)};
-            --circle-time: #{random_range(10s, 45s)};
+            --circle-background: rgba(#{random_range(0, 255)}, #{random_range(0, 255)}, #{random_range(0, 255)}, 0.05);
+            --circle-side-length: #{random_range(24px, 140px)};
+            --circle-time: #{random_range(14s, 48s)};
             --circle-delay: #{random_range(0s, 25s)};
           }
         }
@@ -81,4 +82,10 @@
         display: none;
       }
     }
+  }
+
+  /* 正文整体抬到动画之上，否则圆点会盖在卡片和文字上 */
+  #main-wrapper {
+    position: relative;
+    z-index: 1;
   }

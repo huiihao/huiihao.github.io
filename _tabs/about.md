@@ -243,7 +243,16 @@ order: 4
 ## 👋 Welcome
 
 <p class="abt-intro">
-I am <strong>Yihao Hu</strong>, a Ph.D. at the department of Physics, Westlake University & Zhejiang University, Hangzhou, Zhejiang, China.
+I am <strong>Yihao Hu</strong> (胡逸豪), a physicist by training. I received my Ph.D. from
+<strong>Westlake University</strong> &amp; <strong>Zhejiang University</strong> in 2026, where I worked with
+<a href="https://liutheory.westlake.edu.cn/" target="_blank" rel="noopener">Prof. Shi Liu</a>
+on multiscale simulations of ferroelectrics — training machine-learning force fields to watch how
+thousands of atoms move <em>together</em>, which led to finding a
+<a href="/posts/PRL-published/">spiral of electric dipoles</a> hidden in the most ordinary ferroelectric, PbTiO<sub>3</sub>.
+</p>
+<p class="abt-intro">
+I now work in <strong>quantitative investment</strong> in Hangzhou. Different subject, same instinct:
+model the whole system, and look for the signal in the noise.
 </p>
 
 <div class="abt-badges">
