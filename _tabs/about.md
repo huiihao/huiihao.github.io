@@ -244,7 +244,7 @@ order: 4
 
 <p class="abt-intro">
 I am <strong>Yihao Hu</strong>, a physicist by training. I received my Ph.D. from
-<strong>Westlake University</strong> &amp; <strong>Zhejiang University</strong> in 2026, where I worked with
+<strong>Westlake University</strong> &amp; <strong>Zhejiang University</strong> in 2025, where I worked with
 <a href="https://liutheory.westlake.edu.cn/" target="_blank" rel="noopener">Prof. Shi Liu</a>
 on multiscale simulations of ferroelectrics — training machine-learning force fields to watch how
 thousands of atoms move <em>together</em>, which led to finding a
