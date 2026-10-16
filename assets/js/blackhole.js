@@ -29,6 +29,7 @@ const fragmentShader = /* glsl */ `
   uniform vec2  uRes;
   uniform float uTime;
   uniform float uIntensity;
+  uniform float uLight;
   uniform vec3  uBg;
   uniform vec2  uCenter;
   uniform vec2  uSpread;
@@ -172,8 +173,6 @@ const fragmentShader = /* glsl */ `
       prevY = pos.y;
     }
 
-    vec3 col = captured > 0.5 ? vec3(0.0) : stars(normalize(dir));
-
     // 光子环外侧的辉光（在着色器里做，省一遍 bloom）。
     // 用冲击参数（光线到黑洞的最近距离）而不是固定步长处的半径，
     // 这样换相机距离不用重调。
@@ -181,14 +180,31 @@ const fragmentShader = /* glsl */ `
     float b  = length(ro + rd * tc);
     float glow = 0.05 / (0.08 + pow(max(b - 3.4, 0.0), 1.9));
 
-    col += disk * 0.72;
-    col += vec3(1.0, 0.72, 0.42) * glow * 0.35;
+    // 分开处理三类贡献，亮色模式下要区别对待：
+    //   sky  逃逸光线看到的星空（亮色模式下必须丢掉，否则整页发灰）
+    //   emis 吸积盘 + 光子环辉光（自发光，两种模式都保留）
+    //   shadow 视界（1 = 被吞）
+    vec3  sky    = captured > 0.5 ? vec3(0.0) : stars(normalize(dir)) + vec3(0.004, 0.005, 0.010);
+    vec3  emis   = disk * 0.72 + vec3(1.0, 0.72, 0.42) * glow * 0.35;
 
-    // 色调映射 + 轻微提亮暗部
-    col = col / (1.0 + col);
-    col = pow(col, vec3(0.4545));
+    // 视界用冲击参数做软边：captured 是硬 0/1，直接拿去做阴影边界会有
+    // 锯齿，而我们又是低分辨率渲染再放大，硬边会被放得很明显。
+    // 临界冲击参数 b_crit ≈ 2.598 RS。
+    float shadow = 1.0 - smoothstep(2.50, 2.80, b);
 
-    gl_FragColor = vec4(mix(uBg, col, uIntensity), 1.0);
+    vec3 skyT  = pow(sky  / (1.0 + sky),  vec3(0.4545));
+    vec3 emisT = pow(emis / (1.0 + emis), vec3(0.4545));
+
+    vec3 outc;
+    if (uLight > 0.5) {
+      // 亮色：白底不做整体压暗——只把视界压成阴影，把吸积盘画成暖光。
+      outc  = uBg * (1.0 - shadow * uIntensity * 0.62);
+      outc += emisT * uIntensity * 0.80;
+    } else {
+      outc = mix(uBg, skyT * (1.0 - shadow) + emisT, uIntensity);
+    }
+
+    gl_FragColor = vec4(outc, 1.0);
   }
 `;
 
@@ -246,7 +262,8 @@ function init() {
   const uniforms = {
     uRes:       { value: new THREE.Vector2(1, 1) },
     uTime:      { value: 0 },
-    uIntensity: { value: isDark() ? 0.70 : 0.30 },
+    uIntensity: { value: isDark() ? 0.70 : 0.85 },
+    uLight:     { value: isDark() ? 0.0 : 1.0 },
     uBg:        { value: themeBackground() },
     // 注意：vUv 的原点在左下角，y 越大越靠上
     uCenter:    { value: new THREE.Vector2(small ? 0.5 : 0.74, small ? 0.62 : 0.72) },
@@ -277,7 +294,8 @@ function init() {
   window.addEventListener('resize', resize, { passive: true });
 
   function syncTheme() {
-    uniforms.uIntensity.value = isDark() ? 0.70 : 0.30;
+    uniforms.uIntensity.value = isDark() ? 0.70 : 0.85;
+    uniforms.uLight.value = isDark() ? 0.0 : 1.0;
     uniforms.uBg.value.copy(themeBackground());
   }
   new MutationObserver(syncTheme).observe(document.documentElement, {
