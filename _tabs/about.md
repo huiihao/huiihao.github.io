@@ -418,6 +418,11 @@ I am <strong>Yihao Hu</strong>, a Ph.D. at the department of Physics, Westlake U
       五年读博与螺旋铁电的发现 · 科研之外"专注地浪费时间"
     </div>
     <div class="abt-news-item">
+      <a href="https://zhuanlan.zhihu.com/p/1994734744626287113" target="_blank" rel="noopener">研究快讯 | 钛酸铅中的双螺旋极化结构</a>
+      <span class="news-meta">2026.01 · 中国物理快报（CPL）</span><br>
+      论文官方解读 · 双螺旋由电 Dzyaloshinskii–Moriya 相互作用稳定
+    </div>
+    <div class="abt-news-item">
       <a href="https://paper.sciencenet.cn/htmlpaper/2024/7/2024729103511388111123.shtm" target="_blank" rel="noopener">西湖大学团队发现新型螺旋铁电结构</a>
       <span class="news-meta">2024.07 · 中国科学报 / 科学网</span><br>
       温才妃、刘逸飞报道 · 应变诱导螺旋铁电，压电系数超 320 pC/N
