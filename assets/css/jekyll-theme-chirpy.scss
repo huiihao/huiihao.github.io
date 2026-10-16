@@ -94,27 +94,76 @@ div[class^=language-] .code-header::before {
 
 /* ── 黑洞背景下的界面适配 ──
    页眉原来是「半透明但无模糊」：吸积盘的亮弧会原样透出来，把整条栏
-   切成深浅不均的两段。页脚原来是整块实色 --main-bg，在会动的背景上
-   切出一条生硬色带。统一改成毛玻璃——背景被糊成柔和色块，文字对比度
-   不再随背景明暗漂移。 */
+   切成深浅不均的两段；而且是 static，滚下去就没了。页脚原本是整块
+   实色 --main-bg 且只有内容列那么宽，在会动的背景上像一条悬空的色带。
+   统一改成毛玻璃，并把两者拉通到整个内容区。 */
+
+$chrome-h: 3.5rem;
+
 #topbar-wrapper,
 footer,
 #back-to-top {
     background-color: var(--chrome-bg);
-    -webkit-backdrop-filter: blur(16px) saturate(150%);
-    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(165%);
+    backdrop-filter: blur(20px) saturate(165%);
 }
 
+/* 页眉：固定在顶部、横跨「侧边栏右侧 → 视口右边」整条。
+   侧边栏宽度断点取自主题变量（850px 起 260px，1650px 起 300px）。 */
 #topbar-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 4;
+    height: $chrome-h;
     border-bottom: 1px solid var(--chrome-border);
+    box-shadow: var(--chrome-shadow);
+
+    @media all and (min-width: 850px) {
+        left: 260px;
+    }
+
+    @media all and (min-width: 1650px) {
+        left: 300px;
+    }
 }
 
+/* 页眉脱离文档流后要给内容让出高度 */
+#main-wrapper > .container {
+    padding-top: $chrome-h;
+}
+
+/* 页脚：内容列的宽度撑不出整条色带，用伪元素向两侧外扩到视口宽度，
+   再靠 html 上的 overflow-x: clip 裁掉多余部分——这样正好剩下
+   「侧边栏右侧 → 视口右边」，不必去猜容器内边距。 */
 footer {
-    border-top: 1px solid var(--chrome-border);
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        /* 精确外扩到视口左右边：50% 是页脚自身半宽，50vw 是视口半宽。
+           用 -100vw 也能盖住，但会把 scrollWidth 撑到 2400+。 */
+        left: calc(50% - 50vw);
+        right: calc(50% - 50vw);
+        z-index: -1;
+        background-color: var(--chrome-bg);
+        -webkit-backdrop-filter: blur(20px) saturate(165%);
+        backdrop-filter: blur(20px) saturate(165%);
+        border-top: 1px solid var(--chrome-border);
+    }
 }
 
 #back-to-top {
     border: 1px solid var(--chrome-border);
+}
+
+/* 伪元素外扩 100vw 会撑出横向滚动，在视口层裁掉 */
+html {
+    overflow-x: clip;
 }
 
 /* 标签原本是透明底（Bootstrap btn-outline / 只描边），背景变成会发亮的
@@ -125,11 +174,32 @@ footer {
     background-color: var(--main-bg);
 }
 
+/* Archives 的奇数行原本是实色 --main-bg + 硬编码渐变，在黑洞背景上就是
+   一条条不透明的横带。改成极淡的半透明色，保留交替的节奏感，
+   但让背景透得出来。带上 html[...] 是为了压过主题里 dark 模式的覆盖。 */
+html #archives ul li:nth-child(odd),
+html:not([data-mode]) #archives ul li:nth-child(odd),
+html[data-mode='dark'] #archives ul li:nth-child(odd),
+html[data-mode='light'] #archives ul li:nth-child(odd) {
+    background-color: transparent;
+    background-image: linear-gradient(
+        to left,
+        transparent,
+        var(--archive-row-tint),
+        var(--archive-row-tint),
+        var(--archive-row-tint),
+        transparent
+    );
+}
+
 /* 不支持 backdrop-filter 时退回实色，否则等于没做处理 */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
     #topbar-wrapper,
-    footer,
     #back-to-top {
+        background-color: var(--main-bg);
+    }
+
+    footer::before {
         background-color: var(--main-bg);
     }
 }

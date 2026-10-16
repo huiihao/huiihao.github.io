@@ -3,9 +3,11 @@
   --details-border-color: #8458B3;
   --details-bg: #e5eaf5;
   // 黑洞背景下的页眉/页脚毛玻璃
-  --chrome-bg: rgb(255 255 255 / 58%);
+  --chrome-bg: rgb(255 253 254 / 62%);
   --chrome-border: rgb(0 0 0 / 7%);
-  --chrome-shadow: 0 1px 12px rgb(0 0 0 / 5%);
+  --chrome-shadow: 0 2px 16px rgb(120 60 90 / 7%);
+  // Archives 奇数行的交替底色（半透明，背景要透得出来）
+  --archive-row-tint: rgb(214 140 175 / 9%);
   // 修改了明亮模式下原主题的颜色
   --prompt-tip-bg: #D2E3C8;
   --prompt-tip-icon-color: #4F6F52;

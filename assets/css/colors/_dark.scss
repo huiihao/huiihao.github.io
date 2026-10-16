@@ -3,9 +3,15 @@
     --details-border-color: #865ab7;
     --details-bg: #222a3aa6;
     // 黑洞背景下的页眉/页脚毛玻璃
-    --chrome-bg: rgb(16 16 20 / 52%);
+    --chrome-bg: rgb(14 14 18 / 55%);
     --chrome-border: rgb(255 255 255 / 8%);
-    --chrome-shadow: 0 1px 12px rgb(0 0 0 / 30%);
+    --chrome-shadow: 0 2px 18px rgb(0 0 0 / 42%);
+    // Archives 奇数行的交替底色（半透明，背景要透得出来）
+    --archive-row-tint: rgb(255 255 255 / 6%);
+    // 正文可能直接压在黑洞的亮盘上，主题原本的 175 灰在亮背景上对比度
+    // 不够，提亮一档；顺便也改善了整体的阅读对比度。
+    --text-color: rgb(206 207 210);
+    --text-muted-color: rgb(150 151 154);
     // 修改了黑暗模式下原主题的颜色
     --prompt-info-bg: rgb(6 36 62);
     --prompt-tip-bg: rgb(32 40 26 / 60%);

@@ -197,9 +197,23 @@ const fragmentShader = /* glsl */ `
 
     vec3 outc;
     if (uLight > 0.5) {
-      // 亮色：白底不做整体压暗——只把视界压成阴影，把吸积盘画成暖光。
-      outc  = uBg * (1.0 - shadow * uIntensity * 0.62);
-      outc += emisT * uIntensity * 1.05;
+      // ── 亮色：粉白配色 ──
+      // 关键：白底本身已经接近 1.0，任何"加光"都会立刻饱和成纯白
+      // （上一版就是这么变成一片白的：光子环辉光在视界中心也最强，
+      //  乘 1.45 直接顶到 255）。所以这里全程做减法——把白底"染"成粉，
+      // 越该亮的地方染得越饱和：
+      //   视界 -> 浅玫瑰灰的实心圆
+      //   盘面 -> 按亮度从浅粉渐到玫红
+      // lDisk 只取吸积盘、不含辉光，否则辉光会把视界内部也染粉。
+      vec3  diskT   = pow(disk * 0.52 / (1.0 + disk * 0.52), vec3(0.4545));
+      float lDisk   = dot(diskT, vec3(0.299, 0.587, 0.114));
+
+      vec3  roseSoft = vec3(0.905, 0.730, 0.815);   // 浅玫瑰
+      vec3  roseDeep = vec3(0.870, 0.480, 0.640);   // 玫红
+      vec3  tint     = mix(roseSoft, roseDeep, smoothstep(0.10, 0.90, lDisk));
+
+      outc  = mix(uBg, roseSoft, shadow * uIntensity * 0.62);      // 视界
+      outc  = mix(outc, tint, pow(lDisk, 0.60) * uIntensity * 0.92); // 盘面压在上面
     } else {
       outc = mix(uBg, skyT * (1.0 - shadow) + emisT, uIntensity);
     }
@@ -262,7 +276,7 @@ function init() {
   const uniforms = {
     uRes:       { value: new THREE.Vector2(1, 1) },
     uTime:      { value: 0 },
-    uIntensity: { value: isDark() ? 0.62 : 0.72 },
+    uIntensity: { value: isDark() ? 0.34 : 0.88 },
     uLight:     { value: isDark() ? 0.0 : 1.0 },
     uBg:        { value: themeBackground() },
     // 注意：vUv 的原点在左下角，y 越大越靠上。x/y 由 syncCenter() 计算
@@ -310,7 +324,7 @@ function init() {
   window.addEventListener('resize', resize, { passive: true });
 
   function syncTheme() {
-    uniforms.uIntensity.value = isDark() ? 0.62 : 0.72;
+    uniforms.uIntensity.value = isDark() ? 0.34 : 0.88;
     uniforms.uLight.value = isDark() ? 0.0 : 1.0;
     uniforms.uBg.value.copy(themeBackground());
   }
