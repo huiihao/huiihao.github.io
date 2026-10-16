@@ -1,7 +1,7 @@
 ---
 title: Agent Street
 date: 2026-05-22 12:00:00 +0800
-categories: [Projects]
+categories: [Agent Street]
 tags: [python, llm, quant]
 description: A pixel-art simulation town where 16 MBTI-driven AI agents live, trade stocks, chat, and form fragile market equilibria — powered by LLMs and real stock data.
 toc: true

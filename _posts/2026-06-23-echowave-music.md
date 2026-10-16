@@ -1,7 +1,7 @@
 ---
 title: EchoWave Music
 date: 2026-06-23 11:11:00 +0800
-categories: [Projects]
+categories: [EchoWave Music]
 tags: [python, html]
 description: Online music search & playback platform with 5-source aggregation. Dark/Light theme, lyrics sync, playlist system. Lite version deployable on GitHub Pages.
 toc: true

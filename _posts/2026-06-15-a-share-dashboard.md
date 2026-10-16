@@ -1,7 +1,7 @@
 ---
 title: A-Share Realtime Dashboard
 date: 2026-06-15 09:30:00 +0800
-categories: [Projects]
+categories: [A-Share Dashboard]
 tags: [quant, python]
 description: A股实时看盘面板 — 5207只股票、4路数据源、8秒全量刷新。Bloomberg Terminal风格，Light/Dark主题。量化投资数据基础设施。
 toc: true
