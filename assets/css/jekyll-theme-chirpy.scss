@@ -179,8 +179,8 @@ html {
    实色底。改成圆点 + 细线分隔的紧凑列表，和 Publications 一致：
    去掉竖线/圆点、去掉交替底色，行高收紧，标题就是普通链接。
 
-   覆盖规则都带 html 前缀，为了压过主题里 #archives 与 html[data-mode]
-   的多层覆盖。 */
+   多带一个 html 前缀是为了压过主题里 #archives 那一层；奇数行的底色
+   更顽固，见文件末尾单独那条。 */
 html #archives {
     margin-top: 0;
 
@@ -278,12 +278,17 @@ html #archives {
     }
 }
 
-/* 去掉奇数行的实色底。主题那条是 #archives ul li:nth-child(odd)（伪类算
-   一级），dark 模式还有一条 html[data-mode=dark] #archives li:nth-child(odd)
-   的覆盖——两条都比上面的嵌套选择器优先级高，所以要单独写到这里，
-   凑够 (1,2,3) 才压得住。 */
+/* 去掉奇数行的实色底。主题侧有三条要压过（括号里是特异性）：
+     #archives ul li:nth-child(odd)                            (1,1,2)  亮色基底
+     :root[data-bs-theme=dark] #archives li:nth-child(odd)     (1,3,1)  暗色
+     :root:not([data-bs-theme]) #archives li:nth-child(odd)    (1,3,1)  跟随系统且未打标
+   后两条的类选择器有 3 个，比 #archives 系列多，会盖掉只到 (1,2,3) 的
+   html[data-mode] 版本——暗色下奇数行会重新长出那条渐变带。所以暗色两条
+   单独补上带 :root 的选择器，凑到 (1,3,3)。 */
 html[data-mode] #archives ul li:nth-child(odd),
-html:not([data-mode]) #archives ul li:nth-child(odd) {
+html:not([data-mode]) #archives ul li:nth-child(odd),
+html:root[data-bs-theme='dark'] #archives ul li:nth-child(odd),
+html:root:not([data-bs-theme]) #archives ul li:nth-child(odd) {
     background-color: transparent;
     background-image: none;
 }
@@ -324,25 +329,40 @@ button:focus-visible {
     background: rgba(128, 128, 128, 0.6);
 }
 
+/* 亮/暗两套变量。Chirpy 7.6 起把配色开关从自定义的 data-mode 换成了
+   Bootstrap 的 data-bs-theme（theme.min.js 只写后者），7.5 及更早才是
+   data-mode。线上构建用最新版 gem（Gemfile.lock 没入库），本地装的却可能
+   是旧版，只认一个的话页面配色会跟站点开关脱节——深色页配白色毛玻璃页眉。
+   两套都写，同特异性靠源序让 data-bs-theme 赢：它总是放在后面。
+   两个属性都不会出现的组合（theme_mode 为空且脚本未执行）才跟随系统。
+
+   必须带 :root。主题自己的那条是 :root[data-bs-theme=dark]——伪类算一级，
+   (0,2,0)，比只写 html[data-bs-theme=dark] 的 (0,1,1) 高。少了 :root，
+   凡是主题也定义的变量（--text-color、--prompt-*-bg…）都会被它盖回去，
+   只有 --chrome-* 这种主题没有的名字才生效，很难察觉。 */
 html {
   @media (prefers-color-scheme: light) {
-    &:not([data-mode]),
-    &[data-mode='light'] {
+    &:root:not([data-mode]):not([data-bs-theme]),
+    &:root[data-mode='light'],
+    &:root[data-bs-theme='light'] {
       @include light.styles;
     }
 
-    &[data-mode='dark'] {
+    &:root[data-mode='dark'],
+    &:root[data-bs-theme='dark'] {
       @include dark.styles;
     }
   }
 
   @media (prefers-color-scheme: dark) {
-    &:not([data-mode]),
-    &[data-mode='dark'] {
+    &:root:not([data-mode]):not([data-bs-theme]),
+    &:root[data-mode='dark'],
+    &:root[data-bs-theme='dark'] {
       @include dark.styles;
     }
 
-    &[data-mode='light'] {
+    &:root[data-mode='light'],
+    &:root[data-bs-theme='light'] {
       @include light.styles;
     }
   }

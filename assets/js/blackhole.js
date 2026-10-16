@@ -243,7 +243,12 @@ function themeBackground() {
 }
 
 function isDark() {
-  const mode = document.documentElement.getAttribute('data-mode');
+  // Chirpy 7.6 起把配色开关从自定义的 data-mode 换成了 Bootstrap 的
+  // data-bs-theme（theme.min.js 只写后者），7.5 及更早才是 data-mode。
+  // 只认其中一个的话，在另一个版本上这里会一直退回「跟随系统」，
+  // 于是站点切了深色而黑洞还按浅色渲染——深色页配一片粉白亮盘。
+  const el = document.documentElement;
+  const mode = el.getAttribute('data-bs-theme') || el.getAttribute('data-mode');
   if (mode === 'dark') return true;
   if (mode === 'light') return false;
   return window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -329,7 +334,8 @@ function init() {
     uniforms.uBg.value.copy(themeBackground());
   }
   new MutationObserver(syncTheme).observe(document.documentElement, {
-    attributes: true, attributeFilter: ['data-mode', 'class', 'style'],
+    attributes: true,
+    attributeFilter: ['data-bs-theme', 'data-mode', 'class', 'style'],
   });
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncTheme);
 
