@@ -1,0 +1,40 @@
+<canvas id="blackhole-canvas" aria-hidden="true"></canvas>
+<script>
+  /* 黑洞背景不参与首屏关键路径：等 load 之后闲时再拉 three.js，
+     正文先可读可交互，canvas 由 CSS 淡入。
+     注意：本站 compress_html 会把换行折叠成空格，内联 JS 里不能用 //
+     行注释，否则会把后面整段代码注释掉。这里只用块注释。 */
+  (function () {
+    var src = '{{ "/assets/js/blackhole.js" | relative_url }}';
+    var done = false;
+
+    function boot() {
+      var s = document.createElement('script');
+      s.type = 'module';
+      s.src = src;
+      s.onerror = function () {
+        var c = document.getElementById('blackhole-canvas');
+        if (c) { c.remove(); }
+      };
+      document.body.appendChild(s);
+    }
+
+    function schedule() {
+      if (done) { return; }
+      done = true;
+      if (window.requestIdleCallback) {
+        window.requestIdleCallback(boot, { timeout: 1200 });
+      } else {
+        setTimeout(boot, 200);
+      }
+    }
+
+    if (document.readyState === 'complete') {
+      schedule();
+    } else {
+      window.addEventListener('load', schedule, { once: true });
+      /* 第三方脚本挂起时 load 可能迟迟不触发，加兜底 */
+      setTimeout(schedule, 2500);
+    }
+  })();
+</script>

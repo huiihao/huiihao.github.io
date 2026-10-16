@@ -74,7 +74,9 @@ layout: compress
       {% include_cached notification.html lang=lang %}
     {% endif %}
 
-    {% if site.background_animation %}
+    {% if site.background_blackhole %}
+    {% include blackhole-background.html %}
+    {% elsif site.background_animation %}
     {% include animated-background.html %}
     {% endif %}
 

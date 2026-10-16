@@ -1,5 +1,6 @@
 # additional tags added by yhh
-background_animation: true
+background_animation: true   # CSS 圆点动画（background_blackhole 为 false 时启用）
+background_blackhole: true   # 全页黑洞背景（WebGL，逐像素引力透镜）
 
 # The Site Configuration
 

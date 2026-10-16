@@ -89,3 +89,32 @@
     position: relative;
     z-index: 1;
   }
+
+  /* 侧边栏是 #main-wrapper 的兄弟节点且没有 z-index，会被背景 canvas 盖住。
+     2 高于 canvas(0) 和 #main-wrapper(1)，也与移动端抽屉的层级一致。 */
+  #sidebar {
+    z-index: 2;
+  }
+
+  /* ── 全页黑洞背景（WebGL）── */
+  #blackhole-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1.4s ease;
+  }
+
+  /* 首帧渲染完成后再淡入，避免闪一下纯黑 */
+  #blackhole-canvas.is-ready {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #blackhole-canvas { transition: none; }
+  }
