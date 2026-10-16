@@ -174,22 +174,118 @@ html {
     background-color: var(--main-bg);
 }
 
-/* Archives 的奇数行原本是实色 --main-bg + 硬编码渐变，在黑洞背景上就是
-   一条条不透明的横带。改成极淡的半透明色，保留交替的节奏感，
-   但让背景透得出来。带上 html[...] 是为了压过主题里 dark 模式的覆盖。 */
-html #archives ul li:nth-child(odd),
-html:not([data-mode]) #archives ul li:nth-child(odd),
-html[data-mode='dark'] #archives ul li:nth-child(odd),
-html[data-mode='light'] #archives ul li:nth-child(odd) {
+/* ── Archives：条目改成 about 页 Publications 那种列表 ──
+   原来是「时间轴」：一条 4px 竖线 + 年份圆点 + 每行 3rem 高，奇数行还是
+   实色底。改成圆点 + 细线分隔的紧凑列表，和 Publications 一致：
+   去掉竖线/圆点、去掉交替底色，行高收紧，标题就是普通链接。
+
+   覆盖规则都带 html 前缀，为了压过主题里 #archives 与 html[data-mode]
+   的多层覆盖。 */
+html #archives {
+    margin-top: 0;
+
+    .year {
+        height: auto;
+        font-size: 1.05rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        color: var(--text-color);
+        position: static;
+        margin: 1.9rem 0 0.35rem;
+        padding-bottom: 0.3rem;
+
+        /* 年份左侧原本的竖线与圆点 */
+        &::before,
+        &::after {
+            display: none;
+        }
+    }
+
+    .year:first-child {
+        margin-top: 0.5rem;
+    }
+
+    ul {
+        letter-spacing: 0;
+    }
+
+    ul li {
+        position: relative;
+        font-size: 0.92rem;
+        line-height: 1.6;
+        margin-left: 0;
+        padding: 0.42rem 0 0.42rem 1.1rem;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.16);
+        background: none;
+        overflow: visible;
+
+        /* 时间轴竖线 -> 项目符号圆点 */
+        &::before {
+            content: '';
+            float: none;
+            position: absolute;
+            left: 0.15rem;
+            top: 0.92rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--text-muted-color);
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* hover 只点亮圆点：改行背景会和下面那条背景重置规则打架
+           （两者优先级相同，谁在后面谁赢，很容易顾此失彼） */
+        &:hover::before {
+            background-color: var(--link-color);
+            box-shadow: 0 0 0 3px var(--archive-row-tint);
+        }
+    }
+
+    ul:last-child li:last-child,
+    ul li:last-child {
+        border-bottom: none;
+
+        /* 最后一行不再往下连线 */
+        &::before {
+            height: 6px;
+        }
+    }
+
+    a {
+        margin-left: 0;
+        top: 0;
+        position: static;
+    }
+
+    /* 日期：等宽对齐，弱化处理 */
+    .date {
+        right: 0;
+        white-space: nowrap;
+        display: inline-block;
+        color: var(--text-muted-color);
+        font-variant-numeric: tabular-nums;
+    }
+
+    .date.day {
+        font-size: 0.82rem;
+        font-family: inherit;
+    }
+
+    .date.month {
+        width: 2.1rem;
+        text-align: left;
+        margin-right: 0.35rem;
+    }
+}
+
+/* 去掉奇数行的实色底。主题那条是 #archives ul li:nth-child(odd)（伪类算
+   一级），dark 模式还有一条 html[data-mode=dark] #archives li:nth-child(odd)
+   的覆盖——两条都比上面的嵌套选择器优先级高，所以要单独写到这里，
+   凑够 (1,2,3) 才压得住。 */
+html[data-mode] #archives ul li:nth-child(odd),
+html:not([data-mode]) #archives ul li:nth-child(odd) {
     background-color: transparent;
-    background-image: linear-gradient(
-        to left,
-        transparent,
-        var(--archive-row-tint),
-        var(--archive-row-tint),
-        var(--archive-row-tint),
-        transparent
-    );
+    background-image: none;
 }
 
 /* 不支持 backdrop-filter 时退回实色，否则等于没做处理 */
