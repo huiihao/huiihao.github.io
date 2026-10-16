@@ -2,6 +2,13 @@
 background_animation: true   # CSS 圆点动画（background_blackhole 为 false 时启用）
 background_blackhole: true   # 全页黑洞背景（WebGL，逐像素引力透镜）
 
+# ⚠️ 仓库 Settings → Pages → Build and deployment 必须保持 "GitHub Actions"。
+# 若被改成 "Deploy from a branch"，GitHub 会额外跑一个 legacy 的
+# pages-build-deployment 工作流，和 .github/workflows/pages-deploy.yml
+# 抢同一个站点；两者耗时接近，谁后完成谁生效。而 legacy 那条会因为仓库
+# 根目录的 .nojekyll 直接原样伺服源码（首页变成未渲染的 markdown、
+# /about/ 变 404）。2026-10 踩过一次。
+
 # The Site Configuration
 
 # Import the theme
