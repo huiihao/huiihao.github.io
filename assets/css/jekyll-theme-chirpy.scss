@@ -217,10 +217,29 @@ details,
     background-color: var(--glass-bg);
 }
 
-/* 分类页的卡片头：主题只在暗色下给它上 --card-header-bg，亮色下用的是
-   Bootstrap 默认的 rgba(33,37,41,.03) 灰，和半透明卡片不搭 */
-.categories .card-header {
-    background-color: var(--card-header-bg);
+/* ── 分类页 ──
+   两个问题：
+   1. 主题给 .categories 加了 margin-bottom: 2rem，一行只有一个分类，
+      中间空出 32px，整页散成一片。收到 0.6rem。
+   2. 卡片头自己还有一层 --card-header-bg（82%），叠在 62% 的卡片底上，
+      合成后接近不透明，完全看不出玻璃。分类卡片体里通常没有子项，
+      整块可见区域就是那个头，所以直接让它透明、只留卡片那层。 */
+.categories {
+    margin-bottom: 0.6rem;
+}
+
+/* 主题那条是 :root[data-bs-theme=dark] .categories .card-header（(0,3,0)），
+   类选择器比 .categories .card-header 多，所以要顺着提一级。 */
+html:root[data-bs-theme] .categories .card-header,
+html:root:not([data-bs-theme]) .categories .card-header {
+    background-color: transparent;
+}
+
+/* 亮色下 .card 用的是 Bootstrap 的 --bs-card-bg（= --bs-body-bg 纯白），
+   没走 --card-bg，所以分类卡片在亮色下仍是实心白。暗色主题自己有覆盖，
+   这里补一条让两种模式一致。 */
+.card {
+    background-color: var(--card-bg);
 }
 
 /* 代码块：Rouge 的配色表把底色写死在 .highlight 上，而且带 :root[data-bs-theme]
