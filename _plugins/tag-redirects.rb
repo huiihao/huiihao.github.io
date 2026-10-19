@@ -48,6 +48,34 @@ module TagRedirects
     "phd" => "milestone",
   }.freeze
 
+  # 旧文章 => 新文章。拆篇、改文件名时用，让站外的旧链接不 404。
+  POST_REDIRECTS = {
+    # 「博士毕业」拆成浙大 / 西湖两篇，旧链接指向收尾的那篇
+    "/posts/phd-graduation/" => "/posts/westlake-commencement/",
+  }.freeze
+
+  POST_TEMPLATE = <<~HTML
+    <!doctype html>
+    <html lang="%<lang>s">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Redirecting to %<target>s</title>
+        <link rel="canonical" href="%<target>s">
+        <meta name="robots" content="noindex, follow">
+        <meta http-equiv="refresh" content="0; url=%<target>s">
+        <style>
+          body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+                 margin: 4rem auto; max-width: 32rem; padding: 0 1rem; line-height: 1.6; }
+          a { word-break: break-all; }
+        </style>
+      </head>
+      <body>
+        <p>This page has moved to <a href="%<target>s">%<target>s</a>…</p>
+      </body>
+    </html>
+  HTML
+
   TEMPLATE = <<~HTML
     <!doctype html>
     <html lang="%<lang>s">
@@ -97,6 +125,21 @@ class TagRedirectGenerator < Jekyll::Generator
       site.pages << page
     end
 
-    Jekyll.logger.info "Tag redirects:", "generated #{TagRedirects::REDIRECTS.size} pages"
+    TagRedirects::POST_REDIRECTS.each do |old_path, new_path|
+      target = base + new_path
+
+      page = Jekyll::PageWithoutAFile.new(
+        site, site.source, old_path.sub(%r{\A/}, "").chomp("/"), "index.html"
+      )
+      page.content = format(TagRedirects::POST_TEMPLATE, lang: lang, target: target)
+      page.data["layout"] = nil
+      page.data["sitemap"] = false
+      site.pages << page
+    end
+
+    Jekyll.logger.info(
+      "Tag redirects:",
+      "generated #{TagRedirects::REDIRECTS.size} tag + #{TagRedirects::POST_REDIRECTS.size} post pages"
+    )
   end
 end

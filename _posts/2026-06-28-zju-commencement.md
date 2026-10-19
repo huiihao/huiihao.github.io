@@ -1,9 +1,9 @@
 ---
-title: 🎓 博士毕业典礼
-date: 2026-07-04 18:00:00 +0800
+title: 🏛️ 浙江大学毕业典礼
+date: 2026-06-28 18:00:00 +0800
 categories: [Life]
 tags: [milestone]
-description: 2025年12月批次毕业。两场典礼：6月28日浙江大学，7月4日西湖大学。
+description: 2026年6月28日，浙江大学研究生毕业典礼。红黑马面裙配博士红袍。
 toc: false
 ---
 
@@ -14,14 +14,12 @@ toc: false
 2020.09  直博入学 — 浙江大学−西湖大学联合培养
 2025.12  博士毕业（12月批次）
 2026.06.28  浙江大学毕业典礼
-2026.07.04  西湖大学毕业典礼 🎉
+2026.07.04  西湖大学毕业典礼（一周后）
 ```
 
 ---
 
-## 🏛️ 浙江大学毕业典礼
-
-<p class="post-subnote">2026 年 6 月 28 日</p>
+## 👘 红黑马面裙配博士红袍
 
 > <span style="color:#c0392b;font-weight:700;">红黑马面裙配博士红袍。</span>
 
@@ -32,30 +30,6 @@ toc: false
 <p align="center">
   <img src="/assets/img/2026-graduation-ZJU.webp" alt="2026届浙江大学研究生毕业合影" width="100%" style="max-width:100%;border-radius:8px;" loading="lazy" decoding="async">
 </p>
-
----
-
-## 🏛️ 西湖大学毕业典礼
-
-<p class="post-subnote">2026 年 7 月 4 日</p>
-
-<p align="center">
-  <img src="/assets/img/2026-graduation.webp" alt="2026届西湖大学毕业研究生合影" width="100%" style="max-width:100%;border-radius:8px;" loading="lazy" decoding="async">
-</p>
-
----
-
-## 📝 5.5 年直博
-
-<div class="box-info" markdown="1">
-
-**📌 毕业感言**
-
-感谢导师刘仕教授五年的指导和包容，感谢家人无条件的支持。
-
-从量子力学课后追着老师问问题的本科生，到站在铁电物理年会海报前的博士生——五年半，一场漫长的修行。
-
-</div>
 
 <br>
 
@@ -68,6 +42,5 @@ toc: false
 </div>
 
 <p align="center">
-  <br>
-  🥂 以此为记 · 江湖再见 🌊
+  一周后还有一场：<a href="/posts/westlake-commencement/">西湖大学毕业典礼</a> →
 </p>
