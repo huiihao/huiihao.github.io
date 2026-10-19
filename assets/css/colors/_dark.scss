@@ -8,12 +8,22 @@
     --chrome-shadow: 0 2px 18px rgb(0 0 0 / 42%);
     // Archives 奇数行的交替底色（半透明，背景要透得出来）
     --archive-row-tint: rgb(255 255 255 / 6%);
+    // 卡片/代码块/标签这些「面」的底色，见 light 里的说明
+    --glass-bg: rgb(30 30 34 / 62%);
+    --glass-strong-bg: rgb(22 22 26 / 82%);
+    --tb-odd-bg: rgb(37 37 38 / 55%);
+    --glass-border: rgb(255 255 255 / 9%);
     // 正文可能直接压在黑洞的亮盘上，主题原本的 175 灰在亮背景上对比度
     // 不够，提亮一档；顺便也改善了整体的阅读对比度。
     --text-color: rgb(206 207 210);
     --text-muted-color: rgb(150 151 154);
+    // 把主题里几处实色底换成半透明，黑洞背景才能透出来
+    --card-bg: var(--glass-bg);
+    --card-header-bg: var(--glass-strong-bg);
+    --highlight-bg-color: var(--glass-strong-bg);
+    --search-tag-bg: var(--glass-bg);
     // 修改了黑暗模式下原主题的颜色
-    --prompt-info-bg: rgb(6 36 62);
+    --prompt-info-bg: rgb(6 36 62 / 82%);
     --prompt-tip-bg: rgb(32 40 26 / 60%);
     --prompt-tip-icon-color: #568b5b;
     --prompt-warning-bg: rgb(61 48 6 / 88%);

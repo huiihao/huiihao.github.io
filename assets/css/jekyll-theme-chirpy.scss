@@ -161,17 +161,79 @@ footer {
     border: 1px solid var(--chrome-border);
 }
 
+/* 页脚就一行 12.8px 的字，主题却给了 5rem（窄屏 6rem）高度，上下空得太多。
+   压到 3.25rem，和 3.5rem 的页眉大致齐平。提一级特异性到 #tail-wrapper，
+   否则盖不过窄屏那条 padding: 1.5rem 0。
+
+   padding-bottom 必须加 !important：页脚标签上挂了个 Bootstrap 的
+   pb-lg-3，而 Bootstrap 5 的间距工具类默认就是 !important（这里是从
+   jsDelivr 单独引入的 bootstrap.min.css，不在我们自己的样式表里）。
+   不抵消掉它，文字会被顶得偏上 8px。 */
+#tail-wrapper footer {
+    height: 3.25rem;
+    padding-top: 0;
+    padding-bottom: 0 !important;
+}
+
 /* 伪元素外扩 100vw 会撑出横向滚动，在视口层裁掉 */
 html {
     overflow-x: clip;
 }
 
-/* 标签原本是透明底（Bootstrap btn-outline / 只描边），背景变成会发亮的
-   黑洞之后会失去对比度——右边栏的 Trending Tags 尤其明显。
-   给实底等于恢复它们在实色页面上的原貌。 */
+/* ── 卡片 / 代码块 / 提示块 / 标签：毛玻璃 ──
+   这些「面」原来都是实色（--card-bg 白 / #1e1e1e），压在黑洞上像贴了几张
+   不透光的纸。底色已经在 colors/light|dark 里换成半透明，这里统一挂上
+   backdrop-filter，和页眉页脚是同一套观感。
+
+   模糊半径别开太大：底下那块 canvas 每帧都在重绘，每个毛玻璃元素都是一次
+   backdrop 采样，开销大致正比于「面积 × 半径」。实测（同一页面只切
+   backdrop-filter）16px 时帧率掉三成左右，12px 观感几乎没差别。
+
+   页眉的搜索框不在这里：它父级 #topbar-wrapper 已经做了一次模糊，
+   子元素再挂一次采样到的是模糊后的底，白付一遍开销。 */
+$glass-blur: blur(12px) saturate(150%);
+
+.post-preview,
+.card,
+.highlight,
+blockquote[class^='prompt-'],
+details,
 .post-tag,
 .tag {
-    background-color: var(--main-bg);
+    -webkit-backdrop-filter: $glass-blur;
+    backdrop-filter: $glass-blur;
+}
+
+/* 标签原本是透明底（Bootstrap btn-outline / 只描边），背景变成会发亮的
+   黑洞之后会失去对比度——右边栏的 Trending Tags 尤其明显。
+   给半透明底恢复了对比度，又不把背景挡死。 */
+.post-tag,
+.tag {
+    background-color: var(--glass-bg);
+}
+
+/* 页眉的搜索框原来也是实底 --main-bg，在毛玻璃页眉上像开了个白洞 */
+#topbar-wrapper search {
+    background-color: var(--glass-bg);
+}
+
+/* 分类页的卡片头：主题只在暗色下给它上 --card-header-bg，亮色下用的是
+   Bootstrap 默认的 rgba(33,37,41,.03) 灰，和半透明卡片不搭 */
+.categories .card-header {
+    background-color: var(--card-header-bg);
+}
+
+/* 代码块：Rouge 的配色表把底色写死在 .highlight 上，而且带 :root[data-bs-theme]
+   前缀（(0,3,0)），比单写 .highlight 高，光改变量盖不住，得顺着提一级。
+   外层 div.language-* 已经拿到了 --glass-strong-bg，内层再叠一层半透明会
+   明显偏深，所以内层和空白 span 都设成透明。 */
+html:root[data-bs-theme] .highlight {
+    background-color: var(--highlight-bg-color);
+}
+
+html:root[data-bs-theme] div[class^='language-'] .highlight,
+html:root[data-bs-theme] .highlight .w {
+    background-color: transparent;
 }
 
 /* ── Archives：条目改成 about 页 Publications 那种列表 ──

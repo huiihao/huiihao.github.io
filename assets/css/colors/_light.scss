@@ -8,7 +8,21 @@
   --chrome-shadow: 0 2px 16px rgb(120 60 90 / 7%);
   // Archives 奇数行的交替底色（半透明，背景要透得出来）
   --archive-row-tint: rgb(214 140 175 / 9%);
-  // 修改了明亮模式下原主题的颜色
-  --prompt-tip-bg: #D2E3C8;
+  // 卡片/代码块/标签这些「面」的底色。黑洞背景要透出来，所以不用实色；
+  // 需要保证文字对比度的地方（代码、提示块）用 strong 那一档。
+  --glass-bg: rgb(255 255 255 / 62%);
+  --glass-strong-bg: rgb(252 253 254 / 82%);
+  --tb-odd-bg: rgb(251 252 253 / 55%);
+  --glass-border: rgb(0 0 0 / 8%);
+  // 把主题里几处实色底换成半透明，黑洞背景才能透出来
+  --card-bg: var(--glass-bg);
+  --card-header-bg: var(--glass-strong-bg);
+  --highlight-bg-color: var(--glass-strong-bg);
+  --details-bg: rgb(229 234 245 / 72%);
+  --search-tag-bg: var(--glass-bg);
+  // 修改了明亮模式下原主题的颜色（保留色相，只降不透明度）
+  --prompt-tip-bg: rgb(210 227 200 / 78%);
   --prompt-tip-icon-color: #4F6F52;
+  --prompt-info-bg: rgb(225 245 254 / 78%);
+  --prompt-warning-bg: rgb(255 243 205 / 82%);
 }
