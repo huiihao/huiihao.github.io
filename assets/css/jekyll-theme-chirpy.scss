@@ -255,6 +255,12 @@ html #archives {
         margin-left: 0;
         top: 0;
         position: static;
+
+        /* 主题在标题前还有一颗 8px 的小圆点（float + top:1.35rem 顶到文字
+           下方）。我们已经在 li 上放了项目符号，这一颗就是多出来的那颗。 */
+        &::before {
+            display: none;
+        }
     }
 
     /* 日期：等宽对齐，弱化处理 */
