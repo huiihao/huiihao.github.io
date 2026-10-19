@@ -1,0 +1,26 @@
+# 首页卡片右侧的像素图标 —— 按文章的 slug 指定。
+# 可用的名字在 _includes/pixel-icons.html 里（<symbol id="px-...">），
+# 没配到的文章会退回到 star。
+#
+# 注意 slug 是 Jekyll 从文件名推出来的，大小写不统一（有的保留原样）：
+#   2026-02-12-Daily60s.md   ->  Daily60s
+#   2026-06-23-EchoWave-Music.md  ->  echowave-music
+# 所以布局那边会把 slug 先 downcase，这里统一写小写。
+#
+# 想加新图标：改 _includes/pixel-icons.html 里的网格，或在下面挑个现成的。
+
+prl-published: paper
+prx-published: paper
+cpl-published: paper
+
+qrsync: filesync
+phone-apn: phone
+word-handwriting: pen
+daily60s: cloudapi
+feishu-ai-read-paper: robot
+agent-street: street
+job-offer: briefcase
+first-salary: coin
+a-share-dashboard: chart
+echowave-music: music
+phd-graduation: gradcap

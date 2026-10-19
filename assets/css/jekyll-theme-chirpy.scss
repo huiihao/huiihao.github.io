@@ -180,6 +180,44 @@ html {
     overflow-x: clip;
 }
 
+/* ── 首页卡片右侧的像素图标 ──
+   图标是内联 SVG（_includes/pixel-icons.html），描边走 --px-ink，随主题反转，
+   所以亮暗两套不用各画一遍。用 <use> 引用 sprite，一张卡片只多一个节点。
+
+   卡片本身是 position: static，这里的 relative 顺带把主题那个绝对定位的
+   hover 遮罩（.post-preview::before）钉回卡片范围内——之前它没有定位祖先，
+   是相对整页算的。 */
+#post-list .post-preview {
+    position: relative;
+}
+
+/* 给右侧图标让位 */
+#post-list .post-preview .card-body {
+    padding-right: 6.5rem;
+}
+
+.pixel-icon {
+    position: absolute;
+    right: 1.6rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 64px;
+    height: 64px;
+    shape-rendering: crispEdges;
+    pointer-events: none;
+}
+
+/* 窄屏卡片太窄，图标会把标题挤成一列 */
+@media all and (max-width: 575.98px) {
+    #post-list .post-preview .card-body {
+        padding-right: 28px;
+    }
+
+    .pixel-icon {
+        display: none;
+    }
+}
+
 /* ── 卡片 / 代码块 / 提示块 / 标签：毛玻璃 ──
    这些「面」原来都是实色（--card-bg 白 / #1e1e1e），压在黑洞上像贴了几张
    不透光的纸。底色已经在 colors/light|dark 里换成半透明，这里统一挂上
