@@ -180,6 +180,13 @@ html {
     overflow-x: clip;
 }
 
+/* 正文里标题下的一行小字（比如典礼日期） */
+.post-subnote {
+    margin: -0.7rem 0 1rem;
+    font-size: 0.85rem;
+    color: var(--text-muted-color);
+}
+
 /* ── 首页卡片右侧的像素图标 ──
    图标是内联 SVG（_includes/pixel-icons.html），描边走 --px-ink，随主题反转，
    所以亮暗两套不用各画一遍。用 <use> 引用 sprite，一张卡片只多一个节点。
