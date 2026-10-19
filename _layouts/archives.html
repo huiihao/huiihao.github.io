@@ -1,0 +1,85 @@
+---
+layout: page
+# The Archives of posts.
+---
+
+{% include lang.html %}
+
+{% assign df_strftime_m = site.data.locales[lang].df.archives.strftime | default: '/ %m' %}
+{% assign df_dayjs_m = site.data.locales[lang].df.archives.dayjs | default: '/ MM' %}
+
+{% if site.archives_layout == 'timeline' %}
+  {%- comment -%}
+    中轴时间线：条目按时间从新到旧排下来，落在中轴哪一侧由 categories 决定
+    （左：site.archives_left_categories，其余走右侧）。
+
+    用 div 而不是 ul/li —— 样式表里针对旧列表的规则是 `html #archives ul li`，
+    换成 div 就完全不会撞上，不用把那一整套选择器再改一遍。role 补语义。
+
+    空的那一侧不输出节点：否则窄屏下两个 .tl-side 都会落到同一列，
+    grid 会把它们排到两行去，多出一段空白。
+  {%- endcomment -%}
+  <div id="archives" class="archives-timeline" role="list">
+    {% for post in site.posts %}
+      {% assign cur_year = post.date | date: '%Y' %}
+
+      {% if cur_year != last_year %}
+        <div class="tl-year" role="presentation">
+          <time>{{ cur_year }}</time>
+        </div>
+        {% assign last_year = cur_year %}
+      {% endif %}
+
+      {% assign cat = post.categories | first %}
+      {% assign side = 'right' %}
+      {% if site.archives_left_categories contains cat %}
+        {% assign side = 'left' %}
+      {% endif %}
+
+      {% if side == 'left' %}
+        <div class="tl-item tl-left" role="listitem">
+          <div class="tl-side tl-side-l">
+            <time class="tl-date">{{ post.date | date: '%d %b' }}</time>
+            <a class="tl-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </div>
+          <span class="tl-node" aria-hidden="true"></span>
+        </div>
+      {% else %}
+        <div class="tl-item tl-right" role="listitem">
+          <span class="tl-node" aria-hidden="true"></span>
+          <div class="tl-side tl-side-r">
+            <time class="tl-date">{{ post.date | date: '%d %b' }}</time>
+            <a class="tl-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+{% else %}
+  <div id="archives" class="pl-xl-3">
+    {% for post in site.posts %}
+      {% assign cur_year = post.date | date: '%Y' %}
+
+      {% if cur_year != last_year %}
+        {% unless forloop.first %}</ul>{% endunless %}
+
+        <time class="year lead d-block">{{ cur_year }}</time>
+        {{ '<ul class="list-unstyled">' }}
+
+        {% assign last_year = cur_year %}
+      {% endif %}
+
+      <li>
+        {% assign ts = post.date | date: '%s' %}
+        <span class="date day" data-ts="{{ ts }}" data-df="DD">{{ post.date | date: '%d' }}</span>
+        <span class="date month small text-muted ms-1" data-ts="{{ ts }}" data-df="{{ df_dayjs_m }}">
+          {{ post.date | date: df_strftime_m }}
+        </span>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </li>
+
+      {% if forloop.last %}</ul>{% endif %}
+    {% endfor %}
+  </div>
+{% endif %}

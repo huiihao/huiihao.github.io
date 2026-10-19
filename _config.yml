@@ -2,6 +2,14 @@
 background_animation: true   # CSS 圆点动画（background_blackhole 为 false 时启用）
 background_blackhole: true   # 全页黑洞背景（WebGL，逐像素引力透镜）
 
+# Archives 版式
+#   timeline —— 中轴时间线，分类分列两边（见 archives_left_categories）
+#   list     —— 单列列表（原来的样子）
+archives_layout: timeline
+# 中轴时间线里排在左侧的分类。其余分类一律走右侧，
+# 名字要和文章 front matter 里的 categories 完全一致（区分大小写）。
+archives_left_categories: [Research, Life, Career]
+
 # ⚠️ 仓库 Settings → Pages → Build and deployment 必须保持 "GitHub Actions"。
 # 若被改成 "Deploy from a branch"，GitHub 会额外跑一个 legacy 的
 # pages-build-deployment 工作流，和 .github/workflows/pages-deploy.yml
