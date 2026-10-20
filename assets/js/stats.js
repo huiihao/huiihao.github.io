@@ -26,6 +26,13 @@
 
   renderChart(daily);
 
+  // 宽度变了要重画（viewBox 跟着容器走）
+  var rt = 0;
+  window.addEventListener('resize', function () {
+    clearTimeout(rt);
+    rt = setTimeout(function () { renderChart(daily); }, 150);
+  });
+
   // 地图数据里带中文国名（world.json 的 NAME_ZH），先取它，
   // 条形图和地图就能用同一套名字；取不到就退回 GoatCounter 的英文名。
   var mapHost = document.getElementById('stats-map');
@@ -45,7 +52,12 @@
     if (!host) return;
     if (!rows.length) { host.innerHTML = '<p class="stats-none">暂无数据</p>'; return; }
 
-    var W = 720, H = 260;
+    // viewBox 的宽度直接取容器宽度：这样 1 个 SVG 单位 = 1 个 CSS 像素，
+    // 坐标轴文字不会跟着缩小。固定 viewBox 的话，720 单位的图在 320px 屏上
+    // 只剩 0.44 倍，11px 的字实际不到 5px，完全看不清。
+    var W = Math.round(host.clientWidth || 720);
+    W = Math.max(260, Math.min(760, W));
+    var H = Math.round(Math.min(260, Math.max(200, W * 0.55)));
     var padL = 40, padR = 10, padT = 14, padB = 26;
     var iw = W - padL - padR;
     var ih = H - padT - padB;
@@ -112,8 +124,9 @@
       var pct = (c.v / sum) * 100;
       var w = Math.max(2, (c.v / max) * 100);
       var name = NAME_FALLBACK[c.c] || (world && world.countries[c.c] && world.countries[c.c].n) || c.n;
+      var cc = FLAG_OVERRIDE[c.c] || c.c;
       return '<li class="stats-bar">' +
-        '<span class="stats-bar-name">' + flag(c.c) + ' ' + esc(name) + '</span>' +
+        '<span class="stats-bar-name">' + flag(cc) + ' ' + esc(name) + '</span>' +
         '<span class="stats-bar-track"><span class="stats-bar-fill" style="width:' +
           w.toFixed(1) + '%"></span></span>' +
         '<span class="stats-bar-num">' + fmt(c.v) + ' · ' + pct.toFixed(pct < 10 ? 1 : 0) + '%</span>' +
@@ -162,9 +175,13 @@
   // 地图用的 110m 数据里没有的一些小地方（新加坡太小、港澳台在该分辨率下
   // 不单独成块），补一份名字，免得条形图里中英文混排。
   var NAME_FALLBACK = {
-    SG: '新加坡', HK: '香港', MO: '澳门', TW: '台湾',
+    SG: '新加坡',
+    HK: '中国香港', MO: '中国澳门', TW: '中国台湾',
     MT: '马耳他', LU: '卢森堡', BH: '巴林', MU: '毛里求斯'
   };
+
+  // 上面这几个的国旗也统一用五星红旗，免得「中国台湾 🇹🇼」这种自相矛盾的组合
+  var FLAG_OVERRIDE = { HK: 'CN', MO: 'CN', TW: 'CN' };
 
   function fmt(n) {
     return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
