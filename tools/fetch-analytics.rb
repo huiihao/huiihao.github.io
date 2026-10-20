@@ -78,13 +78,13 @@ def main
   puts "拉取 #{days} 天：#{range[:start]} .. #{range[:end]}"
 
   locations = get('/stats/locations', range.merge(limit: 100))
-  hits      = get('/stats/hits', range.merge(limit: 100, group: 'day'))
+  totals    = get('/stats/total', range)
 
   if ARGV.include?('--dump')
     puts '--- locations ---'
     puts JSON.pretty_generate(locations)[0, 3000]
-    puts '--- hits ---'
-    puts JSON.pretty_generate(hits)[0, 3000]
+    puts '--- totals ---'
+    puts JSON.pretty_generate(totals)[0, 3000]
   end
 
   # ---- 地区 ----------------------------------------------------------
@@ -97,32 +97,28 @@ def main
   end.compact.reject { |c| c['v'].zero? }.sort_by { |c| -c['v'] }
 
   # ---- 日序列 --------------------------------------------------------
-  # /stats/hits 返回 { "hits": [ { "path": {...}, "stats": [ {day, daily, ...} ] } ], "total": N }
-  # 每个 path 各自带一份按天数组，逐天相加就是全站曲线。
+  # /stats/total 返回 { "total": 49, "total_utc": 54, "stats": [ {day, daily, ...} ] }
   #
-  # 注意：每个 stat 只有 {day, hourly, daily, weekly, monthly}，**没有按天的
-  # 唯一访客数**。真正的访客数只有响应顶层的 total（整个区间的合计）。
-  # 所以曲线只画浏览量，访客数作为总数展示，不编一条假的分日曲线。
-  per_day = Hash.new(0)
-  Array(hits['hits']).each do |page|
-    Array(page['stats']).each do |row|
-      day = row['day'].to_s
-      next if day.empty?
+  # 实测这几个字段是同一个量：total == sum(stats[].daily) == /stats/hits 的
+  # total == 各 path 的 count 之和，都是**浏览量**。total_utc 只是换 UTC 边界
+  # 重算的同一个数，并不是访客数。
+  #
+  # 也就是说这套 API 没有分日的唯一访客数，连总数都没有。所以页面只展示
+  # 浏览量，不去编一个"访客数"。页脚那两个数（不蒜子）才是访客口径。
+  daily = Array(totals['stats']).map do |row|
+    day = row['day'].to_s
+    next nil if day.empty?
 
-      per_day[day] += row['daily'].to_i
-    end
-  end
+    { 'd' => day, 'v' => row['daily'].to_i }
+  end.compact.sort_by { |r| r['d'] }
 
-  daily = per_day.keys.sort.map { |d| { 'd' => d, 'v' => per_day[d] } }
-
-  views = daily.sum { |r| r['v'] }
-  visitors = hits['total'].to_i
+  views = totals['total'].to_i
 
   payload = {
     'available' => true,
     'generated_at' => finish.strftime('%Y-%m-%dT%H:%M:%SZ'),
     'source' => 'GoatCounter',
-    'totals' => { 'views' => views, 'visitors' => visitors },
+    'totals' => { 'views' => views, 'days' => daily.size },
     'daily' => daily,
     'countries' => countries
   }
@@ -130,7 +126,7 @@ def main
   File.write(OUT, JSON.pretty_generate(payload) + "\n")
   puts "写入 #{OUT}"
   puts "  #{days} 天，#{daily.size} 个有数据的日子，#{countries.size} 个国家/地区"
-  puts "  浏览 #{views}，访客 #{visitors}"
+  puts "  浏览 #{views}，有数据 #{daily.size} 天"
 rescue StandardError => e
   # 构建不能因为统计挂掉。保留原文件，只报警。
   warn "统计拉取失败：#{e.class}: #{e.message}"

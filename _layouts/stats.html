@@ -23,8 +23,8 @@ layout: page
           <span>总浏览量</span>
         </div>
         <div class="stats-total">
-          <strong>{{ stats.totals.visitors | default: 0 }}</strong>
-          <span>总访客数</span>
+          <strong>{{ stats.daily | size }}</strong>
+          <span>有数据的天数</span>
         </div>
       </div>
 

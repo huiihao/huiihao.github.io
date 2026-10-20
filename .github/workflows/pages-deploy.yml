@@ -51,16 +51,6 @@ jobs:
           GOATCOUNTER_API_TOKEN: ${{ secrets.GOATCOUNTER_API_TOKEN }}
         run: ruby tools/fetch-analytics.rb
 
-      - name: Inspect semantics
-        continue-on-error: true
-        env:
-          T: ${{ secrets.GOATCOUNTER_API_TOKEN }}
-        run: |
-          A="https://yiihao.goatcounter.com/api/v0/stats"
-          curl -s -H "Authorization: Bearer $T" "$A/total?start=2026-10-14&end=2026-10-20" > /tmp/t.json
-          curl -s -H "Authorization: Bearer $T" "$A/hits?start=2026-10-14&end=2026-10-20&limit=100&group=day" > /tmp/h.json
-          python3 -c "import json;t=json.load(open('/tmp/t.json'));h=json.load(open('/tmp/h.json'));print('total:',t['total'],'total_utc:',t['total_utc'],'sum_daily:',sum(r['daily'] for r in t['stats']));print('hits.total:',h['total'],'hits.sum_daily:',sum(r['daily'] for p in h['hits'] for r in p['stats']),'hits.count:',sum(p['count'] for p in h['hits']))"
-
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
         env:
