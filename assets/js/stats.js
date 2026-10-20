@@ -3,8 +3,8 @@
  *
  * 数据在 <script type="application/json" id="stats-data"> 里，结构见
  * tools/fetch-analytics.rb：
- *   { available, generated_at, source, totals:{views,visitors},
- *     daily:[{d:"2026-10-01", v:12, u:8}, ...],
+ *   { available, generated_at, source, totals:{visitors, days},
+ *     daily:[{d:"2026-10-01", v:12}, ...],
  *     countries:[{c:"CN", n:"中国", v:120}, ...] }
  */
 
@@ -50,12 +50,9 @@
     var iw = W - padL - padR;
     var ih = H - padT - padB;
 
-    // u 是可选的：GoatCounter 只给整段区间的访客合计，没有按天的，
-    // 所以正常情况下只有 v 一条线。
-    var hasU = rows.some(function (r) { return typeof r.u === 'number'; });
-    var rawMax = Math.max.apply(null, rows.map(function (r) {
-      return Math.max(r.v, hasU ? r.u : 0);
-    }));
+    // GoatCounter 的统计接口只给访客数（按天去重），没有 pageviews，
+    // 所以这里只有一条线。
+    var rawMax = Math.max.apply(null, rows.map(function (r) { return r.v; }));
     // 刻度取整：让 max/4 是整数，轴上不会出现 23、15 这种数字
     var max = Math.max(4, Math.ceil(rawMax / 4) * 4);
 
@@ -71,7 +68,6 @@
     }
 
     var lineV = series('v');
-    var lineU = series('u');
     var area = lineV + 'L' + x(rows.length - 1).toFixed(1) + ' ' + (padT + ih) +
                'L' + x(0).toFixed(1) + ' ' + (padT + ih) + 'Z';
 
@@ -87,7 +83,6 @@
     }
 
     parts.push('<path d="' + area + '" class="stats-area"/>');
-    if (hasU) parts.push('<path d="' + lineU + '" class="stats-line stats-line-visitors"/>');
     parts.push('<path d="' + lineV + '" class="stats-line"/>');
 
     var idx = rows.length > 2 ? [0, Math.floor((rows.length - 1) / 2), rows.length - 1] : [0, rows.length - 1];
@@ -98,8 +93,7 @@
 
     parts.push('</svg>');
     parts.push('<div class="stats-legend">' +
-      '<span><i class="stats-swatch"></i>浏览量（按天）</span>' +
-      (hasU ? '<span><i class="stats-swatch stats-swatch-visitors"></i>访客数</span>' : '') +
+      '<span><i class="stats-swatch"></i>访客数（按天）</span>' +
       '</div>');
     host.innerHTML = parts.join('');
   }

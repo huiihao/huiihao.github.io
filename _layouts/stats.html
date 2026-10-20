@@ -15,12 +15,12 @@ layout: page
     </div>
 
     <section class="stats-block">
-      <h2 class="stats-heading">浏览量趋势</h2>
+      <h2 class="stats-heading">访客趋势</h2>
 
       <div class="stats-totals">
         <div class="stats-total">
-          <strong>{{ stats.totals.views | default: 0 }}</strong>
-          <span>总浏览量</span>
+          <strong>{{ stats.totals.visitors | default: 0 }}</strong>
+          <span>总访客数</span>
         </div>
         <div class="stats-total">
           <strong>{{ stats.daily | size }}</strong>
@@ -28,7 +28,7 @@ layout: page
         </div>
       </div>
 
-      <div id="stats-chart" class="stats-chart" role="img" aria-label="按天的浏览量趋势"></div>
+      <div id="stats-chart" class="stats-chart" role="img" aria-label="按天的访客数趋势"></div>
     </section>
 
     <section class="stats-block">

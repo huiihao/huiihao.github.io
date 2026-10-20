@@ -99,12 +99,16 @@ def main
   # ---- 日序列 --------------------------------------------------------
   # /stats/total 返回 { "total": 49, "total_utc": 54, "stats": [ {day, daily, ...} ] }
   #
-  # 实测这几个字段是同一个量：total == sum(stats[].daily) == /stats/hits 的
-  # total == 各 path 的 count 之和，都是**浏览量**。total_utc 只是换 UTC 边界
-  # 重算的同一个数，并不是访客数。
+  # 语义以源码注释为准（goatcounter v2.7.0，hit_list.go / hit_stats.go）：
+  #   HitListStat.Daily  "Total visitors for this day"
+  #   HitStat.Count      "Number of visitors"
+  #   TotalCount.Total   "Total number of visitors"
+  # 也就是说这套 API 给的全是**访客数**（按天/按小时/按路径去重），没有
+  # pageviews。实测 total == sum(daily) == hits.total == 各 path 的 count
+  # 之和，正因为它们是同一个量。total_utc 只是换 UTC 边界重算的同一个数。
   #
-  # 也就是说这套 API 没有分日的唯一访客数，连总数都没有。所以页面只展示
-  # 浏览量，不去编一个"访客数"。页脚那两个数（不蒜子）才是访客口径。
+  # 所以页面展示访客数；headline 用 total（整段区间去重后的合计），
+  # 曲线用每天的 daily。
   daily = Array(totals['stats']).map do |row|
     day = row['day'].to_s
     next nil if day.empty?
@@ -112,13 +116,13 @@ def main
     { 'd' => day, 'v' => row['daily'].to_i }
   end.compact.sort_by { |r| r['d'] }
 
-  views = totals['total'].to_i
+  visitors = totals['total'].to_i
 
   payload = {
     'available' => true,
     'generated_at' => finish.strftime('%Y-%m-%dT%H:%M:%SZ'),
     'source' => 'GoatCounter',
-    'totals' => { 'views' => views, 'days' => daily.size },
+    'totals' => { 'visitors' => visitors, 'days' => daily.size },
     'daily' => daily,
     'countries' => countries
   }
@@ -126,7 +130,7 @@ def main
   File.write(OUT, JSON.pretty_generate(payload) + "\n")
   puts "写入 #{OUT}"
   puts "  #{days} 天，#{daily.size} 个有数据的日子，#{countries.size} 个国家/地区"
-  puts "  浏览 #{views}，有数据 #{daily.size} 天"
+  puts "  访客 #{visitors}，有数据 #{daily.size} 天"
 rescue StandardError => e
   # 构建不能因为统计挂掉。保留原文件，只报警。
   warn "统计拉取失败：#{e.class}: #{e.message}"

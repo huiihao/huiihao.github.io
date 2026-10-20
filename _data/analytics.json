@@ -2,7 +2,10 @@
   "available": false,
   "generated_at": null,
   "source": "GoatCounter",
-  "totals": { "views": 0, "visitors": 0 },
+  "totals": {
+    "visitors": 0,
+    "days": 0
+  },
   "daily": [],
   "countries": []
 }
