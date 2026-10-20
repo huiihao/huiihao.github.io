@@ -50,7 +50,12 @@
     var iw = W - padL - padR;
     var ih = H - padT - padB;
 
-    var rawMax = Math.max.apply(null, rows.map(function (r) { return Math.max(r.v, r.u); }));
+    // u 是可选的：GoatCounter 只给整段区间的访客合计，没有按天的，
+    // 所以正常情况下只有 v 一条线。
+    var hasU = rows.some(function (r) { return typeof r.u === 'number'; });
+    var rawMax = Math.max.apply(null, rows.map(function (r) {
+      return Math.max(r.v, hasU ? r.u : 0);
+    }));
     // 刻度取整：让 max/4 是整数，轴上不会出现 23、15 这种数字
     var max = Math.max(4, Math.ceil(rawMax / 4) * 4);
 
@@ -82,7 +87,7 @@
     }
 
     parts.push('<path d="' + area + '" class="stats-area"/>');
-    parts.push('<path d="' + lineU + '" class="stats-line stats-line-visitors"/>');
+    if (hasU) parts.push('<path d="' + lineU + '" class="stats-line stats-line-visitors"/>');
     parts.push('<path d="' + lineV + '" class="stats-line"/>');
 
     var idx = rows.length > 2 ? [0, Math.floor((rows.length - 1) / 2), rows.length - 1] : [0, rows.length - 1];
@@ -93,8 +98,8 @@
 
     parts.push('</svg>');
     parts.push('<div class="stats-legend">' +
-      '<span><i class="stats-swatch"></i>浏览量</span>' +
-      '<span><i class="stats-swatch stats-swatch-visitors"></i>访客数</span>' +
+      '<span><i class="stats-swatch"></i>浏览量（按天）</span>' +
+      (hasU ? '<span><i class="stats-swatch stats-swatch-visitors"></i>访客数</span>' : '') +
       '</div>');
     host.innerHTML = parts.join('');
   }

@@ -99,22 +99,24 @@ def main
   # ---- 日序列 --------------------------------------------------------
   # /stats/hits 返回 { "hits": [ { "path": {...}, "stats": [ {day, daily, ...} ] } ], "total": N }
   # 每个 path 各自带一份按天数组，逐天相加就是全站曲线。
-  per_day = Hash.new { |h, k| h[k] = { 'v' => 0, 'u' => 0 } }
+  #
+  # 注意：每个 stat 只有 {day, hourly, daily, weekly, monthly}，**没有按天的
+  # 唯一访客数**。真正的访客数只有响应顶层的 total（整个区间的合计）。
+  # 所以曲线只画浏览量，访客数作为总数展示，不编一条假的分日曲线。
+  per_day = Hash.new(0)
   Array(hits['hits']).each do |page|
     Array(page['stats']).each do |row|
       day = row['day'].to_s
       next if day.empty?
 
-      per_day[day]['v'] += row['daily'].to_i
-      # 唯一访客：不同版本字段名不一致，有就用，没有就退回浏览量
-      per_day[day]['u'] += (row['count_unique'] || row['daily']).to_i
+      per_day[day] += row['daily'].to_i
     end
   end
 
-  daily = per_day.keys.sort.map { |d| { 'd' => d, 'v' => per_day[d]['v'], 'u' => per_day[d]['u'] } }
+  daily = per_day.keys.sort.map { |d| { 'd' => d, 'v' => per_day[d] } }
 
   views = daily.sum { |r| r['v'] }
-  visitors = daily.sum { |r| r['u'] }
+  visitors = hits['total'].to_i
 
   payload = {
     'available' => true,
