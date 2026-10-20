@@ -187,6 +187,219 @@ html {
     color: var(--text-muted-color);
 }
 
+/* ── /stats/ 站点统计页 ── */
+#site-stats {
+    .stats-empty {
+        padding: 1.2rem 1.4rem;
+        border-radius: 0.8rem;
+        border: 1px solid var(--chrome-border);
+        background-color: var(--glass-bg);
+        -webkit-backdrop-filter: blur(12px) saturate(150%);
+        backdrop-filter: blur(12px) saturate(150%);
+        color: var(--text-muted-color);
+        font-size: 0.9rem;
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        code {
+            color: var(--text-color);
+        }
+    }
+
+    .stats-meta {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1.4rem;
+        font-size: 0.78rem;
+        color: var(--text-muted-color);
+    }
+
+    .stats-block {
+        margin-bottom: 2.6rem;
+    }
+
+    .stats-heading {
+        font-size: 1.05rem;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        color: var(--text-color);
+        margin-bottom: 1rem;
+    }
+
+    .stats-totals {
+        display: flex;
+        gap: 2.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .stats-total {
+        display: flex;
+        align-items: baseline;
+        gap: 0.45rem;
+
+        strong {
+            font-size: 1.7rem;
+            line-height: 1.1;
+            color: var(--text-color);
+            font-variant-numeric: tabular-nums;
+        }
+
+        span {
+            font-size: 0.8rem;
+            color: var(--text-muted-color);
+        }
+    }
+
+    .stats-chart {
+        width: 100%;
+    }
+
+    .stats-svg {
+        display: block;
+        width: 100%;
+        height: auto;
+        overflow: visible;
+    }
+
+    .stats-grid {
+        stroke: var(--tl-axis);
+        stroke-width: 1;
+    }
+
+    .stats-axis {
+        fill: var(--text-muted-color);
+        font-size: 11px;
+    }
+
+    .stats-line {
+        fill: none;
+        stroke: var(--stats-hit);
+        stroke-width: 2;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+    }
+
+    .stats-line-visitors {
+        stroke: var(--text-muted-color);
+        stroke-width: 1.4;
+        stroke-dasharray: 4 3;
+        opacity: 0.85;
+    }
+
+    .stats-area {
+        fill: var(--stats-hit);
+        fill-opacity: 0.14;
+        stroke: none;
+    }
+
+    .stats-legend {
+        display: flex;
+        gap: 1.1rem;
+        margin-top: 0.5rem;
+        font-size: 0.76rem;
+        color: var(--text-muted-color);
+
+        span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+    }
+
+    .stats-swatch {
+        width: 14px;
+        height: 3px;
+        border-radius: 2px;
+        background-color: var(--stats-hit);
+    }
+
+    .stats-swatch-visitors {
+        background: repeating-linear-gradient(
+            to right,
+            var(--text-muted-color) 0 4px,
+            transparent 4px 7px
+        );
+    }
+
+    .stats-world {
+        margin-bottom: 1.4rem;
+
+        path {
+            fill: var(--stats-land);
+            stroke: var(--chrome-border);
+            stroke-width: 0.5;
+            transition: fill-opacity 0.2s ease;
+
+            &[data-lv='1'] { fill: var(--stats-hit); fill-opacity: 0.22; }
+            &[data-lv='2'] { fill: var(--stats-hit); fill-opacity: 0.36; }
+            &[data-lv='3'] { fill: var(--stats-hit); fill-opacity: 0.52; }
+            &[data-lv='4'] { fill: var(--stats-hit); fill-opacity: 0.72; }
+            &[data-lv='5'] { fill: var(--stats-hit); fill-opacity: 0.95; }
+        }
+    }
+
+    .stats-bars {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .stats-bar {
+        display: grid;
+        grid-template-columns: 9.5rem 1fr auto;
+        align-items: center;
+        gap: 0.7rem;
+        padding: 0.3rem 0;
+        font-size: 0.86rem;
+    }
+
+    .stats-bar-name {
+        color: var(--text-color);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .stats-bar-track {
+        height: 8px;
+        border-radius: 4px;
+        background-color: var(--stats-land);
+        overflow: hidden;
+    }
+
+    .stats-bar-fill {
+        display: block;
+        height: 100%;
+        border-radius: 4px;
+        background-color: var(--stats-hit);
+    }
+
+    .stats-bar-num {
+        color: var(--text-muted-color);
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+    }
+
+    .stats-none {
+        color: var(--text-muted-color);
+        font-size: 0.9rem;
+    }
+}
+
+@media all and (max-width: 575.98px) {
+    #site-stats .stats-bar {
+        grid-template-columns: 6.5rem 1fr auto;
+        font-size: 0.8rem;
+    }
+
+    #site-stats .stats-totals {
+        gap: 1.4rem;
+    }
+}
+
 /* ── 首页卡片右侧的像素图标 ──
    图标是内联 SVG（_includes/pixel-icons.html），描边走 --px-ink，随主题反转，
    所以亮暗两套不用各画一遍。用 <use> 引用 sprite，一张卡片只多一个节点。

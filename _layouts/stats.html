@@ -1,0 +1,67 @@
+---
+layout: page
+# 站点统计：浏览量趋势 + 地区分布
+---
+
+{% include lang.html %}
+
+{% assign stats = site.data.analytics %}
+
+<div id="site-stats">
+  {% if stats.available %}
+    <div class="stats-meta">
+      <span>数据更新于 {{ stats.generated_at | date: '%Y-%m-%d %H:%M' }}</span>
+      <span class="stats-source">{{ stats.source }}</span>
+    </div>
+
+    <section class="stats-block">
+      <h2 class="stats-heading">浏览量趋势</h2>
+
+      <div class="stats-totals">
+        <div class="stats-total">
+          <strong>{{ stats.totals.views | default: 0 }}</strong>
+          <span>总浏览量</span>
+        </div>
+        <div class="stats-total">
+          <strong>{{ stats.totals.visitors | default: 0 }}</strong>
+          <span>总访客数</span>
+        </div>
+      </div>
+
+      <div id="stats-chart" class="stats-chart" role="img" aria-label="按天的浏览量趋势"></div>
+    </section>
+
+    <section class="stats-block">
+      <h2 class="stats-heading">地区分布</h2>
+
+      <div
+        id="stats-map"
+        class="stats-map"
+        role="img"
+        aria-label="访客来源的世界地图"
+        data-src="{{ '/assets/data/world.json' | relative_url }}"
+      ></div>
+
+      <ul id="stats-bars" class="stats-bars"></ul>
+    </section>
+
+    <script type="application/json" id="stats-data">{{ stats | jsonify }}</script>
+    <script src="{{ '/assets/js/stats.js' | relative_url }}" defer></script>
+
+  {% else %}
+    <div class="stats-empty">
+      <p><strong>还没有接入数据。</strong></p>
+      <p>
+        这块的数字来自 <a href="https://www.goatcounter.com/" target="_blank" rel="noopener">GoatCounter</a>。
+        需要在仓库里配置一个只读 API token（secret 名
+        <code>GOATCOUNTER_API_TOKEN</code>），构建时由
+        <code>tools/fetch-analytics.rb</code> 拉取并写入
+        <code>_data/analytics.json</code>。
+      </p>
+      <p>
+        页脚那两个数字是另一套服务（不蒜子）的，它只给站点累计 UV/PV，
+        没有地区和时间维度，所以搬不到这里。
+      </p>
+    </div>
+  {% endif %}
+</div>
