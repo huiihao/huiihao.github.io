@@ -57,7 +57,9 @@ def get(path, params = {})
     open_timeout: 15, read_timeout: 30
   ) { |http| http.request(req) }
 
-  raise "GET #{uri.path} -> HTTP #{res.code}: #{res.body.to_s[0, 200]}" unless res.code.to_i == 200
+  unless res.code.to_i == 200
+    raise "GET #{uri} -> HTTP #{res.code}: #{res.body.to_s[0, 300]}"
+  end
 
   JSON.parse(res.body)
 end

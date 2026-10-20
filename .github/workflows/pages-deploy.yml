@@ -50,29 +50,12 @@ jobs:
         env:
           GOATCOUNTER_API_TOKEN: ${{ secrets.GOATCOUNTER_API_TOKEN }}
         run: ruby tools/fetch-analytics.rb
-
-      - name: Debug GoatCounter API
+      - name: Fetch site analytics
+        # 没有配 secret 时脚本会自己跳过，不会让构建失败
         continue-on-error: true
         env:
-          T: ${{ secrets.GOATCOUNTER_API_TOKEN }}
-        run: |
-          echo "--- 不带参数"
-          curl -s -o /dev/null -w "HTTP %{http_code}" -H "Authorization: Bearer $T" "https://yiihao.goatcounter.com/api/v0/stats/locations"
-          echo
-          echo "--- 只有 limit"
-          curl -s -o /dev/null -w "HTTP %{http_code}" -H "Authorization: Bearer $T" "https://yiihao.goatcounter.com/api/v0/stats/locations?limit=100"
-          echo
-          echo "--- RFC3339 Z 结尾"
-          curl -s -o /dev/null -w "HTTP %{http_code}" -H "Authorization: Bearer $T" "https://yiihao.goatcounter.com/api/v0/stats/locations?start=2026-04-23T05:39:41Z&end=2026-10-20T05:39:41Z&limit=100"
-          echo
-          echo "--- 只有日期"
-          curl -s -o /dev/null -w "HTTP %{http_code}" -H "Authorization: Bearer $T" "https://yiihao.goatcounter.com/api/v0/stats/locations?start=2026-04-23&end=2026-10-20&limit=100"
-          echo
-          echo "--- 带时区偏移"
-          curl -s -o /dev/null -w "HTTP %{http_code}" -H "Authorization: Bearer $T" "https://yiihao.goatcounter.com/api/v0/stats/locations?start=2026-04-23T00:00:00%2B08:00&end=2026-10-20T00:00:00%2B08:00&limit=100"
-          echo
-          echo "--- 原始响应(日期范围)"
-          curl -s -H "Authorization: Bearer $T" "https://yiihao.goatcounter.com/api/v0/stats/locations?start=2026-04-23&end=2026-10-20&limit=100" | head -c 400
+          GOATCOUNTER_API_TOKEN: ${{ secrets.GOATCOUNTER_API_TOKEN }}
+        run: ruby tools/fetch-analytics.rb
 
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
