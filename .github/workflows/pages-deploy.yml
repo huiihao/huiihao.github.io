@@ -52,6 +52,19 @@ jobs:
           GOATCOUNTER_API_TOKEN: ${{ secrets.GOATCOUNTER_API_TOKEN }}
         run: ruby tools/fetch-analytics.rb
 
+      - name: Debug GoatCounter API
+        continue-on-error: true
+        env:
+          T: ${{ secrets.GOATCOUNTER_API_TOKEN }}
+        run: |
+          for ep in "stats/total" "stats/locations" "stats/hits?limit=5&group=day" "stats/browsers"; do
+            echo "=== /$ep"
+            curl -s -w "
+HTTP %{http_code}
+" -H "Authorization: Bearer $T" "https://yiihao.goatcounter.com/api/v0/$ep" | head -c 600
+            echo
+          done
+
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
         env:
