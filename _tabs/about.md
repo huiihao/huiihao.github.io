@@ -123,6 +123,7 @@ order: 4
 .prj-icon.agt { background: #f0fdf4; }
 .prj-icon.dsh { background: #fff8ee; }
 .prj-icon.mus { background: #f5f0ff; }
+.prj-icon.tex { background: #fdf1ec; }
 .prj-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 2px; }
 .prj-desc {
   font-size: 0.8rem; color: var(--text-muted, #666);
@@ -485,6 +486,20 @@ model the whole system, and look for the signal in the noise.
       <span class="prj-tag">Strategy Evolution</span>
     </div>
     <a class="prj-link" href="https://github.com/huiihao/agent-street" target="_blank" rel="noopener">📦 GitHub →</a>
+  </div>
+</div>
+
+<div class="prj-card">
+  <div class="prj-icon tex">🧮</div>
+  <div>
+    <div class="prj-name"><a href="https://github.com/huiihao/ClaudeTex" target="_blank" rel="noopener">ClaudeTex</a></div>
+    <div class="prj-desc">给 Claude Code 写的 LaTeX 渲染插件：终端里把公式排成 Unicode 二维块，<code>/tex</code> 再用 KaTeX 在浏览器精确排版。零外部依赖。</div>
+    <div class="prj-tags">
+      <span class="prj-tag">Claude Code</span>
+      <span class="prj-tag">LaTeX</span>
+      <span class="prj-tag">TypeScript</span>
+    </div>
+    <a class="prj-link" href="https://github.com/huiihao/ClaudeTex" target="_blank" rel="noopener">📦 GitHub →</a>
   </div>
 </div>
 
