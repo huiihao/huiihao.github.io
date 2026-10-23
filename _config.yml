@@ -239,6 +239,12 @@ exclude:
   # 仓库根目录的本地草稿/截图，不属于站点内容
   - "screenshot*.png"
   - "donghao-*"
+  # 放根目录的论文 PDF（本地查阅用，别复制进 _site 拖慢构建）
+  # 注意：assets/ 下那两个 PDF 是站点资源，不在排除之列
+  - "CPL.pdf"
+  - "CPL_SM.pdf"
+  - "PRL.pdf"
+  - "PRL_SM_v4.pdf"
 
 jekyll-archives:
   enabled: [categories, tags]
