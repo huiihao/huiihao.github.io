@@ -1,215 +1,260 @@
 <style>
+  /* ── 偶极双螺旋海报 ──
+     配色全部走变量，亮/暗各一套：亮色是淡青白的纸质海报，
+     暗色沿用深海蓝。螺旋本体是内联 SVG，不是一列圆点堆出来的。 */
   .ds-poster {
-    --ds-navy: #0a1628;
-    --ds-blue: #0f2440;
-    --ds-teal: #1a6b7a;
-    --ds-gold: #d4a853;
-    --ds-amber: #e8c56d;
-    --ds-white: #e8ecf1;
-    --ds-muted: #8899aa;
-    --ds-accent: #3cc6d0;
+    --ds-bg: linear-gradient(167deg, #fbfdff 0%, #eef5fa 46%, #e6eff7 100%);
+    --ds-border: rgba(14, 143, 158, 0.18);
+    --ds-fg: #16283c;
+    --ds-muted: #5b7185;
+    --ds-accent: #0e8f9e;
+    --ds-gold: #a9741a;
+    --ds-surface: rgba(255, 255, 255, 0.66);
+    --ds-surface-hi: rgba(255, 255, 255, 0.92);
+    --ds-shadow: 0 10px 40px rgba(16, 60, 90, 0.10);
+    --ds-hairline: rgba(22, 40, 60, 0.08);
+    --ds-dot: rgba(14, 143, 158, 0.10);
+    --ds-strand-a: #0e8f9e;
+    --ds-strand-b: #a9741a;
+    --ds-rung: rgba(22, 40, 60, 0.30);
+    --ds-atom-o: #d6543f;
+    --ds-glow: 0.18;
 
-    background: linear-gradient(165deg, var(--ds-navy) 0%, #0b1d3a 40%, #0c2545 70%, var(--ds-blue) 100%);
-    border-radius: 12px;
-    padding: 36px 32px 28px;
+    background: var(--ds-bg);
+    border: 1px solid var(--ds-border);
+    border-radius: 14px;
+    padding: 34px 32px 26px;
     margin: 2rem 0;
     position: relative;
     overflow: hidden;
+    color: var(--ds-fg);
+    box-shadow: var(--ds-shadow);
     font-family: "Source Sans Pro", "Lato", -apple-system, sans-serif;
-    color: var(--ds-white);
-    border: 1px solid rgba(60, 198, 208, 0.15);
-    box-shadow: 0 8px 48px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04);
   }
 
+  html[data-bs-theme='dark'] .ds-poster {
+    --ds-bg: linear-gradient(167deg, #0a1628 0%, #0b1d3a 44%, #0c2545 72%, #0f2440 100%);
+    --ds-border: rgba(60, 198, 208, 0.16);
+    --ds-fg: #e8ecf1;
+    --ds-muted: #8fa3b8;
+    --ds-accent: #3cc6d0;
+    --ds-gold: #e8c56d;
+    --ds-surface: rgba(255, 255, 255, 0.04);
+    --ds-surface-hi: rgba(255, 255, 255, 0.075);
+    --ds-shadow: 0 10px 50px rgba(0, 0, 0, 0.42);
+    --ds-hairline: rgba(255, 255, 255, 0.09);
+    --ds-dot: rgba(60, 198, 208, 0.10);
+    --ds-strand-a: #3cc6d0;
+    --ds-strand-b: #e8c56d;
+    --ds-rung: rgba(232, 236, 241, 0.32);
+    --ds-atom-o: #ff7a63;
+    --ds-glow: 0.55;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html:not([data-bs-theme]) .ds-poster {
+      --ds-bg: linear-gradient(167deg, #0a1628 0%, #0b1d3a 44%, #0c2545 72%, #0f2440 100%);
+      --ds-border: rgba(60, 198, 208, 0.16);
+      --ds-fg: #e8ecf1;
+      --ds-muted: #8fa3b8;
+      --ds-accent: #3cc6d0;
+      --ds-gold: #e8c56d;
+      --ds-surface: rgba(255, 255, 255, 0.04);
+      --ds-surface-hi: rgba(255, 255, 255, 0.075);
+      --ds-shadow: 0 10px 50px rgba(0, 0, 0, 0.42);
+      --ds-hairline: rgba(255, 255, 255, 0.09);
+      --ds-dot: rgba(60, 198, 208, 0.10);
+      --ds-strand-a: #3cc6d0;
+      --ds-strand-b: #e8c56d;
+      --ds-rung: rgba(232, 236, 241, 0.32);
+      --ds-atom-o: #ff7a63;
+      --ds-glow: 0.55;
+    }
+  }
+
+  /* 细点阵底纹 + 两团柔光 */
   .ds-poster::before {
     content: '';
     position: absolute;
-    top: -60%; left: -20%;
-    width: 140%; height: 200%;
-    background:
-      radial-gradient(ellipse 600px 300px at 30% 15%, rgba(60,198,208,0.06) 0%, transparent 70%),
-      radial-gradient(ellipse 400px 400px at 80% 70%, rgba(212,168,83,0.05) 0%, transparent 70%),
-      radial-gradient(ellipse 500px 200px at 50% 50%, rgba(26,107,122,0.08) 0%, transparent 70%);
+    inset: 0;
+    background-image: radial-gradient(var(--ds-dot) 1px, transparent 1px);
+    background-size: 18px 18px;
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 20%, transparent 78%);
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 20%, transparent 78%);
     pointer-events: none;
     z-index: 0;
   }
-
+  .ds-poster::after {
+    content: '';
+    position: absolute;
+    inset: -40% -10% auto -10%;
+    height: 220%;
+    background:
+      radial-gradient(ellipse 520px 260px at 22% 12%, color-mix(in srgb, var(--ds-accent) 12%, transparent), transparent 70%),
+      radial-gradient(ellipse 460px 300px at 82% 78%, color-mix(in srgb, var(--ds-gold) 10%, transparent), transparent 72%);
+    pointer-events: none;
+    z-index: 0;
+  }
   .ds-poster > * { position: relative; z-index: 1; }
 
-  /* ── header ── */
-  .ds-header {
-    text-align: center;
-    margin-bottom: 28px;
-  }
+  /* ── 头部 ── */
+  .ds-header { text-align: center; margin-bottom: 22px; }
   .ds-badge {
     display: inline-block;
-    font-size: 11px;
+    font-size: 10.5px;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--ds-accent);
-    border: 1px solid rgba(60,198,208,0.3);
-    border-radius: 3px;
-    padding: 3px 14px;
-    margin-bottom: 16px;
+    border: 1px solid color-mix(in srgb, var(--ds-accent) 34%, transparent);
+    border-radius: 999px;
+    padding: 4px 15px;
+    margin-bottom: 14px;
+    background: color-mix(in srgb, var(--ds-accent) 7%, transparent);
   }
   .ds-title {
-    font-size: 2rem;
+    font-size: 1.95rem;
     font-weight: 900;
     letter-spacing: -0.5px;
     line-height: 1.2;
     margin: 0 0 6px;
-    color: var(--ds-amber);
-    background: linear-gradient(135deg, var(--ds-amber) 0%, #f0d78c 50%, var(--ds-accent) 100%);
+    background: linear-gradient(100deg, var(--ds-gold) 0%, var(--ds-gold) 38%, var(--ds-accent) 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   .ds-subtitle {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--ds-muted);
-    font-weight: 300;
-    letter-spacing: 0.5px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    margin: 0;
   }
 
-  /* ── helix visual ── */
-  .ds-helix {
+  /* ── 双螺旋 ── */
+  .ds-figure { margin: 4px 0 20px; }
+  .ds-helix-svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .ds-strand {
+    fill: none;
+    stroke-width: 2.6;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 calc(var(--ds-glow) * 10px) currentColor);
+  }
+  .ds-strand-a { stroke: var(--ds-strand-a); color: var(--ds-strand-a); }
+  .ds-strand-b { stroke: var(--ds-strand-b); color: var(--ds-strand-b); }
+  .ds-rungs line { stroke: var(--ds-rung); stroke-width: 1.4; stroke-linecap: round; }
+  .ds-atom-pb { fill: var(--ds-gold); stroke: var(--ds-bg); stroke-width: 1.5; }
+  .ds-atom-ti { fill: var(--ds-accent); stroke: var(--ds-bg); stroke-width: 1.5; }
+  .ds-atom-o  { fill: var(--ds-atom-o); stroke: var(--ds-bg); stroke-width: 1.2; }
+
+  .ds-figcap {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    gap: 0;
-    padding: 20px 0 28px;
-    position: relative;
+    gap: 8px;
+    margin-top: 8px;
   }
-  .ds-helix-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    position: relative;
-  }
-  .ds-helix-col.left  { padding-right: 16px; }
-  .ds-helix-col.right { padding-left: 16px; }
-  .ds-helix-col.center {
-    padding: 0 10px;
-  }
-
-  .ds-atom {
-    width: 28px; height: 28px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 12px; font-weight: 700;
-    position: relative;
-    transition: transform 0.3s ease;
-  }
-  .ds-atom.pb {
-    background: radial-gradient(circle at 40% 35%, rgba(212,168,83,0.9), rgba(180,130,50,0.7));
-    box-shadow: 0 0 12px rgba(212,168,83,0.3);
-    color: #0a1628;
-  }
-  .ds-atom.ti {
-    background: radial-gradient(circle at 40% 35%, rgba(60,198,208,0.9), rgba(30,140,160,0.7));
-    box-shadow: 0 0 12px rgba(60,198,208,0.3);
-    color: #0a1628;
-  }
-  .ds-atom.o {
-    width: 16px; height: 16px;
-    background: radial-gradient(circle at 40% 35%, rgba(255,100,80,0.85), rgba(200,60,40,0.6));
-    box-shadow: 0 0 8px rgba(255,100,80,0.2);
-    font-size: 9px; color: #fff;
-  }
-
-  .ds-bond {
-    width: 2px; height: 14px;
-    background: rgba(255,255,255,0.25);
-    border-radius: 1px;
-  }
-  .ds-bond.dashed {
-    background: repeating-linear-gradient(to bottom, rgba(255,255,255,0.3) 0px, rgba(255,255,255,0.3) 4px, transparent 4px, transparent 8px);
-  }
-
-  .ds-helix-axis {
-    position: absolute;
-    left: 50%; top: 0; bottom: 0;
-    width: 1px;
-    background: linear-gradient(to bottom, transparent, rgba(60,198,208,0.2), rgba(60,198,208,0.2), transparent);
-    transform: translateX(-50%);
-    z-index: 0;
-  }
-
-  .ds-helix-label {
-    font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+  .ds-chip {
+    font-size: 0.68rem;
+    letter-spacing: 0.6px;
     color: var(--ds-muted);
-    text-align: center;
-    margin-top: 4px;
+    border: 1px solid var(--ds-hairline);
+    background: var(--ds-surface);
+    border-radius: 999px;
+    padding: 3px 11px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
   }
+  .ds-chip::before {
+    content: '';
+    width: 7px; height: 7px; border-radius: 50%;
+    background: currentColor;
+  }
+  .ds-chip-pb { color: var(--ds-gold); }
+  .ds-chip-ti { color: var(--ds-accent); }
+  .ds-chip-phase { color: var(--ds-muted); }
+  .ds-chip-phase::before { background: transparent; border: 1px solid currentColor; }
 
-  /* ── info cards ── */
+  /* ── 结论卡片 ── */
   .ds-cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    margin-bottom: 22px;
+    gap: 13px;
+    margin-bottom: 20px;
   }
-  @media (max-width: 600px) {
-    .ds-cards { grid-template-columns: 1fr; }
-    .ds-title { font-size: 1.5rem; }
-    .ds-poster { padding: 24px 18px 20px; }
-  }
-
   .ds-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 8px;
-    padding: 18px 16px;
-    transition: border-color 0.3s ease, background 0.3s ease;
+    background: var(--ds-surface);
+    border: 1px solid var(--ds-hairline);
+    border-radius: 10px;
+    padding: 15px 16px 14px;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
   }
   .ds-card:hover {
-    border-color: rgba(60,198,208,0.25);
-    background: rgba(255,255,255,0.05);
+    background: var(--ds-surface-hi);
+    border-color: color-mix(in srgb, var(--ds-accent) 30%, transparent);
+    transform: translateY(-2px);
   }
-  .ds-card-icon { font-size: 1.4rem; margin-bottom: 6px; }
+  .ds-card-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 9px;
+  }
+  .ds-card-icon { font-size: 1rem; line-height: 1; }
   .ds-card-title {
-    font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px;
-    color: var(--ds-accent); margin-bottom: 6px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: var(--ds-accent);
+    margin: 0;
   }
   .ds-card-metric {
-    font-size: 1.8rem; font-weight: 900;
-    color: var(--ds-amber);
-    background: linear-gradient(135deg, var(--ds-amber), #f5dea0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: 1.7rem;
+    font-weight: 900;
     line-height: 1.1;
-    margin-bottom: 2px;
+    color: var(--ds-gold);
+    margin-bottom: 5px;
   }
-  .ds-card-unit { font-size: 0.7rem; color: var(--ds-muted); font-weight: 400; }
-  .ds-card-desc { font-size: 0.78rem; color: var(--ds-muted); line-height: 1.45; margin-top: 4px; }
+  .ds-card-unit { font-size: 0.68rem; color: var(--ds-muted); font-weight: 500; }
+  .ds-card-desc { font-size: 0.76rem; color: var(--ds-muted); line-height: 1.5; margin: 0; }
 
-  /* ── refs ── */
+  /* ── 文献 ── */
   .ds-refs {
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 18px;
+    border-top: 1px solid var(--ds-hairline);
+    padding-top: 16px;
     display: flex;
     flex-wrap: wrap;
-    gap: 14px;
+    gap: 10px 18px;
     justify-content: center;
-    font-size: 0.75rem;
+    font-size: 0.74rem;
   }
   .ds-ref {
-    display: flex; align-items: center; gap: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     color: var(--ds-muted);
-    transition: color 0.2s;
+    text-decoration: none;
+    transition: color 0.2s ease;
   }
   .ds-ref:hover { color: var(--ds-accent); }
-  .ds-ref-dot {
-    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
-  }
-  .ds-ref-dot.prl { background: var(--ds-amber); box-shadow: 0 0 6px rgba(212,168,83,0.5); }
-  .ds-ref-dot.cpl { background: var(--ds-accent); box-shadow: 0 0 6px rgba(60,198,208,0.5); }
+  .ds-ref-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .ds-ref-dot.prl { background: var(--ds-gold); }
+  .ds-ref-dot.cpl { background: var(--ds-accent); }
 
   .ds-footer-note {
-    text-align: center; font-size: 0.68rem; color: rgba(255,255,255,0.2);
-    margin-top: 16px; letter-spacing: 1px;
+    text-align: center;
+    font-size: 0.66rem;
+    color: var(--ds-muted);
+    opacity: 0.6;
+    margin-top: 14px;
+    letter-spacing: 1.2px;
+  }
+
+  @media (max-width: 640px) {
+    .ds-cards { grid-template-columns: 1fr; }
+    .ds-title { font-size: 1.45rem; }
+    .ds-poster { padding: 24px 18px 20px; }
   }
 </style>
 
@@ -220,78 +265,102 @@
     <p class="ds-subtitle">铁电 PbTiO₃ 中的手性偶极双螺旋拓扑结构</p>
   </div>
 
-  <!-- conceptual helix visualization -->
-  <div class="ds-helix">
-    <div class="ds-helix-axis"></div>
+  <figure class="ds-figure">
+    <svg class="ds-helix-svg" viewBox="0 0 640 190" preserveAspectRatio="xMidYMid meet"
+         role="img" aria-label="Pb-O 与 Ti-O 两条偶极螺旋交错形成的双螺旋示意">
+      <g class="ds-rungs">
+      <line x1="21.5" y1="133.2" x2="21.5" y2="56.8" style="opacity:1.00"/>
+      <line x1="43.0" y1="149.0" x2="43.0" y2="41.0" style="opacity:1.00"/>
+      <line x1="64.5" y1="133.2" x2="64.5" y2="56.8" style="opacity:1.00"/>
+      <line x1="107.5" y1="56.8" x2="107.5" y2="133.2" style="opacity:1.00"/>
+      <line x1="129.0" y1="41.0" x2="129.0" y2="149.0" style="opacity:1.00"/>
+      <line x1="150.5" y1="56.8" x2="150.5" y2="133.2" style="opacity:1.00"/>
+      <line x1="193.5" y1="133.2" x2="193.5" y2="56.8" style="opacity:1.00"/>
+      <line x1="215.0" y1="149.0" x2="215.0" y2="41.0" style="opacity:1.00"/>
+      <line x1="236.5" y1="133.2" x2="236.5" y2="56.8" style="opacity:1.00"/>
+      <line x1="279.5" y1="56.8" x2="279.5" y2="133.2" style="opacity:1.00"/>
+      <line x1="301.0" y1="41.0" x2="301.0" y2="149.0" style="opacity:1.00"/>
+      <line x1="322.5" y1="56.8" x2="322.5" y2="133.2" style="opacity:1.00"/>
+      <line x1="365.5" y1="133.2" x2="365.5" y2="56.8" style="opacity:1.00"/>
+      <line x1="387.0" y1="149.0" x2="387.0" y2="41.0" style="opacity:1.00"/>
+      <line x1="408.5" y1="133.2" x2="408.5" y2="56.8" style="opacity:1.00"/>
+      <line x1="451.5" y1="56.8" x2="451.5" y2="133.2" style="opacity:1.00"/>
+      <line x1="473.0" y1="41.0" x2="473.0" y2="149.0" style="opacity:1.00"/>
+      <line x1="494.5" y1="56.8" x2="494.5" y2="133.2" style="opacity:1.00"/>
+      <line x1="537.5" y1="133.2" x2="537.5" y2="56.8" style="opacity:1.00"/>
+      <line x1="559.0" y1="149.0" x2="559.0" y2="41.0" style="opacity:1.00"/>
+      <line x1="580.5" y1="133.2" x2="580.5" y2="56.8" style="opacity:1.00"/>
+      <line x1="623.5" y1="56.8" x2="623.5" y2="133.2" style="opacity:1.00"/>
+      </g>
+      <path class="ds-strand ds-strand-a" d="M0 95.0 L4 102.9 L8 110.6 L12 117.9 L16 124.8 L20 131.0 L24 136.5 L28 141.1 L32 144.7 L36 147.2 L40 148.7 L44 149.0 L48 148.1 L52 146.1 L56 143.0 L60 138.9 L64 133.9 L68 128.0 L72 121.4 L76 114.3 L80 106.7 L84 98.9 L88 91.1 L92 83.3 L96 75.7 L100 68.6 L104 62.0 L108 56.1 L112 51.1 L116 47.0 L120 43.9 L124 41.9 L128 41.0 L132 41.3 L136 42.8 L140 45.3 L144 48.9 L148 53.5 L152 59.0 L156 65.2 L160 72.1 L164 79.4 L168 87.1 L172 95.0 L176 102.9 L180 110.6 L184 117.9 L188 124.8 L192 131.0 L196 136.5 L200 141.1 L204 144.7 L208 147.2 L212 148.7 L216 149.0 L220 148.1 L224 146.1 L228 143.0 L232 138.9 L236 133.9 L240 128.0 L244 121.4 L248 114.3 L252 106.7 L256 98.9 L260 91.1 L264 83.3 L268 75.7 L272 68.6 L276 62.0 L280 56.1 L284 51.1 L288 47.0 L292 43.9 L296 41.9 L300 41.0 L304 41.3 L308 42.8 L312 45.3 L316 48.9 L320 53.5 L324 59.0 L328 65.2 L332 72.1 L336 79.4 L340 87.1 L344 95.0 L348 102.9 L352 110.6 L356 117.9 L360 124.8 L364 131.0 L368 136.5 L372 141.1 L376 144.7 L380 147.2 L384 148.7 L388 149.0 L392 148.1 L396 146.1 L400 143.0 L404 138.9 L408 133.9 L412 128.0 L416 121.4 L420 114.3 L424 106.7 L428 98.9 L432 91.1 L436 83.3 L440 75.7 L444 68.6 L448 62.0 L452 56.1 L456 51.1 L460 47.0 L464 43.9 L468 41.9 L472 41.0 L476 41.3 L480 42.8 L484 45.3 L488 48.9 L492 53.5 L496 59.0 L500 65.2 L504 72.1 L508 79.4 L512 87.1 L516 95.0 L520 102.9 L524 110.6 L528 117.9 L532 124.8 L536 131.0 L540 136.5 L544 141.1 L548 144.7 L552 147.2 L556 148.7 L560 149.0 L564 148.1 L568 146.1 L572 143.0 L576 138.9 L580 133.9 L584 128.0 L588 121.4 L592 114.3 L596 106.7 L600 98.9 L604 91.1 L608 83.3 L612 75.7 L616 68.6 L620 62.0 L624 56.1 L628 51.1 L632 47.0 L636 43.9 L640 41.9"/>
+      <path class="ds-strand ds-strand-b" d="M0 95.0 L4 87.1 L8 79.4 L12 72.1 L16 65.2 L20 59.0 L24 53.5 L28 48.9 L32 45.3 L36 42.8 L40 41.3 L44 41.0 L48 41.9 L52 43.9 L56 47.0 L60 51.1 L64 56.1 L68 62.0 L72 68.6 L76 75.7 L80 83.3 L84 91.1 L88 98.9 L92 106.7 L96 114.3 L100 121.4 L104 128.0 L108 133.9 L112 138.9 L116 143.0 L120 146.1 L124 148.1 L128 149.0 L132 148.7 L136 147.2 L140 144.7 L144 141.1 L148 136.5 L152 131.0 L156 124.8 L160 117.9 L164 110.6 L168 102.9 L172 95.0 L176 87.1 L180 79.4 L184 72.1 L188 65.2 L192 59.0 L196 53.5 L200 48.9 L204 45.3 L208 42.8 L212 41.3 L216 41.0 L220 41.9 L224 43.9 L228 47.0 L232 51.1 L236 56.1 L240 62.0 L244 68.6 L248 75.7 L252 83.3 L256 91.1 L260 98.9 L264 106.7 L268 114.3 L272 121.4 L276 128.0 L280 133.9 L284 138.9 L288 143.0 L292 146.1 L296 148.1 L300 149.0 L304 148.7 L308 147.2 L312 144.7 L316 141.1 L320 136.5 L324 131.0 L328 124.8 L332 117.9 L336 110.6 L340 102.9 L344 95.0 L348 87.1 L352 79.4 L356 72.1 L360 65.2 L364 59.0 L368 53.5 L372 48.9 L376 45.3 L380 42.8 L384 41.3 L388 41.0 L392 41.9 L396 43.9 L400 47.0 L404 51.1 L408 56.1 L412 62.0 L416 68.6 L420 75.7 L424 83.3 L428 91.1 L432 98.9 L436 106.7 L440 114.3 L444 121.4 L448 128.0 L452 133.9 L456 138.9 L460 143.0 L464 146.1 L468 148.1 L472 149.0 L476 148.7 L480 147.2 L484 144.7 L488 141.1 L492 136.5 L496 131.0 L500 124.8 L504 117.9 L508 110.6 L512 102.9 L516 95.0 L520 87.1 L524 79.4 L528 72.1 L532 65.2 L536 59.0 L540 53.5 L544 48.9 L548 45.3 L552 42.8 L556 41.3 L560 41.0 L564 41.9 L568 43.9 L572 47.0 L576 51.1 L580 56.1 L584 62.0 L588 68.6 L592 75.7 L596 83.3 L600 91.1 L604 98.9 L608 106.7 L612 114.3 L616 121.4 L620 128.0 L624 133.9 L628 138.9 L632 143.0 L636 146.1 L640 148.1"/>
+      <g class="ds-atoms">
+      <circle class="ds-atom-pb" cx="43.0" cy="149.0" r="7.5"/>
+      <circle class="ds-atom-o" cx="43.0" cy="41.0" r="5"/>
+      <circle class="ds-atom-o" cx="129.0" cy="41.0" r="5"/>
+      <circle class="ds-atom-ti" cx="129.0" cy="149.0" r="7.5"/>
+      <circle class="ds-atom-pb" cx="215.0" cy="149.0" r="7.5"/>
+      <circle class="ds-atom-o" cx="215.0" cy="41.0" r="5"/>
+      <circle class="ds-atom-o" cx="301.0" cy="41.0" r="5"/>
+      <circle class="ds-atom-ti" cx="301.0" cy="149.0" r="7.5"/>
+      <circle class="ds-atom-pb" cx="387.0" cy="149.0" r="7.5"/>
+      <circle class="ds-atom-o" cx="387.0" cy="41.0" r="5"/>
+      <circle class="ds-atom-o" cx="473.0" cy="41.0" r="5"/>
+      <circle class="ds-atom-ti" cx="473.0" cy="149.0" r="7.5"/>
+      <circle class="ds-atom-pb" cx="559.0" cy="149.0" r="7.5"/>
+      <circle class="ds-atom-o" cx="559.0" cy="41.0" r="5"/>
+      </g>
+    </svg>
 
-    <!-- Pb-O helix (left) -->
-    <div class="ds-helix-col left">
-      <div class="ds-atom pb">Pb</div>
-      <div class="ds-bond dashed"></div>
-      <div class="ds-atom o">O</div>
-      <div class="ds-bond"></div>
-      <div class="ds-atom pb">Pb</div>
-      <div class="ds-bond dashed"></div>
-      <div class="ds-atom o">O</div>
-      <div class="ds-bond"></div>
-      <div class="ds-atom pb">Pb</div>
-      <div class="ds-helix-label">Pb–O helix</div>
-    </div>
+    <figcaption class="ds-figcap">
+      <span class="ds-chip ds-chip-pb">Pb–O helix</span>
+      <span class="ds-chip ds-chip-ti">Ti–O helix</span>
+      <span class="ds-chip ds-chip-phase">Δφ ≈ 29°</span>
+    </figcaption>
+  </figure>
 
-    <!-- center: DNA metaphor -->
-    <div class="ds-helix-col center" style="justify-content:center; gap:6px;">
-      <div style="font-size:1.8rem;">🧬</div>
-      <div style="font-size:0.6rem; color:var(--ds-muted); letter-spacing:1px; writing-mode:vertical-lr;">DNA-like</div>
-    </div>
-
-    <!-- Ti-O helix (right) -->
-    <div class="ds-helix-col right">
-      <div class="ds-atom o">O</div>
-      <div class="ds-bond"></div>
-      <div class="ds-atom ti">Ti</div>
-      <div class="ds-bond dashed"></div>
-      <div class="ds-atom o">O</div>
-      <div class="ds-bond"></div>
-      <div class="ds-atom ti">Ti</div>
-      <div class="ds-bond dashed"></div>
-      <div class="ds-atom o">O</div>
-      <div class="ds-helix-label">Ti–O helix</div>
-    </div>
-  </div>
-
-  <!-- key findings -->
   <div class="ds-cards">
     <div class="ds-card">
-      <div class="ds-card-icon">⚡</div>
-      <div class="ds-card-title">Giant Piezoelectric Response</div>
+      <div class="ds-card-head">
+        <span class="ds-card-icon">⚡</span>
+        <p class="ds-card-title">Giant Piezoelectric</p>
+      </div>
       <div class="ds-card-metric">&gt;320 <span class="ds-card-unit">pC/N</span></div>
-      <div class="ds-card-desc">偶极螺旋的本征压电响应，远超传统铁电体。小角度偶极旋转驱动，非传统极化翻转机制。</div>
+      <p class="ds-card-desc">偶极螺旋的本征压电响应，远超传统铁电体。小角度偶极旋转驱动，非传统极化翻转机制。</p>
     </div>
+
     <div class="ds-card">
-      <div class="ds-card-icon">🔄</div>
-      <div class="ds-card-title">Rotational Zero-Energy Mode</div>
+      <div class="ds-card-head">
+        <span class="ds-card-icon">🔄</span>
+        <p class="ds-card-title">Rotational Zero-Energy</p>
+      </div>
       <div class="ds-card-metric">ΔE ≈ 0</div>
-      <div class="ds-card-desc">类 Goldstone 模式：全局旋转能垒 ≈ 0。螺旋周期 ≥ 3 且与晶格四重势非公度时，能量与全局取向无关。</div>
+      <p class="ds-card-desc">类 Goldstone 模式：全局旋转能垒 ≈ 0。螺旋周期 ≥ 3 且与晶格四重势非公度时，能量与全局取向无关。</p>
     </div>
+
     <div class="ds-card">
-      <div class="ds-card-icon">🧲</div>
-      <div class="ds-card-title">Electric Dzyaloshinskii–Moriya</div>
+      <div class="ds-card-head">
+        <span class="ds-card-icon">🧲</span>
+        <p class="ds-card-title">Electric DM Interaction</p>
+      </div>
       <div class="ds-card-metric">eDMI</div>
-      <div class="ds-card-desc">氧八面体集体手性扭转产生的电性类 DM 相互作用。Pb–O 与 Ti–O 双螺旋间存在约 29° 稳定非平行相位角。</div>
+      <p class="ds-card-desc">氧八面体集体手性扭转产生的电性类 DM 相互作用。Pb–O 与 Ti–O 双螺旋间存在约 29° 稳定非平行相位角。</p>
     </div>
+
     <div class="ds-card">
-      <div class="ds-card-icon">🔬</div>
-      <div class="ds-card-title">Self-Moiré Crystal</div>
+      <div class="ds-card-head">
+        <span class="ds-card-icon">🔬</span>
+        <p class="ds-card-title">Self-Moiré Crystal</p>
+      </div>
       <div class="ds-card-metric">⟨Δφ⟩ ≈ 29°</div>
-      <div class="ds-card-desc">一维本征超晶格——非异质界面产生，而在单一均匀材料中自发涌现的长周期莫尔调制。</div>
+      <p class="ds-card-desc">一维本征超晶格——非异质界面产生，而在单一均匀材料中自发涌现的长周期莫尔调制。</p>
     </div>
   </div>
 
-  <!-- publications -->
   <div class="ds-refs">
     <a href="https://doi.org/10.1103/PhysRevLett.133.046802" target="_blank" rel="noopener" class="ds-ref">
       <span class="ds-ref-dot prl"></span>
-      <span><strong>Phys. Rev. Lett.</strong> 133, 046802 (2024) <em style="color:#d4a853;">Editors' Suggestion</em></span>
+      <span><strong>Phys. Rev. Lett.</strong> 133, 046802 (2024) · Editors' Suggestion</span>
     </a>
     <a href="https://doi.org/10.1088/0256-307X/42/12/120707" target="_blank" rel="noopener" class="ds-ref">
       <span class="ds-ref-dot cpl"></span>
@@ -299,5 +368,5 @@
     </a>
   </div>
 
-  <div class="ds-footer-note">First-principles · Deep Potential MD · Ferroelectric Topology</div>
+  <div class="ds-footer-note">FIRST-PRINCIPLES · DEEP POTENTIAL MD · FERROELECTRIC TOPOLOGY</div>
 </div>
