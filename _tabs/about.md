@@ -479,11 +479,12 @@ model the whole system, and look for the signal in the noise.
   <div class="prj-icon agt">🏘️</div>
   <div>
     <div class="prj-name"><a href="https://github.com/huiihao/agent-street" target="_blank" rel="noopener">Agent Street</a></div>
-    <div class="prj-desc">3D 生成式智能体小镇：16 位 MBTI 交易员在真实 K 线回放中交易，策略基因组靠盈亏强化、模仿与突变自我演化；四位观察者从不同学科视角解读涌现行为。</div>
+    <div class="prj-desc">3D 生成式智能体小镇：16 位 MBTI 交易员在真实 K 线回放中交易，策略基因组靠盈亏强化、模仿与突变自我演化；四位观察者从不同学科视角解读涌现行为。附可复现实证研究与论文稿。</div>
     <div class="prj-tags">
       <span class="prj-tag">Generative Agents</span>
       <span class="prj-tag">Three.js</span>
       <span class="prj-tag">Strategy Evolution</span>
+      <span class="prj-tag">Empirical Study</span>
     </div>
     <a class="prj-link" href="https://github.com/huiihao/agent-street" target="_blank" rel="noopener">📦 GitHub →</a>
   </div>
