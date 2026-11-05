@@ -119,18 +119,21 @@ order: 4
   display: flex; align-items: center; justify-content: center;
   font-size: 22px; flex-shrink: 0;
 }
-.prj-icon img {
-  width: 100%; height: 100%;
-  border-radius: 10px;
-  object-fit: cover;
-  display: block;
-}
-.prj-icon.has-img { padding: 0; overflow: hidden; }
 .prj-icon.qr  { background: #eef7ff; }
-.prj-icon.agt { background: transparent; }
-.prj-icon.dsh { background: transparent; }
+.prj-icon.agt { background-color: transparent; }
+.prj-icon.dsh { background-color: transparent; }
 .prj-icon.mus { background: #f5f0ff; }
-.prj-icon.tex { background: transparent; }
+.prj-icon.tex { background-color: transparent; }
+/* 图标用 background-image 而不是 <img>：主题会把正文里的 <img> 包进
+   <a class="popup img-link">，那层在 flex 容器里宽度塌成 0，再叠加
+   loading="lazy" 就成了「零尺寸 → 不在视口 → 永不加载」的死循环。
+   背景图不经过 refactor-content，也没有点击弹窗。 */
+.prj-icon.has-img {
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .prj-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 2px; }
 .prj-desc {
   font-size: 0.8rem; color: var(--text-muted, #666);
@@ -483,7 +486,8 @@ model the whole system, and look for the signal in the noise.
 </div>
 
 <div class="prj-card">
-  <div class="prj-icon agt has-img"><img src="/assets/img/projects/agent-street.png" alt="Agent Street" width="48" height="48" loading="lazy"></div>
+  <div class="prj-icon agt has-img" role="img" aria-label="Agent Street"
+       style="background-image:url(/assets/img/projects/agent-street.png)"></div>
   <div>
     <div class="prj-name"><a href="https://github.com/huiihao/agent-street" target="_blank" rel="noopener">Agent Street</a></div>
     <div class="prj-desc">3D 生成式智能体小镇：16 位 MBTI 交易员在真实 K 线回放中交易，策略基因组靠盈亏强化、模仿与突变自我演化；四位观察者从不同学科视角解读涌现行为。附可复现实证研究与论文稿。</div>
@@ -498,7 +502,8 @@ model the whole system, and look for the signal in the noise.
 </div>
 
 <div class="prj-card">
-  <div class="prj-icon tex has-img"><img src="/assets/img/projects/claudetex.png" alt="ClaudeTex" width="48" height="48" loading="lazy"></div>
+  <div class="prj-icon tex has-img" role="img" aria-label="ClaudeTex"
+       style="background-image:url(/assets/img/projects/claudetex.png)"></div>
   <div>
     <div class="prj-name"><a href="https://github.com/huiihao/ClaudeTex" target="_blank" rel="noopener">ClaudeTex</a></div>
     <div class="prj-desc">给 Claude Code 写的 LaTeX 渲染插件：终端里把公式排成 Unicode 二维块，<code>/tex</code> 再用 KaTeX 在浏览器精确排版。零外部依赖。</div>
@@ -512,7 +517,8 @@ model the whole system, and look for the signal in the noise.
 </div>
 
 <div class="prj-card">
-  <div class="prj-icon dsh has-img"><img src="/assets/img/projects/a-share-dashboard.png" alt="A-Share Dashboard" width="48" height="48" loading="lazy"></div>
+  <div class="prj-icon dsh has-img" role="img" aria-label="A-Share Dashboard"
+       style="background-image:url(/assets/img/projects/a-share-dashboard.png)"></div>
   <div>
     <div class="prj-name"><a href="https://github.com/huiihao/a-share-realtime-dashboard" target="_blank" rel="noopener">A-Share Dashboard</a></div>
     <div class="prj-desc">A股实时看盘面板，多数据源量化基础设施。Bloomberg Terminal 风格。</div>
