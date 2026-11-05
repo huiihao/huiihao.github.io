@@ -128,7 +128,7 @@ order: 4
 .prj-icon.has-img { padding: 0; overflow: hidden; }
 .prj-icon.qr  { background: #eef7ff; }
 .prj-icon.agt { background: transparent; }
-.prj-icon.dsh { background: #fff8ee; }
+.prj-icon.dsh { background: transparent; }
 .prj-icon.mus { background: #f5f0ff; }
 .prj-icon.tex { background: transparent; }
 .prj-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 2px; }
@@ -512,7 +512,7 @@ model the whole system, and look for the signal in the noise.
 </div>
 
 <div class="prj-card">
-  <div class="prj-icon dsh">📊</div>
+  <div class="prj-icon dsh has-img"><img src="/assets/img/projects/a-share-dashboard.png" alt="A-Share Dashboard" width="48" height="48" loading="lazy"></div>
   <div>
     <div class="prj-name"><a href="https://github.com/huiihao/a-share-realtime-dashboard" target="_blank" rel="noopener">A-Share Dashboard</a></div>
     <div class="prj-desc">A股实时看盘面板，多数据源量化基础设施。Bloomberg Terminal 风格。</div>
