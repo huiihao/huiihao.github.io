@@ -122,7 +122,7 @@ order: 4
 .prj-icon.qr  { background: #eef7ff; }
 .prj-icon.agt { background-color: transparent; }
 .prj-icon.dsh { background-color: transparent; }
-.prj-icon.mus { background: #f5f0ff; }
+.prj-icon.mus { background-color: transparent; }
 .prj-icon.tex { background-color: transparent; }
 /* 图标用 background-image 而不是 <img>：主题会把正文里的 <img> 包进
    <a class="popup img-link">，那层在 flex 容器里宽度塌成 0，再叠加
@@ -532,7 +532,8 @@ model the whole system, and look for the signal in the noise.
 </div>
 
 <div class="prj-card">
-  <div class="prj-icon mus">🎵</div>
+  <div class="prj-icon mus has-img" role="img" aria-label="EchoWave Music"
+       style="background-image:url(/assets/img/projects/echowave.png)"></div>
   <div>
     <div class="prj-name"><a href="https://github.com/huiihao/EchoWave-Music" target="_blank" rel="noopener">EchoWave Music</a></div>
     <div class="prj-desc">在线音乐搜索与播放平台，5 音源聚合，Light/Dark 双主题，流媒体 + Karaoke 歌词同步。</div>
