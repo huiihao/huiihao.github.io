@@ -47,7 +47,7 @@ layout: default
 {% endif %}
 
 <div id="post-list" class="flex-grow-1 px-xl-1">
-  {% include pixel-icons.html %}
+  {% include post-icons.html %}
 
   {% for post in posts %}
     <article class="card-wrapper card">
@@ -121,8 +121,8 @@ layout: default
               </div>
 
               {%- assign px_key = post.slug | downcase -%}
-              {%- assign px_icon = site.data.pixel-icons[px_key] | default: 'star' -%}
-              <svg class="pixel-icon" aria-hidden="true"><use href="#px-{{ px_icon }}"/></svg>
+              {%- assign px_icon = site.data.post-icons[px_key] | default: 'star' -%}
+              <span class="glass-icon" data-icon="{{ px_icon }}" aria-hidden="true"><svg><use href="#gi-{{ px_icon }}"/></svg></span>
               {% if post.pin %}
                 <div class="pin ms-1">
                   <i class="fas fa-thumbtack fa-fw"></i>

@@ -400,40 +400,87 @@ html {
     }
 }
 
-/* ── 首页卡片右侧的像素图标 ──
-   图标是内联 SVG（_includes/pixel-icons.html），描边走 --px-ink，随主题反转，
-   所以亮暗两套不用各画一遍。用 <use> 引用 sprite，一张卡片只多一个节点。
-
-   卡片本身是 position: static，这里的 relative 顺带把主题那个绝对定位的
-   hover 遮罩（.post-preview::before）钉回卡片范围内——之前它没有定位祖先，
-   是相对整页算的。 */
+/* ── 首页卡片右侧的玻璃风格图示 ──
+   原来是 32×32 的像素图；现在换成描边矢量图（_includes/post-icons.html）
+   套一个 CSS 做的毛玻璃方块：圆角 + 半透明渐变底 + 背景模糊 + 顶部高光。
+   每个图标有自己的强调色，由 data-icon 决定。 */
 #post-list .post-preview {
     position: relative;
 }
 
-/* 给右侧图标让位 */
 #post-list .post-preview .card-body {
     padding-right: 6.5rem;
 }
 
-.pixel-icon {
+.glass-icon {
     position: absolute;
-    right: 1.6rem;
+    right: 1.5rem;
     top: 50%;
     transform: translateY(-50%);
     width: 64px;
     height: 64px;
-    shape-rendering: crispEdges;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 18px;
+    color: var(--gi-ink);
+    /* 先垫一层半透明白再兑强调色：玻璃的观感是「比周围亮」，
+       直接拿强调色兑透明的话，亮色下发白、暗色下发闷 */
+    background:
+        linear-gradient(
+            155deg,
+            color-mix(in srgb, var(--gi-acc) var(--gi-mix1), var(--gi-base)) 0%,
+            color-mix(in srgb, var(--gi-acc) var(--gi-mix2), var(--gi-base)) 100%
+        );
+    border: 1px solid var(--gi-border);
+    box-shadow:
+        inset 0 1px 0 var(--gi-hi),
+        0 6px 18px var(--gi-shadow);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    backdrop-filter: blur(14px) saturate(160%);
     pointer-events: none;
+    overflow: hidden;
 }
 
-/* 窄屏卡片太窄，图标会把标题挤成一列 */
+/* 上半部一道高光，玻璃的质感主要来自这里 */
+.glass-icon::after {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 46%;
+    background: linear-gradient(180deg, var(--gi-hi), transparent);
+}
+
+.glass-icon > svg {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* 每个图标一个强调色 */
+.glass-icon[data-icon='paper']     { --gi-acc: #7aa2f7; }
+.glass-icon[data-icon='gradcap']   { --gi-acc: #b39ddb; }
+.glass-icon[data-icon='coin']      { --gi-acc: #e6b450; }
+.glass-icon[data-icon='briefcase'] { --gi-acc: #f0a35e; }
+.glass-icon[data-icon='robot']     { --gi-acc: #4dd4c4; }
+.glass-icon[data-icon='cloudapi']  { --gi-acc: #6fc3ff; }
+.glass-icon[data-icon='pen']       { --gi-acc: #a78bfa; }
+.glass-icon[data-icon='phone']     { --gi-acc: #5b9cf5; }
+.glass-icon[data-icon='qr']        { --gi-acc: #5fd39a; }
+.glass-icon[data-icon='music']     { --gi-acc: #f07ab0; }
+.glass-icon[data-icon='chart']     { --gi-acc: #7dd3a0; }
+.glass-icon[data-icon='street']    { --gi-acc: #6db6ff; }
+.glass-icon[data-icon='star']      { --gi-acc: #e8c56d; }
+.glass-icon[data-icon='tex']       { --gi-acc: #b197fc; }
+
+/* 窄屏卡片太窄，图示会把标题挤成一列 */
 @media all and (max-width: 575.98px) {
     #post-list .post-preview .card-body {
         padding-right: 28px;
     }
 
-    .pixel-icon {
+    .glass-icon {
         display: none;
     }
 }
