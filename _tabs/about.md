@@ -567,11 +567,11 @@ model the whole system, and look for the signal in the noise.
 ## 🌐 Open Source
 
 <p class="osc-intro">
-自建项目之外，我也向上游开源项目提交 PR / Issue —— 共 <b>9</b> 项，其中 <b>3</b> 项已被合并，<b>2</b> 项仍在评审中。
+自建项目之外，我也向上游开源项目提交 PR / Issue —— 共 <b>11</b> 项，其中 <b>5</b> 项已被合并，<b>2</b> 项仍在评审中。
 </p>
 
 <div class="osc-summary" markdown="0">
-  <span class="osc-pill merged">3 Merged</span>
+  <span class="osc-pill merged">5 Merged</span>
   <span class="osc-pill review">2 Open</span>
   <span class="osc-pill closed">4 Closed</span>
 </div>
@@ -633,6 +633,42 @@ model the whole system, and look for the signal in the noise.
   
     <a class="osc-shot" href="/assets/img/opensource/headroom-912.png" target="_blank" rel="noopener" aria-label="GitHub 上的 headroom-912 合并记录截图"
        style="background-image:url(/assets/img/opensource/headroom-912.png)"></a></div>
+
+  <div class="osc-item merged">
+    <div class="osc-head">
+      <a class="osc-repo" href="https://github.com/teorth/optimizationproblems" target="_blank" rel="noopener">teorth/optimizationproblems</a>
+      <span class="osc-stars">★ 392</span>
+      <span class="osc-kind">PR</span>
+      <span class="osc-num">#384</span>
+      <span class="osc-pill merged">Merged</span>
+    </div>
+    <a class="osc-title" href="https://github.com/teorth/optimizationproblems/pull/384" target="_blank" rel="noopener">C_1d: consolidate the eight open upper-bound certificates</a>
+    <div class="osc-note">把 C_1d 的八份开放上界证书按时间顺序合并成一张统一的贡献表，每行的作者、引用与说明都逐字保留；顺带解决了 <code>[Can2026]</code> 引用键冲突，并明确主值取最佳的非星号记录。</div>
+    <div class="osc-meta">
+      <span><span class="osc-add">+36</span> <span class="osc-del">−1</span> · 2 files</span>
+      <span>2026.11.23 merged</span>
+    </div>
+    <a class="osc-shot" href="/assets/img/opensource/optimizationproblems-384.png" target="_blank" rel="noopener" aria-label="GitHub 上的 optimizationproblems-384 合并记录截图"
+       style="background-image:url(/assets/img/opensource/optimizationproblems-384.png)"></a>
+  </div>
+
+  <div class="osc-item merged">
+    <div class="osc-head">
+      <a class="osc-repo" href="https://github.com/MoseyQAQ/phono3py-gpu" target="_blank" rel="noopener">MoseyQAQ/phono3py-gpu</a>
+      <span class="osc-stars">★ 4</span>
+      <span class="osc-kind">PR</span>
+      <span class="osc-num">#13</span>
+      <span class="osc-pill merged">Merged</span>
+    </div>
+    <a class="osc-title" href="https://github.com/MoseyQAQ/phono3py-gpu/pull/13" target="_blank" rel="noopener">ci: add lint, package and CPU test workflows</a>
+    <div class="osc-note">给这个还没有任何自动校验的 GPU 插件补上 GitHub Actions：ruff 检查、sdist/wheel 打包校验（确认四个 .cu kernel 和 entry point 都进包），以及托管 runner 上能跑的 CPU 测试子集。</div>
+    <div class="osc-meta">
+      <span><span class="osc-add">+84</span> <span class="osc-del">−0</span> · 2 files</span>
+      <span>2026.11.23 merged</span>
+    </div>
+    <a class="osc-shot" href="/assets/img/opensource/phono3py-gpu-13.png" target="_blank" rel="noopener" aria-label="GitHub 上的 phono3py-gpu-13 合并记录截图"
+       style="background-image:url(/assets/img/opensource/phono3py-gpu-13.png)"></a>
+  </div>
 
   <div class="osc-group-title">⏳ Open · 评审中</div>
 
