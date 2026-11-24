@@ -422,6 +422,7 @@ html {
     place-items: center;
     color: var(--gi-ink);
     pointer-events: none;
+    --gi-acc: var(--gi-hue);
 }
 
 .glass-icon::before {
@@ -440,26 +441,11 @@ html {
 
 .glass-icon > svg {
     position: relative;
-    width: 34px;
-    height: 34px;
-    opacity: 0.92;
+    width: 42px;
+    height: 42px;
 }
 
 /* 每个图标一个强调色 */
-.glass-icon[data-icon='paper']     { --gi-acc: #a8c7fa; }
-.glass-icon[data-icon='gradcap']   { --gi-acc: #c9b8f0; }
-.glass-icon[data-icon='coin']      { --gi-acc: #f0d59a; }
-.glass-icon[data-icon='briefcase'] { --gi-acc: #f5c39a; }
-.glass-icon[data-icon='robot']     { --gi-acc: #8fe3d6; }
-.glass-icon[data-icon='cloudapi']  { --gi-acc: #a9d8fb; }
-.glass-icon[data-icon='pen']       { --gi-acc: #c3adf7; }
-.glass-icon[data-icon='phone']     { --gi-acc: #a3c6f7; }
-.glass-icon[data-icon='qr']        { --gi-acc: #9fe0bd; }
-.glass-icon[data-icon='music']     { --gi-acc: #f5b8d3; }
-.glass-icon[data-icon='chart']     { --gi-acc: #a9dfc0; }
-.glass-icon[data-icon='street']    { --gi-acc: #a8cdf7; }
-.glass-icon[data-icon='star']      { --gi-acc: #f0d9a0; }
-.glass-icon[data-icon='tex']       { --gi-acc: #c9b8f7; }
 
 /* 窄屏卡片太窄，图示会把标题挤成一列 */
 @media all and (max-width: 575.98px) {
