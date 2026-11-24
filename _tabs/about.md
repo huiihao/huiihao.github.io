@@ -157,6 +157,22 @@ order: 4
 }
 .osc-summary { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 4px; }
 .osc-summary .osc-pill { margin-left: 0; }
+/* 合并证据截图：用背景图而不是 <img>，避开主题对正文图片的弹窗包装 */
+.osc-shot {
+  display: block;
+  margin-top: 10px;
+  aspect-ratio: 1280 / 358;
+  border-radius: 8px;
+  border: 1px solid rgba(128,128,128,0.22);
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.osc-shot:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
 .osc-group-title {
   font-size: 0.78rem; font-weight: 700; letter-spacing: 0.5px;
   text-transform: uppercase; color: var(--text-muted, #888);
@@ -578,7 +594,9 @@ model the whole system, and look for the signal in the noise.
       <span><span class="osc-add">+720</span> <span class="osc-del">−11</span> · 7 files</span>
       <span>2026.10.15 merged</span>
     </div>
-  </div>
+  
+    <a class="osc-shot" href="/assets/img/opensource/retain-pdf-94.png" target="_blank" rel="noopener" aria-label="GitHub 上的 retain-pdf-94 合并记录截图"
+       style="background-image:url(/assets/img/opensource/retain-pdf-94.png)"></a></div>
 
   <div class="osc-item merged">
     <div class="osc-head">
@@ -594,7 +612,9 @@ model the whole system, and look for the signal in the noise.
       <span><span class="osc-add">+92</span> <span class="osc-del">−6</span> · 2 files</span>
       <span>2026.07.23 merged</span>
     </div>
-  </div>
+  
+    <a class="osc-shot" href="/assets/img/opensource/claude-mem-3356.png" target="_blank" rel="noopener" aria-label="GitHub 上的 claude-mem-3356 合并记录截图"
+       style="background-image:url(/assets/img/opensource/claude-mem-3356.png)"></a></div>
 
   <div class="osc-item merged">
     <div class="osc-head">
@@ -610,7 +630,9 @@ model the whole system, and look for the signal in the noise.
       <span><span class="osc-add">+56</span> <span class="osc-del">−2</span> · 5 files</span>
       <span>2026.07.15 merged</span>
     </div>
-  </div>
+  
+    <a class="osc-shot" href="/assets/img/opensource/headroom-912.png" target="_blank" rel="noopener" aria-label="GitHub 上的 headroom-912 合并记录截图"
+       style="background-image:url(/assets/img/opensource/headroom-912.png)"></a></div>
 
   <div class="osc-group-title">⏳ Open · 评审中</div>
 
